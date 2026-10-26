@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>European Mobility Society</title>
+  <meta name="description" content="A network of researchers and institutions working on mobility across Europe." />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['"Source Serif 4"', 'Georgia', 'serif']
+          },
+          colors: {
+            ink:   { 900: '#0f1b2d', 700: '#33415a', 500: '#64748b' },
+            brand: { 50: '#eef3fb', 100: '#d9e4f5', 500: '#2f5aa8', 600: '#244a8f', 700: '#1b3a73' },
+            gold:  { 50: '#fdf7e8', 400: '#e5b549', 500: '#d19e2a', 700: '#8a6514' }
+          }
+        }
+      }
+    };
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
+
+  <!-- D3 (map rendering) + TopoJSON client (country boundaries) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #fbfcfe; }
+
+    /* Map */
+    #map-svg { display: block; width: 100%; height: auto; touch-action: none; }
+    .sea { fill: #f4f7fb; }
+    .country { fill: #e7ecf3; stroke: #ffffff; stroke-width: .7; vector-effect: non-scaling-stroke; }
+    .country.has-node { fill: #d6e0f0; }
+
+    /* Links stay hidden until two institutions are selected */
+    .link { fill: none; stroke: #d19e2a; stroke-width: 3.5; stroke-linecap: round; vector-effect: non-scaling-stroke;
+            opacity: 0; pointer-events: none; transition: opacity .35s ease; }
+    .link.is-shown { opacity: 1; }
+
+    .marker { cursor: pointer; outline: none; transition: opacity .2s; }
+    .marker circle.ring { fill: #fff; stroke: #1b3a73; stroke-width: 2.5; transition: r .15s, fill .15s, stroke .15s; }
+    .marker text { font-family: Inter, sans-serif; font-weight: 700; fill: #1b3a73; pointer-events: none; transition: fill .15s; }
+    .marker:hover circle.ring, .marker:focus-visible circle.ring { r: 19; }
+    .marker.is-selected circle.ring { fill: #1b3a73; r: 19; }
+    .marker.is-selected text { fill: #fff; }
+    .marker.is-pair circle.ring { fill: #d19e2a; stroke: #d19e2a; r: 19; }
+    .marker.is-pair text { fill: #fff; }
+    .marker.is-dim { opacity: .4; }
+    .marker .pulse { fill: none; stroke: #1b3a73; stroke-width: 2; opacity: 0; }
+    .marker.is-selected .pulse { animation: pulse 1.6s ease-out infinite; }
+    @keyframes pulse { 0% { r: 19; opacity: .7; } 100% { r: 38; opacity: 0; } }
+
+    /* Node popup: floats above the node; docks to the bottom of the map on small screens */
+    #node-popup { transition: opacity .15s; }
+    #node-popup.docked { left: 8px !important; right: 8px; top: auto !important; bottom: 8px; width: auto; }
+
+    /* Drawer: bottom sheet on mobile, right sidebar on desktop */
+    #panel { transition: transform .3s cubic-bezier(.4,0,.2,1); }
+    #panel.closed { transform: translateY(105%); }
+    @media (min-width: 768px) { #panel.closed { transform: translateX(110%); } }
+    #backdrop { transition: opacity .3s; }
+
+    /* Expanding member card */
+    .member-details { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
+    .member-details > div { overflow: hidden; }
+    .is-expanded .member-details { grid-template-rows: 1fr; }
+    .is-expanded .chevron { transform: rotate(180deg); }
+
+    .view { display: none; }
+    .view.is-visible { display: block; }
+  </style>
+</head>
+
+<body class="font-sans text-ink-900 antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] bg-white px-3 py-2 rounded shadow">Skip to content</a>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
+    <nav class="mx-auto max-w-6xl px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3 min-w-0">
+        <!-- Simple monogram logo (replace with your own <img>) -->
+        <span class="h-9 w-9 shrink-0 rounded-lg bg-brand-700 text-white flex items-center justify-center font-display font-bold text-lg">E</span>
+        <span class="society-name font-display font-semibold text-lg leading-tight truncate">European Mobility Society</span>
+      </a>
+
+      <button id="menu-toggle" class="md:hidden p-2 -mr-2 rounded-lg text-ink-700 hover:bg-slate-100" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+
+      <ul id="menu" class="hidden md:flex absolute md:static top-16 inset-x-0 md:inset-auto bg-white md:bg-transparent border-b md:border-0 border-slate-200 flex-col md:flex-row gap-1 md:gap-1 px-4 py-3 md:p-0">
+        <li><a href="#home"         data-route="home"         class="nav-link block rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:text-brand-600 hover:bg-brand-50">Home</a></li>
+        <li><a href="#about"        data-route="about"        class="nav-link block rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:text-brand-600 hover:bg-brand-50">About</a></li>
+        <li><a href="#members"      data-route="members"      class="nav-link block rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:text-brand-600 hover:bg-brand-50">Members</a></li>
+        <li><a href="#publications" data-route="publications" class="nav-link block rounded-lg px-3 py-2 text-sm font-medium text-ink-700 hover:text-brand-600 hover:bg-brand-50">Publications</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ================= HOME ================= -->
+    <section id="view-home" class="view">
+      <div class="border-b border-slate-200 bg-gradient-to-b from-brand-50 to-white">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 py-14 sm:py-20">
+          <p class="text-sm font-semibold uppercase tracking-wider text-brand-600">A network across Europe</p>
+          <h1 class="society-name mt-3 font-display text-4xl sm:text-5xl font-bold leading-tight max-w-3xl">European Mobility Society</h1>
+          <p class="mt-4 text-lg text-ink-700 max-w-2xl">Researchers and institutions working together on human mobility, transport and cities across the continent.</p>
+
+          <dl class="mt-8 grid grid-cols-3 gap-4 max-w-md">
+            <div><dt class="text-xs uppercase tracking-wide text-ink-500">Members</dt><dd id="stat-members" class="mt-1 text-2xl font-semibold">0</dd></div>
+            <div><dt class="text-xs uppercase tracking-wide text-ink-500">Institutions</dt><dd id="stat-inst" class="mt-1 text-2xl font-semibold">0</dd></div>
+            <div><dt class="text-xs uppercase tracking-wide text-ink-500">Collaborations</dt><dd id="stat-links" class="mt-1 text-2xl font-semibold">0</dd></div>
+          </dl>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#network" class="inline-flex items-center gap-2 rounded-lg bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-600">Explore the network</a>
+            <a href="#about" class="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-ink-900 hover:bg-slate-50">About the society</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div id="network" class="mx-auto max-w-6xl px-4 sm:px-6 py-14 scroll-mt-16">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-6">
+          <div>
+            <h2 class="font-display text-3xl font-bold">Our network</h2>
+            <p class="mt-2 text-ink-700">Click an institution to see its members, then click another to see the works they share.</p>
+          </div>
+          <button id="reset-view" class="self-start sm:self-auto text-sm font-medium text-brand-600 hover:text-brand-700">Reset view</button>
+        </div>
+
+        <div id="map-wrap" class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <svg id="map-svg" viewBox="0 0 960 640" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Map of member institutions across Europe"></svg>
+          <div id="map-loading" class="absolute inset-0 flex items-center justify-center text-sm text-ink-500">Loading map…</div>
+
+          <!-- Selection hint -->
+          <div class="absolute top-3 left-3 right-3 sm:right-auto sm:max-w-md pointer-events-none">
+            <div id="hint" class="inline-flex items-center gap-2 rounded-xl bg-white/95 backdrop-blur px-3 py-2 text-xs sm:text-sm text-ink-700 shadow-sm ring-1 ring-slate-200"></div>
+          </div>
+
+          <!-- Members popup for a single selected institution -->
+          <div id="node-popup" class="hidden absolute z-20 w-64 rounded-xl bg-white shadow-xl ring-1 ring-slate-200" role="dialog" aria-labelledby="popup-title"></div>
+
+          <div id="tooltip" class="pointer-events-none absolute z-10 hidden rounded-lg bg-ink-900 px-2.5 py-1.5 text-xs font-medium text-white shadow-lg whitespace-nowrap"></div>
+          <div class="absolute bottom-3 right-3 flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+            <button id="zoom-in" class="h-8 w-8 text-lg leading-none hover:bg-slate-50" aria-label="Zoom in">+</button>
+            <button id="zoom-out" class="h-8 w-8 text-lg leading-none border-t border-slate-200 hover:bg-slate-50" aria-label="Zoom out">−</button>
+          </div>
+        </div>
+
+        <ul id="legend" class="mt-5 grid gap-x-6 gap-y-1 sm:grid-cols-2 lg:grid-cols-3 text-sm text-ink-700"></ul>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="view-about" class="view">
+      <div class="border-b border-slate-200 bg-gradient-to-b from-brand-50 to-white">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-16">
+          <p class="text-sm font-semibold uppercase tracking-wider text-brand-600">About</p>
+          <h1 class="mt-3 font-display text-4xl font-bold">Our philosophy</h1>
+          <p class="mt-3 text-lg text-ink-700 max-w-2xl">Why the society exists, what we value, and how we work together.</p>
+        </div>
+      </div>
+
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-12">
+        <div class="grid gap-12 lg:grid-cols-[1fr_320px]">
+          <article class="max-w-2xl space-y-5 text-ink-700 leading-relaxed">
+            <h2 class="font-display text-2xl font-bold text-ink-900">Why we exist</h2>
+            <p>How people move shapes how cities grow, how diseases spread, how economies connect and how fairly opportunity is shared. Understanding mobility needs many disciplines at once: physics and computer science, geography and economics, public health and policy.</p>
+            <p>The society brings together researchers across Europe who study these questions with data, models and fieldwork. We believe the best answers come from people who usually sit in different departments, in different countries, talking to each other regularly.</p>
+
+            <h2 class="pt-4 font-display text-2xl font-bold text-ink-900">How we work</h2>
+            <p>We are a network, not a hierarchy. Members meet at an annual symposium, share data and methods between institutions, and start joint projects that no single group could carry alone. The map on our home page shows these collaborations as they grow.</p>
+            <p>We give particular attention to early-career researchers: shared supervision, visiting periods between member institutions, and space to present work in progress in a friendly setting.</p>
+          </article>
+
+          <aside>
+            <h2 class="text-xs font-semibold uppercase tracking-wider text-ink-500">Our values</h2>
+            <ul class="mt-4 space-y-3">
+              <li class="rounded-xl border border-slate-200 bg-white p-4">
+                <h3 class="font-semibold">Open science</h3>
+                <p class="mt-1 text-sm text-ink-700">Methods, code and, where privacy allows, data are shared openly.</p>
+              </li>
+              <li class="rounded-xl border border-slate-200 bg-white p-4">
+                <h3 class="font-semibold">Across borders</h3>
+                <p class="mt-1 text-sm text-ink-700">Collaboration between countries and institutions comes first.</p>
+              </li>
+              <li class="rounded-xl border border-slate-200 bg-white p-4">
+                <h3 class="font-semibold">Across disciplines</h3>
+                <p class="mt-1 text-sm text-ink-700">Mobility is too complex for any single field to explain.</p>
+              </li>
+              <li class="rounded-xl border border-slate-200 bg-white p-4">
+                <h3 class="font-semibold">Research for society</h3>
+                <p class="mt-1 text-sm text-ink-700">We aim for evidence that helps cities and policymakers act fairly.</p>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MEMBERS ================= -->
+    <section id="view-members" class="view">
+      <div class="border-b border-slate-200 bg-gradient-to-b from-brand-50 to-white">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-16">
+          <p class="text-sm font-semibold uppercase tracking-wider text-brand-600">Members</p>
+          <h1 class="mt-3 font-display text-4xl font-bold">Our members</h1>
+          <p class="mt-3 text-lg text-ink-700 max-w-2xl">The people who make up the society. Click a name to read their bio and key publications.</p>
+        </div>
+      </div>
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+        <div class="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <label class="relative block sm:w-80">
+            <span class="sr-only">Search members</span>
+            <svg class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-ink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            <input id="member-search" type="search" placeholder="Search by name, institution or country"
+                   class="w-full rounded-lg border border-slate-300 bg-white py-2 pl-9 pr-3 text-sm placeholder:text-ink-500 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100" />
+          </label>
+          <p id="member-count" class="text-sm text-ink-500"></p>
+        </div>
+        <div id="members-grid" class="grid items-start gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+      </div>
+    </section>
+
+    <!-- ================= PUBLICATIONS ================= -->
+    <section id="view-publications" class="view">
+      <div class="border-b border-slate-200 bg-gradient-to-b from-brand-50 to-white">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-16">
+          <p class="text-sm font-semibold uppercase tracking-wider text-brand-600">Publications</p>
+          <h1 class="mt-3 font-display text-4xl font-bold">Publications</h1>
+          <p class="mt-3 text-lg text-ink-700 max-w-2xl">Recent papers published by members of the society. Society members are shown in bold.</p>
+        </div>
+      </div>
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 py-10">
+        <div class="mb-6 flex flex-col sm:flex-row gap-3">
+          <label class="relative block flex-1">
+            <span class="sr-only">Search publications</span>
+            <svg class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-ink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            <input id="pub-search" type="search" placeholder="Search titles, authors or venues"
+                   class="w-full rounded-lg border border-slate-300 bg-white py-2 pl-9 pr-3 text-sm placeholder:text-ink-500 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100" />
+          </label>
+          <label class="sm:w-64">
+            <span class="sr-only">Filter by member</span>
+            <select id="pub-member" class="w-full rounded-lg border border-slate-300 bg-white py-2 px-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100">
+              <option value="">All members</option>
+            </select>
+          </label>
+        </div>
+        <p id="pub-count" class="mb-4 text-sm text-ink-500"></p>
+        <div id="pub-list" class="space-y-10"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-ink-500">
+      <p>© <span id="year"></span> <span class="society-name">European Mobility Society</span></p>
+      <a href="#" class="hover:text-brand-600">Contact</a>
+    </div>
+  </footer>
+
+  <!-- ================= COLLABORATION DRAWER ================= -->
+  <div id="backdrop" class="fixed inset-0 z-[60] bg-ink-900/30 opacity-0 pointer-events-none md:hidden"></div>
+  <aside id="panel" class="closed fixed z-[70] bg-white shadow-2xl ring-1 ring-slate-900/5 flex flex-col
+           inset-x-0 bottom-0 max-h-[80vh] rounded-t-3xl
+           md:inset-x-auto md:top-20 md:bottom-4 md:right-4 md:w-[400px] md:max-h-none md:rounded-2xl"
+         role="dialog" aria-labelledby="panel-title">
+    <div class="md:hidden flex justify-center pt-3"><div class="h-1.5 w-10 rounded-full bg-slate-300"></div></div>
+    <div class="flex items-start justify-between gap-4 px-6 pt-4 md:pt-6 pb-4 border-b border-slate-100">
+      <div class="min-w-0">
+        <p class="text-xs font-semibold uppercase tracking-wider text-gold-700">Collaboration</p>
+        <h2 id="panel-title" class="mt-1 font-display text-xl font-bold leading-snug"></h2>
+      </div>
+      <button id="panel-close" class="shrink-0 rounded-full p-2 text-ink-500 hover:text-ink-900 hover:bg-slate-100" aria-label="Close">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="flex-1 overflow-y-auto">
+      <div id="panel-inst" class="px-6 py-4 space-y-4 border-b border-slate-100"></div>
+      <div class="px-6 py-4">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-sm font-semibold text-ink-700">Common works</h3>
+          <span id="panel-count" class="text-xs font-medium rounded-full bg-gold-50 text-gold-700 px-2.5 py-1"></span>
+        </div>
+        <ul id="panel-works" class="space-y-3"></ul>
+      </div>
+    </div>
+  </aside>
+
+  <script>
+  /* =========================================================
+     DATA — edit these
+     ========================================================= */
+  const SOCIETY_NAME = 'European Mobility Society';
+
+  // While true, members without a bio get a placeholder bio (clearly marked).
+  // Set to false once real bios are filled in.
+  const USE_SAMPLE_CONTENT = true;
+
+  // Map nodes. Coordinates are approximate (city level).
+  const institutions = [
+    { id: 'ucl',       name: 'University College London',        short: 'UCL',  city: 'London',     country: 'United Kingdom', lat: 51.5246, lng: -0.1340 },
+    { id: 'nul',       name: 'Northeastern University London',   short: 'NUL',  city: 'London',     country: 'United Kingdom', lat: 51.5080, lng: -0.0730 },
+    { id: 'exeter',    name: 'University of Exeter',             short: 'EXE',  city: 'Exeter',     country: 'United Kingdom', lat: 50.7365, lng: -3.5344 },
+    { id: 'liverpool', name: 'University of Liverpool',          short: 'LIV',  city: 'Liverpool',  country: 'United Kingdom', lat: 53.4058, lng: -2.9653 },
+    { id: 'edinburgh', name: 'University of Edinburgh',          short: 'EDI',  city: 'Edinburgh',  country: 'United Kingdom', lat: 55.9445, lng: -3.1892 },
+    { id: 'isi',       name: 'ISI Foundation',                   short: 'ISI',  city: 'Turin',      country: 'Italy',          lat: 45.0628, lng: 7.6600 },
+    { id: 'fbk',       name: 'Fondazione Bruno Kessler',         short: 'FBK',  city: 'Trento',     country: 'Italy',          lat: 46.0679, lng: 11.1502 },
+    { id: 'isti',      name: 'ISTI-CNR',                         short: 'CNR',  city: 'Pisa',       country: 'Italy',          lat: 43.7193, lng: 10.4235 },
+    { id: 'sony',      name: 'Sony CSL',                         short: 'SONY', city: 'Rome',       country: 'Italy',          lat: 41.9028, lng: 12.4964 },
+    { id: 'ceu',       name: 'Central European University',      short: 'CEU',  city: 'Vienna',     country: 'Austria',        lat: 48.2082, lng: 16.3738 },
+    { id: 'corvinus',  name: 'Corvinus University of Budapest',  short: 'CUB',  city: 'Budapest',   country: 'Hungary',        lat: 47.4862, lng: 19.0590 },
+    { id: 'construct', name: 'Constructor University',           short: 'CON',  city: 'Bremen',     country: 'Germany',        lat: 53.1675, lng: 8.6516 },
+    { id: 'ifisc',     name: 'IFISC (CSIC-UIB)',                 short: 'IFISC',city: 'Palma',      country: 'Spain',          lat: 39.6372, lng: 2.6450 },
+    { id: 'upwr',      name: 'Wroclaw University',               short: 'UPWR' ,city: 'Wroclaw',    country: 'Poland',         lat: 51.107 , lng: 17.038 },
+  ];
+
+  // People. bio: short biography (plain text).
+  // aliases: other spellings of the name used in author lists, so papers are credited correctly.
+  const members = [
+    { name: 'Elsa Arcaute',          institutions: ['ucl'],        bio: '' },
+    { name: 'Hugo Barbosa',          institutions: ['exeter'],     bio: '' },
+    { name: 'Ciro Beneduce',         institutions: ['fbk'],        bio: '' },
+    { name: 'Federico Botta',        institutions: ['exeter'],     bio: '' },
+    { name: 'Matteo Bruno',          institutions: ['sony'],       bio: '' },
+    { name: 'Carmen Cabrera',        institutions: ['liverpool'],  bio: '', aliases: ['Carmen Cabrera-Arnau'] },
+    { name: 'Alessia Calafiore',     institutions: ['edinburgh'],  bio: '' },
+    { name: 'Antonio Desiderio',     institutions: ['isi'],        bio: '' },
+    { name: 'Riccardo Di Clemente',  institutions: ['nul', 'isi'], bio: '' },
+    { name: 'Riccardo Gallotti',     institutions: ['fbk'],        bio: '' },
+    { name: 'Márton Karsai',         institutions: ['ceu'],        bio: '' },
+    { name: 'Balázs Lengyel',        institutions: ['corvinus'],   bio: '' },
+    { name: 'Vittorio Loreto',       institutions: ['sony'],       bio: '' },
+    { name: 'Massimiliano Luca',     institutions: ['fbk'],        bio: '' },
+    { name: 'Mariana Macedo',        institutions: ['construct'],  bio: '', aliases: ['Mariana Gomes da Motta Macedo'] },
+    { name: 'Giovanni Mauro',        institutions: ['isti'],       bio: '' },
+    { name: 'Mattia Mazzoli',        institutions: ['isi'],        bio: '' },
+    { name: 'Ronaldo Menezes',       institutions: ['exeter'],     bio: '', aliases: ['Ronaldo Parente de Menezes'] },
+    { name: 'Diogo Pacheco',         institutions: ['exeter'],     bio: '', aliases: ['Diogo Ferreira Pacheco'] },
+    { name: 'Luca Pappalardo',       institutions: ['isti'],       bio: '' },
+    { name: 'José Javier Ramasco',   institutions: ['ifisc'],      bio: '', aliases: ['José J. Ramasco'] },
+    { name: 'Lavinia Rossi Mori',    institutions: ['sony'],       bio: '' },
+    { name: 'Kamil Smolak',          institutions: ['upwr'],       bio: '' }
+  ];
+
+  // Publications live in a separate file so the list can be updated without touching this page.
+  // Each paper is linked to the society members among its authors by name (see `aliases` above).
+  const PUBLICATIONS_URL = 'publications.json';
+
+  // Optional: extra common works between institutions that are not papers (events, projects…).
+  // { from: 'exeter', to: 'isi', works: [{ title: '…', type: 'Workshop', year: 2025, url: '…' }] }
+  const extraConnections = [];
+
+  const CURVE_STRENGTH = 0.2;   // 0 = straight lines
+  // Open-source country boundaries (Natural Earth via world-atlas, public domain)
+  const COUNTRIES_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json';
+
+  /* =========================================================
+     LOAD PUBLICATIONS, THEN BUILD THE PAGE
+     ========================================================= */
+  fetch(PUBLICATIONS_URL, { cache: 'no-cache' })
+    .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+    .then(
+      data => Array.isArray(data) ? { pubs: data, meta: {} } : { pubs: data.publications || [], meta: data },
+      err => {
+        console.error('Could not load publications:', err);
+        const bar = document.createElement('div');
+        bar.className = 'bg-gold-50 border-b border-gold-400 px-4 py-2 text-center text-sm text-gold-700';
+        bar.textContent = `Publications could not be loaded from "${PUBLICATIONS_URL}". The page needs to be served from a web server (it will not load when opened directly from disk).`;
+        document.body.prepend(bar);
+        return { pubs: [], meta: {} };
+      })
+    .then(({ pubs, meta }) => start(pubs, meta));
+
+  function start(publications, meta) {
+  publications = publications.filter(p => p && p.title && Array.isArray(p.authors));
+
+  /* =========================================================
+     HELPERS & DERIVED DATA
+     ========================================================= */
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, ch => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[ch]));
+  const slug = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  const initials = name => name.split(/\s+/).filter(Boolean).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+  const surname = name => name.split(/\s+/).slice(1).join(' ') || name;
+  const firstName = name => name.split(/\s+/)[0];
+
+  members.forEach(m => m.id = m.id || slug(m.name));
+
+  const instById = Object.fromEntries(institutions.map(i => [i.id, i]));
+  const memberById = Object.fromEntries(members.map(m => [m.id, m]));
+
+  // Author name → member id (accent- and case-insensitive, including aliases)
+  const nameKey = s => slug(s).replace(/-/g, '');
+  const memberByName = {};
+  members.forEach(m => [m.name, ...(m.aliases || [])].forEach(n => memberByName[nameKey(n)] = m.id));
+  const memberOfAuthor = a => memberByName[nameKey(a)] || null;
+
+  // Credit every member who appears among a paper's authors
+  // Optional `members` field in the file (ids or names) adds to the members detected from author names
+  publications.forEach(p => {
+    const explicit = (p.members || []).map(x => memberById[x] ? x : memberOfAuthor(x)).filter(Boolean);
+    p.members = [...new Set([...p.authors.map(memberOfAuthor).filter(Boolean), ...explicit])];
+  });
+
+  // Collaborations: papers shared by members at different institutions
+  const connections = [];
+  const connByKey = {};
+  const pairKey = (a, b) => [a, b].sort().join('|');
+  function addWork(a, b, work) {
+    if (a === b) return;
+    const k = pairKey(a, b);
+    if (!connByKey[k]) { const [from, to] = k.split('|'); connByKey[k] = { id: 'c' + connections.length, from, to, works: [] }; connections.push(connByKey[k]); }
+    if (!connByKey[k].works.includes(work)) connByKey[k].works.push(work);
+  }
+  publications.forEach(p => {
+    for (let i = 0; i < p.members.length; i++) for (let j = i + 1; j < p.members.length; j++) {
+      memberById[p.members[i]].institutions.forEach(a =>
+        memberById[p.members[j]].institutions.forEach(b => addWork(a, b, p)));
+    }
+  });
+  extraConnections.forEach(c => c.works.forEach(w => addWork(c.from, c.to, { ...w, authors: w.authors || [], extra: true })));
+
+  // Placeholder bios, clearly flagged, until real ones are added
+  if (USE_SAMPLE_CONTENT) {
+    members.forEach(m => {
+      const insts = m.institutions.map(id => instById[id].name).join(' and ');
+      if (!m.bio) { m.bio = `${firstName(m.name)} is a member of the society based at ${insts}. A short biography will appear here.`; m.sampleBio = true; }
+    });
+  }
+
+  const byRecent = (a, b) => b.year - a.year || a.title.localeCompare(b.title);
+  const pubsOf = id => publications.filter(p => p.members.includes(id)).sort(byRecent);
+  // Two most important = most cited (ties broken by most recent)
+  const featuredOf = m => [...pubsOf(m.id)].sort((a, b) => (b.cites || 0) - (a.cites || 0) || b.year - a.year).slice(0, 2);
+  const peopleAt = id => members.filter(m => m.institutions.includes(id)).sort((a, b) => surname(a.name).localeCompare(surname(b.name)));
+  const linksOf = id => connections.filter(c => c.from === id || c.to === id);
+  const findLink = (a, b) => connByKey[pairKey(a, b)];
+
+  // Author list with members bold and linked to their card; long lists are shortened around members
+  function authorsHtml(p, max = 12) {
+    const shown = p.authors.map((a, i) => ({ a, i, m: memberOfAuthor(a) }));
+    let list = shown;
+    if (shown.length > max) {
+      const keep = new Set([0, 1, 2, shown.length - 1, ...shown.filter(x => x.m).map(x => x.i)]);
+      list = []; let gap = false;
+      shown.forEach(x => { if (keep.has(x.i)) { list.push(x); gap = false; } else if (!gap) { list.push({ gap: true }); gap = true; } });
+    }
+    return list.map(x => x.gap ? '…'
+      : x.m ? `<a href="#members/${x.m}" class="font-semibold text-ink-900 hover:text-brand-600 hover:underline">${esc(x.a)}</a>`
+      : esc(x.a)).join(', ');
+  }
+  function pubHtml(p, compact = false) {
+    const title = p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener" class="hover:text-brand-600">${esc(p.title)}</a>` : esc(p.title);
+    return `
+      <div class="${compact ? 'text-sm' : ''}">
+        <p class="font-semibold leading-snug text-ink-900">${title}${p.sample ? ' <span class="ml-1 align-middle rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-ink-500">sample</span>' : ''}</p>
+        <p class="mt-1 ${compact ? 'text-xs' : 'text-sm'} text-ink-700">${authorsHtml(p)}</p>
+        <p class="mt-0.5 ${compact ? 'text-xs' : 'text-sm'} text-ink-500"><em>${esc(p.venue)}</em>${p.year ? ` · ${esc(p.year)}` : ''}</p>
+      </div>`;
+  }
+
+  document.title = SOCIETY_NAME;
+  document.querySelectorAll('.society-name').forEach(el => el.textContent = SOCIETY_NAME);
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('stat-members').textContent = members.length;
+  document.getElementById('stat-inst').textContent = institutions.length;
+  document.getElementById('stat-links').textContent = connections.length;
+
+  /* =========================================================
+     ROUTING  (#home, #about, #members[/id], #publications[/id])
+     ========================================================= */
+  const VIEWS = ['home', 'about', 'members', 'publications'];
+  const menu = document.getElementById('menu');
+  const menuToggle = document.getElementById('menu-toggle');
+  menuToggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('hidden') === false;
+    menu.classList.toggle('flex', open);
+    menuToggle.setAttribute('aria-expanded', open);
+  });
+
+  let currentView = null;
+  function route() {
+    const [head, param] = location.hash.replace('#', '').split('/');
+    if (head === 'network' && currentView === 'home') return;   // in-page anchor on Home
+    const view = VIEWS.includes(head) ? head : 'home';
+    const changed = view !== currentView;
+    currentView = view;
+
+    document.querySelectorAll('.view').forEach(v => v.classList.toggle('is-visible', v.id === 'view-' + view));
+    document.querySelectorAll('.nav-link').forEach(a => {
+      const on = a.dataset.route === view;
+      a.classList.toggle('text-brand-700', on);
+      a.classList.toggle('bg-brand-50', on);
+      a.setAttribute('aria-current', on ? 'page' : 'false');
+    });
+    if (window.innerWidth < 768) { menu.classList.add('hidden'); menu.classList.remove('flex'); }
+    if (view !== 'home') clearSelection();
+
+    if (view === 'members' && param && memberById[param]) {
+      expandedId = param;
+      document.getElementById('member-search').value = '';
+      renderMembers();
+      requestAnimationFrame(() => document.getElementById('member-' + param)?.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+    } else if (view === 'publications') {
+      pubMember.value = param && memberById[param] ? param : '';
+      renderPubs();
+      if (changed) window.scrollTo(0, 0);
+    } else if (changed) {
+      window.scrollTo(0, 0);
+    }
+  }
+  window.addEventListener('hashchange', route);
+
+  /* =========================================================
+     MEMBERS PAGE (expanding cards)
+     ========================================================= */
+  const grid = document.getElementById('members-grid');
+  const sortedMembers = [...members].sort((a, b) => surname(a.name).localeCompare(surname(b.name)));
+  let expandedId = null;
+
+  function renderMembers() {
+    const q = document.getElementById('member-search').value.trim().toLowerCase();
+    const list = sortedMembers.filter(m => {
+      if (!q) return true;
+      const hay = [m.name, ...m.institutions.flatMap(id => [instById[id].name, instById[id].city, instById[id].country])].join(' ').toLowerCase();
+      return hay.includes(q);
+    });
+    document.getElementById('member-count').textContent = `${list.length} of ${members.length} members`;
+    grid.innerHTML = list.length ? list.map(m => {
+      const open = m.id === expandedId;
+      const feat = featuredOf(m);
+      const total = pubsOf(m.id).length;
+      return `
+      <article id="member-${m.id}" class="${open ? 'is-expanded ring-2 ring-brand-100 border-brand-500' : 'border-slate-200'} rounded-2xl border bg-white shadow-sm hover:shadow-md transition scroll-mt-24">
+        <button data-toggle="${m.id}" aria-expanded="${open}" aria-controls="details-${m.id}" class="w-full flex items-center gap-4 p-5 text-left">
+          <div class="h-11 w-11 shrink-0 rounded-full bg-brand-50 text-brand-700 flex items-center justify-center text-sm font-semibold">${esc(initials(m.name))}</div>
+          <div class="min-w-0 flex-1">
+            <h2 class="font-semibold leading-snug">${esc(m.name)}</h2>
+            <p class="text-sm text-ink-500 truncate">${m.institutions.map(id => esc(instById[id].name)).join(' · ')}</p>
+          </div>
+          <svg class="chevron h-5 w-5 shrink-0 text-ink-500 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div id="details-${m.id}" class="member-details">
+          <div>
+            <div class="px-5 pb-5 border-t border-slate-100 pt-4 space-y-4">
+              <ul class="space-y-1">
+                ${m.institutions.map(id => { const i = instById[id]; return `
+                  <li class="flex items-center justify-between gap-2 text-sm">
+                    <span class="text-ink-700">${esc(i.name)} <span class="text-ink-500">· ${esc(i.city)}, ${esc(i.country)}</span></span>
+                    <button data-focus="${i.id}" class="shrink-0 text-xs font-medium text-brand-600 hover:text-brand-700">Map →</button>
+                  </li>`; }).join('')}
+              </ul>
+              <div>
+                <h3 class="text-xs font-semibold uppercase tracking-wider text-ink-500">Bio</h3>
+                <p class="mt-1 text-sm text-ink-700 leading-relaxed">${esc(m.bio)}${m.sampleBio ? ' <span class="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-ink-500">sample</span>' : ''}</p>
+              </div>
+              <div>
+                <h3 class="text-xs font-semibold uppercase tracking-wider text-ink-500">Key publications</h3>
+                ${feat.length ? `<ul class="mt-2 space-y-3">${feat.map(p => `<li class="border-l-2 border-gold-400 pl-3">${pubHtml(p, true)}</li>`).join('')}</ul>`
+                              : '<p class="mt-1 text-sm text-ink-500">No publications listed yet.</p>'}
+                ${total ? `<a href="#publications/${m.id}" class="mt-3 inline-block text-sm font-medium text-brand-600 hover:text-brand-700">All publications (${total}) →</a>` : ''}
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>`;
+    }).join('')
+      : '<p class="col-span-full text-sm text-ink-500">No members match your search.</p>';
+  }
+  renderMembers();
+  document.getElementById('member-search').addEventListener('input', renderMembers);
+
+  grid.addEventListener('click', e => {
+    const focusBtn = e.target.closest('[data-focus]');
+    if (focusBtn) {
+      const id = focusBtn.dataset.focus;
+      goToMap(() => { selectFirst(id); zoomToPoints([pos[id]], 2.5); });
+      return;
+    }
+    const toggle = e.target.closest('[data-toggle]');
+    if (toggle) {
+      const id = toggle.dataset.toggle;
+      expandedId = expandedId === id ? null : id;
+      // update classes in place so the expand animation runs
+      grid.querySelectorAll('article').forEach(a => {
+        const on = a.id === 'member-' + expandedId;
+        a.classList.toggle('is-expanded', on);
+        a.classList.toggle('ring-2', on); a.classList.toggle('ring-brand-100', on);
+        a.classList.toggle('border-brand-500', on); a.classList.toggle('border-slate-200', !on);
+        a.querySelector('[data-toggle]').setAttribute('aria-expanded', on);
+      });
+    }
+  });
+
+  function goToMap(then) {
+    history.pushState(null, '', '#home');
+    route();
+    requestAnimationFrame(() => {
+      document.getElementById('network').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(then, 350);
+    });
+  }
+
+  /* =========================================================
+     PUBLICATIONS PAGE
+     ========================================================= */
+  const pubMember = document.getElementById('pub-member');
+  pubMember.innerHTML += sortedMembers.map(m => `<option value="${m.id}">${esc(m.name)}</option>`).join('');
+
+  function renderPubs() {
+    const q = document.getElementById('pub-search').value.trim().toLowerCase();
+    const who = pubMember.value;
+    const list = publications
+      .filter(p => !who || p.members.includes(who))
+      .filter(p => !q || [p.title, p.venue, ...p.authors].join(' ').toLowerCase().includes(q))
+      .sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
+
+    document.getElementById('pub-count').textContent = `${list.length} publication${list.length === 1 ? '' : 's'}${who ? ` by ${memberById[who].name}` : ''}${meta.updated ? ` · list updated ${meta.updated}` : ''}`;
+
+    const byYear = d3.groups(list, p => p.year);
+    document.getElementById('pub-list').innerHTML = byYear.length ? byYear.map(([year, items]) => `
+      <section>
+        <h2 class="sticky top-16 z-10 -mx-2 bg-[#fbfcfe]/95 px-2 py-2 font-display text-2xl font-bold">${esc(year)}</h2>
+        <ol class="mt-2 divide-y divide-slate-200 border-y border-slate-200">
+          ${items.map(p => `<li class="py-4">${pubHtml(p)}</li>`).join('')}
+        </ol>
+      </section>`).join('')
+      : '<p class="text-sm text-ink-500">No publications match your search.</p>';
+  }
+  document.getElementById('pub-search').addEventListener('input', renderPubs);
+  pubMember.addEventListener('change', () => {
+    history.replaceState(null, '', pubMember.value ? `#publications/${pubMember.value}` : '#publications');
+    renderPubs();
+  });
+
+  /* =========================================================
+     MAP (D3 + Natural Earth boundaries)
+     ========================================================= */
+  const W = 960, H = 640, MIN_GAP = 38;
+  const svg = d3.select('#map-svg');
+  const tooltip = document.getElementById('tooltip');
+  const mapWrap = document.getElementById('map-wrap');
+  const hint = document.getElementById('hint');
+  const popup = document.getElementById('node-popup');
+
+  const projection = d3.geoConicConformal().rotate([-8, 0]).parallels([35, 65]);
+  projection.fitExtent([[24, 24], [W - 24, H - 24]], {
+    type: 'MultiPoint', coordinates: [[-10, 37], [24, 37], [-10, 58], [24, 58]]
+  });
+  const geoPath = d3.geoPath(projection);
+
+  // Projected positions, nudged apart where institutions share a city (e.g. London)
+  const pos = Object.fromEntries(institutions.map(i => [i.id, projection([i.lng, i.lat])]));
+  for (let iter = 0; iter < 60; iter++) {
+    institutions.forEach((a, ai) => institutions.slice(ai + 1).forEach(b => {
+      const pa = pos[a.id], pb = pos[b.id];
+      let dx = pb[0] - pa[0], dy = pb[1] - pa[1], d = Math.hypot(dx, dy);
+      if (d >= MIN_GAP) return;
+      if (d < 0.01) { dx = 1; dy = 0; d = 1; }
+      const push = (MIN_GAP - d) / 2;
+      pa[0] -= dx / d * push; pa[1] -= dy / d * push;
+      pb[0] += dx / d * push; pb[1] += dy / d * push;
+    }));
+  }
+
+  svg.append('rect').attr('class', 'sea').attr('width', W).attr('height', H);
+  const gWorld   = svg.append('g');
+  const gCountry = gWorld.append('g');
+  const gLinks   = gWorld.append('g');
+  const gMarkers = svg.append('g');   // outside the zoom transform so markers keep their size
+
+  let currentTransform = d3.zoomIdentity;
+
+  function curve(a, b) {
+    const [x1, y1] = a, [x2, y2] = b;
+    const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+    const cx = mx - (y2 - y1) * CURVE_STRENGTH, cy = my + (x2 - x1) * CURVE_STRENGTH;
+    return `M${x1},${y1} Q${cx},${cy} ${x2},${y2}`;
+  }
+
+  // Screen position (px, relative to map-wrap) of an SVG point
+  function toScreen([x, y]) {
+    const s = svg.node().getBoundingClientRect(), w = mapWrap.getBoundingClientRect();
+    const ratio = s.width / W;
+    return [x * ratio + s.left - w.left, y * ratio + s.top - w.top];
+  }
+
+  // Tooltip
+  function showTip(html, evt) { tooltip.innerHTML = html; tooltip.classList.remove('hidden'); moveTip(evt); }
+  function moveTip(evt) {
+    const r = mapWrap.getBoundingClientRect();
+    const x = Math.min(evt.clientX - r.left + 12, r.width - tooltip.offsetWidth - 8);
+    tooltip.style.left = x + 'px';
+    tooltip.style.top = Math.max(evt.clientY - r.top - 40, 8) + 'px';
+  }
+  const hideTip = () => tooltip.classList.add('hidden');
+
+  // Links (hidden by default)
+  const linkSel = gLinks.selectAll('path.link').data(connections).join('path')
+    .attr('class', 'link')
+    .attr('d', c => curve(pos[c.from], pos[c.to]));
+
+  // Markers
+  const markerSel = gMarkers.selectAll('g.marker').data(institutions).join('g')
+    .attr('class', 'marker')
+    .attr('tabindex', 0)
+    .attr('role', 'button')
+    .attr('aria-label', i => `${i.name}, ${i.city}`);
+  markerSel.append('circle').attr('class', 'pulse').attr('r', 19);
+  markerSel.append('circle').attr('class', 'ring').attr('r', 17);
+  markerSel.append('text').attr('text-anchor', 'middle').attr('dy', '0.35em')
+    .attr('font-size', i => i.short.length > 3 ? 8 : 10).text(i => i.short);
+  markerSel
+    .on('mouseenter', (evt, i) => {
+      if (i.id === selected) return;  // popup already shows this one
+      const n = peopleAt(i.id).length;
+      showTip(`<div class="font-semibold">${esc(i.name)}</div><div class="text-white/70">${esc(i.city)}, ${esc(i.country)} · ${n} member${n === 1 ? '' : 's'}</div>`, evt);
+    })
+    .on('mousemove', moveTip)
+    .on('mouseleave', hideTip)
+    .on('click', (evt, i) => { evt.stopPropagation(); hideTip(); onNodeClick(i.id); })
+    .on('keydown', (evt, i) => { if (evt.key === 'Enter' || evt.key === ' ') { evt.preventDefault(); onNodeClick(i.id); } });
+
+  function placeMarkers() {
+    markerSel.attr('transform', i => `translate(${currentTransform.apply(pos[i.id])})`);
+  }
+  placeMarkers();
+
+  // Zoom & pan
+  const zoom = d3.zoom()
+    .scaleExtent([1, 6])
+    .translateExtent([[0, 0], [W, H]])
+    .on('zoom', evt => {
+      currentTransform = evt.transform;
+      gWorld.attr('transform', currentTransform);
+      placeMarkers();
+      positionPopup();
+      hideTip();
+    });
+  svg.call(zoom).on('dblclick.zoom', null);
+  svg.on('click', clearSelection);
+  window.addEventListener('resize', positionPopup);
+
+  document.getElementById('zoom-in').onclick  = () => svg.transition().duration(300).call(zoom.scaleBy, 1.5);
+  document.getElementById('zoom-out').onclick = () => svg.transition().duration(300).call(zoom.scaleBy, 1 / 1.5);
+  document.getElementById('reset-view').onclick = () => { clearSelection(); svg.transition().duration(600).call(zoom.transform, d3.zoomIdentity); };
+
+  function zoomToPoints(points, maxScale = 3) {
+    const xs = points.map(p => p[0]), ys = points.map(p => p[1]);
+    const [x0, x1, y0, y1] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)];
+    const k = Math.min(maxScale, 0.6 / Math.max((x1 - x0) / W, (y1 - y0) / H, 0.15));
+    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+    const panelOpen = !panel.classList.contains('closed');
+    const cx = (x0 + x1) / 2 + (isDesktop && panelOpen ? 130 / k : 0);   // keep clear of the sidebar
+    const cy = (y0 + y1) / 2 + (!isDesktop && panelOpen ? 120 / k : 0);  // keep clear of the bottom sheet
+    svg.transition().duration(700).call(zoom.transform, d3.zoomIdentity.translate(W / 2, H / 2).scale(k).translate(-cx, -cy));
+  }
+
+  /* =========================================================
+     NODE POPUP (members of one institution)
+     ========================================================= */
+  function showPopup(id) {
+    const i = instById[id];
+    const people = peopleAt(id);
+    const n = linksOf(id).length;
+    popup.innerHTML = `
+      <div class="flex items-start justify-between gap-2 px-4 pt-3 pb-2">
+        <div class="min-w-0">
+          <h3 id="popup-title" class="text-sm font-semibold leading-snug">${esc(i.name)}</h3>
+          <p class="text-xs text-ink-500">${esc(i.city)}, ${esc(i.country)}</p>
+        </div>
+        <button data-popup-close class="-mr-1 shrink-0 rounded-full p-1 text-ink-500 hover:bg-slate-100 hover:text-ink-900" aria-label="Close">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <ul class="max-h-44 overflow-y-auto border-t border-slate-100 px-2 py-2">
+        ${people.length ? people.map(m => `
+          <li><a href="#members/${m.id}" class="flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-sm hover:bg-brand-50 hover:text-brand-700">
+            <span class="h-7 w-7 shrink-0 rounded-full bg-brand-50 text-brand-700 flex items-center justify-center text-[10px] font-semibold">${esc(initials(m.name))}</span>
+            <span class="truncate">${esc(m.name)}</span>
+          </a></li>`).join('') : '<li class="px-2 py-1.5 text-sm text-ink-500">No members listed yet.</li>'}
+      </ul>
+      <p class="border-t border-slate-100 px-4 py-2 text-[11px] text-ink-500">${n ? `Click another institution to see common works.` : 'No recorded collaborations yet.'}</p>`;
+    popup.dataset.id = id;
+    popup.classList.remove('hidden');
+    positionPopup();
+  }
+
+  function positionPopup() {
+    if (popup.classList.contains('hidden')) return;
+    const docked = mapWrap.clientWidth < 640;
+    popup.classList.toggle('docked', docked);
+    if (docked) return;
+    const [px, py] = toScreen(currentTransform.apply(pos[popup.dataset.id]));
+    const pw = popup.offsetWidth, ph = popup.offsetHeight, ww = mapWrap.clientWidth, wh = mapWrap.clientHeight;
+    const left = Math.max(8, Math.min(px - pw / 2, ww - pw - 8));
+    let top = py - ph - 28;                          // above the node
+    if (top < 8) top = Math.min(py + 28, wh - ph - 8); // otherwise below
+    popup.style.left = left + 'px';
+    popup.style.top = top + 'px';
+  }
+
+  function hidePopup() { popup.classList.add('hidden'); delete popup.dataset.id; }
+
+  popup.addEventListener('click', e => {
+    e.stopPropagation();
+    if (e.target.closest('[data-popup-close]')) clearSelection();
+  });
+
+  /* =========================================================
+     SELECTION: one click = members popup, second click = link
+     ========================================================= */
+  let selected = null;     // first institution clicked
+  let pair = null;         // [a, b] currently shown
+
+  function setHint(html) { hint.innerHTML = html; }
+  const defaultHint = `<span class="h-2 w-2 shrink-0 rounded-full bg-brand-700"></span><span>Click an institution to see its members, then another to see common works.</span>`;
+
+  function render() {
+    const linked = selected ? new Set(linksOf(selected).flatMap(c => [c.from, c.to])) : null;
+    markerSel
+      .classed('is-selected', i => i.id === selected)
+      .classed('is-pair', i => !!pair && pair.includes(i.id))
+      .classed('is-dim', i => (!!pair && !pair.includes(i.id)) || (!!linked && i.id !== selected && !linked.has(i.id)));
+    linkSel.classed('is-shown', c => !!pair && findLink(pair[0], pair[1]) === c);
+  }
+
+  function selectFirst(id) {
+    closePanel(false);
+    pair = null;
+    selected = id;
+    const i = instById[id];
+    const n = linksOf(id).length;
+    setHint(`<span class="h-2 w-2 shrink-0 rounded-full bg-brand-700"></span><span><strong class="font-semibold">${esc(i.short)}</strong> selected — ${n ? `pick another institution (${n} collaboration${n === 1 ? '' : 's'}).` : 'no recorded collaborations yet.'}</span>`);
+    render();
+    showPopup(id);
+  }
+
+  function onNodeClick(id) {
+    if (pair) { selectFirst(id); return; }             // start over from a shown pair
+    if (!selected) { selectFirst(id); return; }        // first click → members popup
+    if (selected === id) { clearSelection(); return; } // same node again → deselect
+
+    const link = findLink(selected, id);
+    if (link) {
+      pair = [selected, id];
+      selected = null;
+      hidePopup();
+      render();
+      openPanel(link);
+      setHint(`<span class="h-2 w-2 shrink-0 rounded-full bg-gold-500"></span><span>Showing common works. Click any institution to start again.</span>`);
+    } else {
+      const a = instById[selected], b = instById[id];
+      selectFirst(id);
+      setHint(`<span class="h-2 w-2 shrink-0 rounded-full bg-slate-400"></span><span>No recorded common works between ${esc(a.short)} and ${esc(b.short)}. <strong class="font-semibold">${esc(b.short)}</strong> is now selected.</span>`);
+    }
+  }
+
+  function clearSelection() {
+    selected = null;
+    pair = null;
+    hidePopup();
+    closePanel(false);
+    setHint(defaultHint);
+    render();
+  }
+
+  // Load country boundaries
+  d3.json(COUNTRIES_URL).then(world => {
+    const countries = topojson.feature(world, world.objects.countries).features;
+    const nodeCountries = new Set(institutions.map(i => i.country));
+    gCountry.selectAll('path').data(countries).join('path')
+      .attr('class', d => 'country' + (nodeCountries.has(d.properties.name) ? ' has-node' : ''))
+      .attr('d', geoPath);
+    document.getElementById('map-loading').remove();
+  }).catch(() => {
+    document.getElementById('map-loading').textContent = 'Country boundaries could not be loaded — the network is still shown.';
+  });
+
+  // Institution list under the map (acts like clicking the node)
+  document.getElementById('legend').innerHTML = [...institutions]
+    .sort((a, b) => a.country.localeCompare(b.country) || a.name.localeCompare(b.name))
+    .map(i => `
+      <li><button data-legend="${i.id}" class="w-full flex items-center gap-2 rounded-lg px-2 py-1.5 text-left hover:bg-brand-50 hover:text-brand-700">
+        <span class="w-11 shrink-0 text-[11px] font-bold text-brand-700">${esc(i.short)}</span>
+        <span class="truncate">${esc(i.name)}</span>
+        <span class="ml-auto text-xs text-ink-500 whitespace-nowrap">${esc(i.city)}</span>
+      </button></li>`).join('');
+  document.getElementById('legend').addEventListener('click', e => {
+    const b = e.target.closest('[data-legend]');
+    if (b) onNodeClick(b.dataset.legend);
+  });
+
+  /* =========================================================
+     COLLABORATION DRAWER
+     ========================================================= */
+  const panel = document.getElementById('panel');
+  const backdrop = document.getElementById('backdrop');
+
+  function openPanel(c) {
+    const a = instById[c.from], b = instById[c.to];
+    document.getElementById('panel-title').textContent = `${a.short} ↔ ${b.short}`;
+    document.getElementById('panel-inst').innerHTML = [a, b].map(i => {
+      const people = peopleAt(i.id);
+      return `
+        <div>
+          <div class="flex items-center gap-3">
+            <div class="h-9 w-9 shrink-0 rounded-full bg-gold-500 text-white flex items-center justify-center text-[10px] font-bold">${esc(i.short)}</div>
+            <div class="min-w-0"><div class="text-sm font-semibold truncate">${esc(i.name)}</div><div class="text-xs text-ink-500">${esc(i.city)}, ${esc(i.country)}</div></div>
+          </div>
+          ${people.length ? `<p class="mt-2 pl-12 text-xs text-ink-700">${people.map(p => `<a href="#members/${p.id}" class="hover:text-brand-600 hover:underline">${esc(p.name)}</a>`).join(' · ')}</p>` : ''}
+        </div>`;
+    }).join('');
+    document.getElementById('panel-count').textContent = `${c.works.length} ${c.works.length === 1 ? 'work' : 'works'}`;
+    document.getElementById('panel-works').innerHTML = [...c.works].sort(byRecent).map(w => `
+      <li class="rounded-xl border border-slate-200 p-4">
+        ${w.extra ? `<span class="mb-2 inline-block text-[11px] font-semibold rounded-full px-2 py-0.5 bg-brand-50 text-brand-700">${esc(w.type || 'Work')}</span>` : ''}
+        ${pubHtml(w, true)}
+      </li>`).join('');
+
+    panel.classList.remove('closed');
+    backdrop.classList.remove('opacity-0', 'pointer-events-none');
+    zoomToPoints([pos[a.id], pos[b.id]]);
+  }
+
+  function closePanel(reset = true) {
+    if (panel.classList.contains('closed')) return;
+    panel.classList.add('closed');
+    backdrop.classList.add('opacity-0', 'pointer-events-none');
+    if (reset) clearSelection();
+  }
+
+  document.getElementById('panel-close').addEventListener('click', () => closePanel());
+  backdrop.addEventListener('click', () => closePanel());
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') clearSelection(); });
+
+  setHint(defaultHint);
+  route();
+  }
+  </script>
+</body>
+</html>
