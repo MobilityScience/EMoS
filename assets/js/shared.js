@@ -27,7 +27,7 @@ if (window.tailwind) {
         },
         colors: {
           ink:   { 900: '#0f1b2d', 700: '#33415a', 500: '#64748b' },
-          brand: { 50: '#eef3fb', 100: '#d9e4f5', 500: '#2f5aa8', 600: '#244a8f', 700: '#052b63' },
+          brand: { 50: '#eef3fb', 100: '#d9e4f5', 500: '#2f5aa8', 600: '#244a8f', 700: '#052b63', 800: '#041f47' },
           teal:  { 50: '#ecfaf9', 100: '#ccf5f2', 500: '#0aa0a0', 600: '#088282', 700: '#066666' },
           gold:  { 50: '#fdf7e8', 400: '#e5b549', 500: '#d19e2a', 700: '#8a6514' }
         }
@@ -195,7 +195,14 @@ window.EMOS = (function () {
     const sympPromise = needSymposia
       ? fetch(data.SYMPOSIA_URL, { cache: 'no-cache' })
           .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
-          .catch(() => ({ symposia: [], events: [] }))
+          .catch(err => {
+            console.error('Could not load symposia:', err);
+            const bar = document.createElement('div');
+            bar.className = 'bg-gold-50 border-b border-gold-400 px-4 py-2 text-center text-sm text-gold-700';
+            bar.textContent = `Symposia could not be loaded from "${data.SYMPOSIA_URL}". Serve the site from an HTTP web server.`;
+            document.body.prepend(bar);
+            return { symposia: [], events: [] };
+          })
       : Promise.resolve({ symposia: [], events: [] });
 
     return Promise.all([pubsPromise, sympPromise]).then(([{ pubs, meta }, symposiaData]) => {

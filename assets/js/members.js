@@ -112,11 +112,22 @@
             </div>
           </div>
         </article>`;
-      }).join('') : '<p class="col-span-full text-sm text-ink-500">No members match your search.</p>';
+      }).join('') : `
+        <div class="col-span-full rounded-2xl border border-slate-200 bg-white p-8 text-center">
+          <p class="text-sm text-ink-500">No members match your search.</p>
+          <button type="button" id="member-clear-search" class="mt-3 rounded-lg bg-brand-700 px-3.5 py-2 text-xs font-semibold text-white hover:bg-brand-800 transition">Clear search</button>
+        </div>`;
     }
 
     renderMembers();
     searchInput.addEventListener('input', renderMembers);
+    grid.addEventListener('click', e => {
+      if (e.target.closest('#member-clear-search')) {
+        searchInput.value = '';
+        renderMembers();
+        searchInput.focus();
+      }
+    });
 
     if (expandedId) {
       requestAnimationFrame(() => document.getElementById('member-' + expandedId)?.scrollIntoView({ behavior: 'smooth', block: 'center' }));

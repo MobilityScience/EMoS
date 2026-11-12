@@ -477,6 +477,7 @@
     /** Synchronize CSS visual states on markers (.is-selected, .is-candidate, .is-pair, .is-dim) and links (.is-candidate, .is-shown). */
     function render() {
       const linked = selected ? new Set(linksOf(selected).flatMap(c => [c.from, c.to])) : null;
+      svg.classed('has-selection', !!selected);
       markerSel
         .classed('is-selected', i => i.id === selected)
         .classed('is-candidate', i => !!linked && i.id !== selected && linked.has(i.id))
