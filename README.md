@@ -1,113 +1,116 @@
-# European Mobility Society (EMoS) Website
+# European Mobility Society (EMoS) — Website
 
-Official website for the **European Mobility Society (EMoS)** — an interdisciplinary network of **23 researchers** across **14 European institutions** advancing quantitative mobility science, urban dynamics, transport, and complex systems.
+Official repository for the **European Mobility Society** web portal: **https://mobilityscience.github.io/EMoS/**
 
-Live site: **https://mobilityscience.github.io/EMoS/**
-
-Everything runs as a **zero-build static website** on GitHub Pages. There is no Node bundler, no framework compilation, and no backend server.
+A zero-build, multi-page static website hosted on GitHub Pages. It showcases the society's network (**23 researchers across 14 European institutions**), automatically syncs mobility science publications from **OpenAlex**, and preserves past symposium editions in an integrated archive.
 
 ---
 
-## Pages & Features
+## Quick Start (Local Preview)
 
-| Page | Script | What it does |
-|---|---|---|
-| `index.html` | `assets/js/home.js` | Hero with Origin–Destination canvas animation and 4 KPI counters (`Members`, `Institutions`, `Collaborations`, `Papers (2021+)`), interactive D3 + TopoJSON Europe network map (cluster zoom, clickable dashed collaboration arcs, collision-avoiding popups, pair drawer), and member institutions logo grid. |
-| `about.html` | `assets/js/shared.js` | Society mission, philosophy, and the European Mobility Science Manifesto section. |
-| `members.html` | `assets/js/members.js` | Alphabetical directory of all 23 members with search, portraits, verified bios, expandable institutional cards, key publications, and direct links to the map and publications. |
-| `publications.html` | `assets/js/publications.js` | Mobility science publications (`2021+`) fetched from OpenAlex, with live search, `Member` / `Institution` selectors, `By year | By institution` toggle, dynamic topic pill counters, `Reset filters`, and Author/Institution Spotlight panels. |
-| `symposia.html` | `assets/js/symposia.js` | Upcoming symposium (`2028`) and past editions (`2026 Exeter`, `2025 Turin`, `2024 Pisa`) with 16:9 group photos. |
-| `symposium-archive.html` | `assets/js/symposium-archive.js` | Encapsulated archive viewer that renders past symposium static sites inside the shared EMoS header/footer, validated against `symposia.json`. |
-
----
-
-## Repository Structure
-
-```text
-EMoS/
-├── index.html                    # Home page + interactive Europe map
-├── about.html                    # About page
-├── members.html                  # Members directory
-├── publications.html             # Publications & OpenAlex explorer
-├── symposia.html                 # Symposia overview
-├── symposium-archive.html        # Archived symposium wrapper
-├── publications.json             # Mobility publications dataset (auto-updated via OpenAlex)
-├── symposia.json                 # Symposia metadata (upcoming & past editions)
-├── robots.txt                    # Search engine crawl rules
-├── sitemap.xml                   # XML sitemap (auto-generated)
-├── assets/
-│   ├── css/styles.css            # Shared design tokens, sticky footer, custom select & map styles
-│   ├── js/
-│   │   ├── data.js               # Single source of truth for INSTITUTIONS, MEMBERS & TOPIC_STYLES
-│   │   ├── shared.js             # Tailwind config, responsive navbar, JSON loaders, collaboration graph
-│   │   ├── home.js               # Hero canvas, KPIs, D3 Europe map & institution grid
-│   │   ├── members.js            # Member cards, search & morphing details
-│   │   ├── publications.js       # Filters, dynamic topic counts, spotlight & grouping
-│   │   ├── symposia.js           # Symposia grid & upcoming/past rendering
-│   │   └── symposium-archive.js  # Whitelisted iframe loader for past editions
-│   ├── logos/                    # Institution logos & EMoS brand mark
-│   └── photos/                   # Member portraits & 16:9 symposium group photos
-├── symposia/                     # Preserved static snapshots of past editions
-│   ├── 2024-pisa/
-│   ├── 2025-turin/
-│   └── 2026-exeter/
-├── scripts/
-│   ├── members_openalex.json     # Verified OpenAlex Author IDs for all 23 members
-│   ├── build_publications.py     # Stdlib-only OpenAlex fetcher & mobility topic classifier
-│   └── build_sitemap.py          # Git-history-aware sitemap.xml generator
-└── .github/workflows/
-    ├── update-publications.yml   # Monthly OpenAlex refresh (opens a PR if new papers are found)
-    └── update-sitemap.yml        # Keeps sitemap.xml synced on main
-```
-
----
-
-## Local Development
-
-Browsers block `fetch()` for local JSON files over `file://`. Run a local static server from the repository root and open `http://localhost:8765`:
+Browsers block `fetch()` requests for local JSON files over `file://`. Run any static HTTP server from the repository root:
 
 ```bash
+git clone https://github.com/MobilityScience/EMoS.git
+cd EMoS
 python3 -m http.server 8765
 ```
 
+Then open **http://localhost:8765** in your browser.
+
 ---
 
-## Shareable Deep Links
+## Architecture & File Map
 
-| URL | Result |
+No bundler, Node.js runtime, or build step is required in production. All pages share a common navigation bar, responsive popover menu, and sticky footer managed by `assets/js/shared.js` and `assets/css/styles.css`.
+
+### HTML Pages
+| File | Purpose | Page Script |
+|---|---|---|
+| `index.html` | Home page: hero OD-flow canvas, 4 KPI counters, interactive D3 Europe network map, and institution logo grid. | `assets/js/home.js` |
+| `about.html` | Society mission, governance philosophy, and manifesto section. | `assets/js/shared.js` |
+| `members.html` | Alphabetical member directory with live search, portraits, bios, and expandable affiliation/publication cards. | `assets/js/members.js` |
+| `publications.html` | Publications explorer (`2021+`) with search, member/institution filters, dynamic topic counts, and spotlight panels. | `assets/js/publications.js` |
+| `symposia.html` | Overview of upcoming (`2028`) and past symposium editions (`2024–2026`). | `assets/js/symposia.js` |
+| `symposium-archive.html` | Sandboxed archive viewer that embeds past static symposium sites under the EMoS header and footer. | `assets/js/symposium-archive.js` |
+
+### Data, Assets & Automation
+| Path | Purpose |
 |---|---|
-| `index.html?inst=<id>#network` | Opens Home and focuses the map on that institution |
-| `members.html?member=<id>` | Opens Members with that person's card expanded and centered |
-| `publications.html?member=<id>` | Filters Publications to that member and opens their Spotlight |
-| `publications.html?inst=<id>&group=institution` | Filters Publications to an institution (or switches to `By institution` view) |
-| `symposium-archive.html?edition=<id>` | Opens a past symposium (`2024-pisa`, `2025-turin`, `2026-exeter`) in the archive viewer |
-
-Member `id`s are lowercase, accent-free, and hyphenated (e.g., `riccardo-di-clemente`, `luca-pappalardo`, `mattia-mazzoli`).
+| `assets/js/data.js` | Single source of truth for `INSTITUTIONS`, `MEMBERS`, `TOPIC_STYLES`, and `EXTRA_CONNECTIONS`. |
+| `assets/js/shared.js` | Tailwind Play CDN theme config, adaptive navbar, JSON loaders, and co-authorship graph builder. |
+| `assets/css/styles.css` | Shared design tokens, sticky footer layout, custom `<select>` styling, and map/card styles. |
+| `assets/photos/` | Member portraits and `16:9` symposium group photos (`assets/photos/symposia/`). |
+| `assets/logos/` | Trimmed institutional logos and the EMoS brand mark (`emos-mark.png`). |
+| `publications.json` | Curated mobility publications dataset generated from OpenAlex. |
+| `symposia.json` | Metadata and archive whitelist for upcoming and past symposia. |
+| `symposia/<edition>/` | Preserved static snapshots of past symposium websites (`2024-pisa`, `2025-turin`, `2026-exeter`). |
+| `scripts/members_openalex.json` | Verified OpenAlex Author IDs mapped to member IDs. |
+| `scripts/build_publications.py` | Python 3 stdlib-only script that queries OpenAlex, filters mobility papers, and writes `publications.json`. |
+| `scripts/build_sitemap.py` | Generates `sitemap.xml` using Git commit timestamps for `<lastmod>`. |
+| `.github/workflows/` | Automated monthly OpenAlex refresh (`update-publications.yml`) and sitemap sync (`update-sitemap.yml`). |
+| `robots.txt` & `sitemap.xml` | Search engine directives and indexed URL list for GitHub Pages. |
 
 ---
 
-## Updating Content & Automation
+## How Collaborations & Data Work
 
-### 1. Adding or editing members and institutions
-- Edit `INSTITUTIONS` and `MEMBERS` in [`assets/js/data.js`](assets/js/data.js).
-- Save member portraits in `assets/photos/` and trimmed institution logos in `assets/logos/`.
-- Add the member's verified OpenAlex Author ID to [`scripts/members_openalex.json`](scripts/members_openalex.json).
+```text
+scripts/members_openalex.json ──► scripts/build_publications.py ──► publications.json
+                                                                           │
+assets/js/data.js (MEMBERS & INSTITUTIONS) ────────────────────────────────┼──► assets/js/shared.js
+                                                                           │
+    Co-authored papers across different institutions ──────────────────────┴──► Map edges & Spotlight panels
+```
 
-### 2. Updating publications (`publications.json`)
-`scripts/build_publications.py` uses **only the Python standard library** (no `pip install` needed). It queries OpenAlex for all authors in `scripts/members_openalex.json`, filters for mobility-related works (`2021+`), assigns one of 6 topics, and preserves the `_about`, `_copyright`, and `_schema` headers in `publications.json`:
+- **No hardcoded collaboration links:** Institution-to-institution edges on the Europe map are computed automatically in the browser whenever two EMoS members at different institutions co-author a paper in `publications.json` (plus any manual events/projects in `EXTRA_CONNECTIONS`).
+- **Multi-affiliation support:** If a member belongs to multiple institutions in `data.js`, their papers count toward each of their institutions.
+- **Publication window (`2021+`):** The `2021+` label on KPIs and badges is derived dynamically from the earliest publication year in `publications.json`, scoping recent society activity around the symposia rather than lifetime career totals.
+
+---
+
+## How to Update the Site
+
+### 1. Add or edit a member
+1. Add the member's portrait to `assets/photos/` (square/portrait JPEG or PNG).
+2. Add or update their entry in `MEMBERS` inside [`assets/js/data.js`](assets/js/data.js):
+   ```js
+   {
+     id: 'first-last',
+     name: 'First Last',
+     institutions: ['inst-id'],
+     photo: 'assets/photos/first-last.jpg',
+     bio: 'Short verified biography.',
+     aliases: ['F. Last'] // optional: alternate spellings used on papers
+   }
+   ```
+3. Add their verified OpenAlex Author ID to [`scripts/members_openalex.json`](scripts/members_openalex.json) and run `python3 scripts/build_publications.py`.
+
+### 2. Add or edit an institution
+1. Save a trimmed logo in `assets/logos/`.
+2. Add an entry to `INSTITUTIONS` inside [`assets/js/data.js`](assets/js/data.js) (`lat`/`lng` automatically place the node on the D3 map; `country` must match Natural Earth country names for shading):
+   ```js
+   { id: 'inst-id', name: 'Full Institution Name', short: 'SHORT', city: 'City', country: 'Country', lat: 0.0, lng: 0.0, logo: 'assets/logos/inst.png' }
+   ```
+
+### 3. Refresh publications (`publications.json`)
+`scripts/build_publications.py` requires **Python 3.9+** and uses only the standard library:
 
 ```bash
 python3 scripts/build_publications.py
+# Optional: override start year (default: 2021)
+python3 scripts/build_publications.py --since 2021
 ```
 
-The GitHub Action [`.github/workflows/update-publications.yml`](.github/workflows/update-publications.yml) also runs automatically on the **1st of every month** (and can be triggered manually via `workflow_dispatch`) to open a Pull Request whenever new papers are detected.
+On GitHub, [`.github/workflows/update-publications.yml`](.github/workflows/update-publications.yml) runs on the **1st of every month** (or manually via *Actions → Run workflow*) and opens a Pull Request if new mobility papers are found.
 
-### 3. Adding a symposium edition
-- Add the edition entry to [`symposia.json`](symposia.json) (`status`: `"upcoming"` or `"past"`).
-- Save a `16:9` group photo in `assets/photos/symposia/` and, for past editions, place the static snapshot under `symposia/<year-city>/`.
+### 4. Add a symposium edition
+1. Add the edition metadata to [`symposia.json`](symposia.json) (`"status": "upcoming"` or `"past"`).
+2. Save a `16:9` group photo in `assets/photos/symposia/`.
+3. For past editions, place the static site files under `symposia/<year-city>/` (automatically whitelisted for `symposium-archive.html?edition=<id>`).
 
-### 4. Regenerating `sitemap.xml`
-Whenever pages or data files change, regenerate [`sitemap.xml`](sitemap.xml) (automated on `main` via [`.github/workflows/update-sitemap.yml`](.github/workflows/update-sitemap.yml)):
+### 5. Regenerate `sitemap.xml`
+Run after adding pages or updating datasets (also automated on `main` via [`.github/workflows/update-sitemap.yml`](.github/workflows/update-sitemap.yml)):
 
 ```bash
 python3 scripts/build_sitemap.py
@@ -115,19 +118,30 @@ python3 scripts/build_sitemap.py
 
 ---
 
-## Technical Notes
+## Shareable Deep Links
 
-- **Styling & Libraries (CDN):** [Tailwind CSS](https://tailwindcss.com) (Play CDN, configured in `assets/js/shared.js`), [D3](https://d3js.org) 7.9.0, [topojson-client](https://github.com/topojson/topojson-client) 3.1.0, and Google Fonts (`Inter`, `Source Serif 4`).
-- **Map Data:** European country borders come from Natural Earth (public domain) via `world-atlas`.
-- **SEO:** Every main page includes `<link rel="canonical">`, Open Graph, Twitter Card, and Schema.org JSON-LD metadata.
-- **How Collaborations Are Computed:** No collaboration links are hardcoded. `assets/js/shared.js` derives institution-to-institution links directly from co-authored papers in `publications.json` (plus optional `EXTRA_CONNECTIONS` in `assets/js/data.js`).
+| URL | Behavior |
+|---|---|
+| `index.html?inst=<id>#network` | Centers the Home map on the selected institution |
+| `members.html?member=<id>` | Opens Members with that member's card expanded |
+| `publications.html?member=<id>` | Filters Publications by member and opens their Spotlight |
+| `publications.html?inst=<id>&group=institution` | Filters by institution or switches to the `By institution` view |
+| `symposium-archive.html?edition=<id>` | Opens a past symposium edition inside the archive wrapper |
 
 ---
 
-## Maintainers & Credits
+## Technical Stack
 
-- **Riccardo Di Clemente** — Multi-page architecture, interactive D3 network map, OpenAlex automation pipeline, symposia archive integration, and SEO.
-- **Luca Pappalardo** & **Mattia Mazzoli** — Society coordination, content curation, and repository maintenance.
-- **European Mobility Society (EMoS)** — Member biographies, institutional assets, and symposium archives.
+- **Styling:** [Tailwind CSS](https://tailwindcss.com) (Play CDN) + custom CSS tokens in `assets/css/styles.css`
+- **Visualization:** [D3.js](https://d3js.org) `7.9.0` + [topojson-client](https://github.com/topojson/topojson-client) `3.1.0` + Natural Earth (`world-atlas`)
+- **Typography:** Google Fonts (`Inter` and `Source Serif 4`)
+- **SEO:** Canonical URLs, Open Graph, Twitter Cards, Schema.org JSON-LD, `robots.txt`, and `sitemap.xml`
 
-Copyright (c) 2026 European Mobility Society (EMoS).
+---
+
+## Maintainers
+
+- **Riccardo Di Clemente** — Architecture, interactive D3 network map, OpenAlex pipeline, symposia archive integration, and SEO
+- **MobilityScience / EMoS Editorial Team** — Content curation, member biographies, and society coordination
+
+Copyright © 2026 **European Mobility Society (EMoS)**.
