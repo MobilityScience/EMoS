@@ -1,0 +1,6 @@
+# Local directories & OS/Python artifacts
+fencing/
+CLAUDE.md
+.DS_Store
+__pycache__/
+*.pyc

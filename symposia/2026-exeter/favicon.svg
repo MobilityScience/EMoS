@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="800 258 320 320" role="img" aria-label="EMoS">
+  <rect x="800" y="258" width="320" height="320" rx="66" fill="#FFCC00"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1040 315 A108 108 0 0 0 860 470" stroke="#052b63" stroke-width="20"/>
+    <path d="M905 505 A108 108 0 0 0 1075 410" stroke="#052b63" stroke-width="20"/>
+    <path d="M865 478 C915 520 975 488 1018 430 C1050 387 1083 360 1110 354" stroke="#0aa0a0" stroke-width="13"/>
+  </g>
+</svg>

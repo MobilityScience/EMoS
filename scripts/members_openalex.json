@@ -1,0 +1,40 @@
+{
+  "_about": "OpenAlex author ID registry for EMoS researchers, read by scripts/build_publications.py to fetch peer-reviewed works automatically.",
+  "_copyright": "Copyright (c) 2026 European Mobility Society (EMoS)",
+  "_schema": {
+    "members": [
+      {
+        "id": "Member slug matching assets/js/data.js (e.g. 'elsa-arcaute')",
+        "name": "Display name",
+        "openalexId": "Canonical OpenAlex Author ID (A...)",
+        "institutions": "string[] — institution IDs matching assets/js/data.js",
+        "aliases": "Optional string[] of alternate author name variants"
+      }
+    ]
+  },
+  "members": [
+    { "id": "elsa-arcaute", "name": "Elsa Arcaute", "openalexId": "A5024725112", "institutions": ["ucl"] },
+    { "id": "hugo-barbosa", "name": "Hugo Barbosa", "openalexId": "A5068497573", "institutions": ["exeter"] },
+    { "id": "ciro-beneduce", "name": "Ciro Beneduce", "openalexId": "A5099035918", "institutions": ["fbk"] },
+    { "id": "federico-botta", "name": "Federico Botta", "openalexId": "A5069884826", "institutions": ["exeter"] },
+    { "id": "matteo-bruno", "name": "Matteo Bruno", "openalexId": "A5034911892", "institutions": ["sony"] },
+    { "id": "carmen-cabrera", "name": "Carmen Cabrera", "openalexId": "A5003676926", "institutions": ["liverpool"], "aliases": ["Carmen Cabrera-Arnau"] },
+    { "id": "alessia-calafiore", "name": "Alessia Calafiore", "openalexId": "A5086354252", "institutions": ["edinburgh"] },
+    { "id": "antonio-desiderio", "name": "Antonio Desiderio", "openalexId": "A5045033500", "institutions": ["isi"] },
+    { "id": "riccardo-di-clemente", "name": "Riccardo Di Clemente", "openalexId": "A5091533231", "institutions": ["nul", "isi"] },
+    { "id": "riccardo-gallotti", "name": "Riccardo Gallotti", "openalexId": "A5059223686", "institutions": ["fbk"] },
+    { "id": "marton-karsai", "name": "Márton Karsai", "openalexId": "A5079596102", "institutions": ["ceu"] },
+    { "id": "balazs-lengyel", "name": "Balázs Lengyel", "openalexId": "A5005839111", "institutions": ["corvinus"] },
+    { "id": "vittorio-loreto", "name": "Vittorio Loreto", "openalexId": "A5070657345", "institutions": ["sony"] },
+    { "id": "massimiliano-luca", "name": "Massimiliano Luca", "openalexId": "A5087214548", "institutions": ["fbk"] },
+    { "id": "mariana-macedo", "name": "Mariana Macedo", "openalexId": "A5009239429", "institutions": ["construct"], "aliases": ["Mariana Gomes da Motta Macedo"] },
+    { "id": "giovanni-mauro", "name": "Giovanni Mauro", "openalexId": "A5049213669", "institutions": ["isti"] },
+    { "id": "mattia-mazzoli", "name": "Mattia Mazzoli", "openalexId": "A5006745752", "institutions": ["isi"] },
+    { "id": "ronaldo-menezes", "name": "Ronaldo Menezes", "openalexId": "A5068151130", "institutions": ["exeter"], "aliases": ["Ronaldo Parente de Menezes"] },
+    { "id": "diogo-pacheco", "name": "Diogo Pacheco", "openalexId": "A5090663249", "institutions": ["exeter"], "aliases": ["Diogo Ferreira Pacheco"] },
+    { "id": "luca-pappalardo", "name": "Luca Pappalardo", "openalexId": "A5068819495", "institutions": ["isti"] },
+    { "id": "jose-javier-ramasco", "name": "José Javier Ramasco", "openalexId": "A5033081182", "institutions": ["ifisc"], "aliases": ["José J. Ramasco"] },
+    { "id": "lavinia-rossi-mori", "name": "Lavinia Rossi Mori", "openalexId": "A5003896967", "institutions": ["sony"] },
+    { "id": "kamil-smolak", "name": "Kamil Smolak", "openalexId": "A5000346086", "institutions": ["upwr"] }
+  ]
+}

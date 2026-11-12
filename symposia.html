@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  ===========================================================================
+  European Mobility Society (EMoS) — Symposia & Events (symposia.html)
+  ---------------------------------------------------------------------------
+  Renders upcoming symposia, past archived editions (16:9 photos routing into
+  symposium-archive.html), and related events from symposia.json via
+  assets/js/symposia.js.
+
+  Copyright (c) 2026 European Mobility Society (EMoS)
+  ===========================================================================
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Symposia — European Mobility Society (EMoS)</title>
+  <!-- SEO Meta, Canonical, Social Previews & Schema.org EventSeries -->
+  <meta name="description" content="Upcoming 2028 edition and archived programmes of the European Mobility Symposium in Exeter (2026), Turin (2025), and Pisa (2024)." />
+  <meta name="author" content="European Mobility Society (EMoS)" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#052b63" />
+
+  <link rel="canonical" href="https://mobilityscience.github.io/EMoS/symposia.html" />
+  <link rel="icon" type="image/png" href="assets/logos/emos-mark.png" />
+  <link rel="apple-touch-icon" href="assets/logos/emos-mark.png" />
+
+  <meta property="og:site_name" content="European Mobility Society" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:title" content="Symposia — European Mobility Society" />
+  <meta property="og:description" content="Upcoming and archived editions of the annual European Mobility Symposium (Pisa 2024, Turin 2025, Exeter 2026, 2028)." />
+  <meta property="og:url" content="https://mobilityscience.github.io/EMoS/symposia.html" />
+  <meta property="og:image" content="https://mobilityscience.github.io/EMoS/assets/logos/emos-mark.png" />
+  <meta property="og:image:width" content="1043" />
+  <meta property="og:image:height" content="300" />
+  <meta property="og:image:alt" content="European Mobility Society logo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Symposia — European Mobility Society" />
+  <meta name="twitter:description" content="Upcoming and archived editions of the annual European Mobility Symposium (Pisa 2024, Turin 2025, Exeter 2026, 2028)." />
+  <meta name="twitter:image" content="https://mobilityscience.github.io/EMoS/assets/logos/emos-mark.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "url": "https://mobilityscience.github.io/EMoS/symposia.html",
+    "name": "Symposia — European Mobility Society",
+    "description": "Upcoming and past editions of the European Mobility Symposium, preserved in the society archive.",
+    "isPartOf": { "@id": "https://mobilityscience.github.io/EMoS/#website" },
+    "mainEntity": {
+      "@type": "EventSeries",
+      "name": "European Mobility Symposium",
+      "organizer": {
+        "@type": "Organization",
+        "name": "European Mobility Society",
+        "url": "https://mobilityscience.github.io/EMoS/"
+      }
+    }
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/shared.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="assets/js/symposia.js" defer></script>
+</head>
+
+<body class="font-sans text-ink-900 antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] bg-white px-3 py-2 rounded shadow">Skip to content</a>
+
+  <!-- Sticky Header & Primary Navigation (popover menu managed by shared.js) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="flex items-center gap-3 min-w-0">
+        <img src="assets/logos/emos-mark.png" alt="" class="h-8 w-auto shrink-0" width="52" height="32" />
+        <span class="society-name font-display font-semibold text-base sm:text-lg leading-tight truncate text-brand-700">European Mobility Society</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <button class="menu-button inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-ink-700 hover:bg-slate-50"
+                type="button" popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu">
+          <svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <span>Menu</span>
+        </button>
+
+        <ul id="site-menu" class="site-menu" popover="auto">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="members.html" class="nav-link">Members</a></li>
+          <li><a href="publications.html" class="nav-link">Publications</a></li>
+          <li><a href="symposia.html" aria-current="page" class="nav-link">Symposia</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page-enter">
+    <!-- Page Hero -->
+    <section class="border-b border-slate-200 bg-gradient-to-br from-brand-50 via-teal-50/40 to-white">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-16">
+        <p class="text-sm font-semibold uppercase tracking-wider text-teal-700">Symposia</p>
+        <h1 class="mt-3 font-display text-4xl font-bold text-brand-700">European Mobility Symposia</h1>
+        <p class="mt-3 text-lg text-ink-700 max-w-2xl">Annual invitation-only meetings bringing together researchers, practitioners and policymakers. Past editions are archived inside this site for long-term preservation.</p>
+      </div>
+    </section>
+
+    <!-- Upcoming & Archived Symposia Lists (populated from data/symposia.json by assets/js/symposia.js) -->
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-10 space-y-12">
+      <section>
+        <h2 class="font-display text-2xl font-bold text-ink-900">Upcoming edition</h2>
+        <div id="symposia-upcoming" class="mt-4 space-y-4"></div>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-bold text-ink-900">Past editions</h2>
+        <p class="mt-1 text-sm text-ink-500">Full historical snapshots preserved inside the society repository.</p>
+        <div id="symposia-past" class="mt-4 grid gap-5 md:grid-cols-2 lg:grid-cols-3"></div>
+      </section>
+
+      <section id="events-section" class="hidden">
+        <h2 class="font-display text-2xl font-bold text-ink-900">Related events</h2>
+        <p class="mt-1 text-sm text-ink-500">Workshops, special tracks and community gatherings connected to the society.</p>
+        <div id="events-list" class="mt-5 space-y-4"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Shared Sticky Footer (#year auto-populated by shared.js) -->
+  <footer class="border-t border-slate-200">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-ink-500">
+      <p>© <span id="year"></span> <span class="society-name">European Mobility Society</span></p>
+      <div class="flex items-center gap-5">
+        <a href="index.html" class="hover:text-brand-600">Map</a>
+        <a href="members.html" class="hover:text-brand-600">Members</a>
+        <a href="publications.html" class="hover:text-brand-600">Publications</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

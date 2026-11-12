@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  ===========================================================================
+  European Mobility Society (EMoS) — Members Directory (members.html)
+  ---------------------------------------------------------------------------
+  Displays searchable, expandable person-first researcher cards populated from
+  assets/js/data.js (MEMBERS + INSTITUTIONS) and publications.json.
+  Supports `?member=<slug>` deep links (handled by assets/js/members.js).
+
+  Copyright (c) 2026 European Mobility Society (EMoS)
+  ===========================================================================
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Members — European Mobility Society (EMoS)</title>
+  <!-- SEO Meta, Canonical, Social Previews & Schema.org CollectionPage -->
+  <meta name="description" content="Directory of the 23 mobility science researchers and 14 partner research institutions affiliated with the European Mobility Society across Europe." />
+  <meta name="author" content="European Mobility Society (EMoS)" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#052b63" />
+
+  <link rel="canonical" href="https://mobilityscience.github.io/EMoS/members.html" />
+  <link rel="icon" type="image/png" href="assets/logos/emos-mark.png" />
+  <link rel="apple-touch-icon" href="assets/logos/emos-mark.png" />
+
+  <meta property="og:site_name" content="European Mobility Society" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:title" content="Members — European Mobility Society" />
+  <meta property="og:description" content="Explore profiles, biographies, research affiliations, and publications of EMoS members across Europe." />
+  <meta property="og:url" content="https://mobilityscience.github.io/EMoS/members.html" />
+  <meta property="og:image" content="https://mobilityscience.github.io/EMoS/assets/logos/emos-mark.png" />
+  <meta property="og:image:width" content="1043" />
+  <meta property="og:image:height" content="300" />
+  <meta property="og:image:alt" content="European Mobility Society logo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Members — European Mobility Society" />
+  <meta name="twitter:description" content="Explore profiles, biographies, research affiliations, and publications of EMoS members across Europe." />
+  <meta name="twitter:image" content="https://mobilityscience.github.io/EMoS/assets/logos/emos-mark.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "url": "https://mobilityscience.github.io/EMoS/members.html",
+    "name": "Members — European Mobility Society",
+    "description": "Directory of researchers and institutional affiliates of the European Mobility Society.",
+    "isPartOf": { "@id": "https://mobilityscience.github.io/EMoS/#website" }
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/shared.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="assets/js/members.js" defer></script>
+</head>
+
+<body class="font-sans text-ink-900 antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] bg-white px-3 py-2 rounded shadow">Skip to content</a>
+
+  <!-- Sticky Header & Primary Navigation (popover menu managed by shared.js) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="flex items-center gap-3 min-w-0">
+        <img src="assets/logos/emos-mark.png" alt="" class="h-8 w-auto shrink-0" width="52" height="32" />
+        <span class="society-name font-display font-semibold text-base sm:text-lg leading-tight truncate text-brand-700">European Mobility Society</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <button class="menu-button inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-ink-700 hover:bg-slate-50"
+                type="button" popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu">
+          <svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <span>Menu</span>
+        </button>
+
+        <ul id="site-menu" class="site-menu" popover="auto">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="members.html" aria-current="page" class="nav-link">Members</a></li>
+          <li><a href="publications.html" class="nav-link">Publications</a></li>
+          <li><a href="symposia.html" class="nav-link">Symposia</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page-enter">
+    <!-- Page Hero -->
+    <section class="border-b border-slate-200 bg-gradient-to-br from-brand-50 via-teal-50/40 to-white">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-16">
+        <p class="text-sm font-semibold uppercase tracking-wider text-teal-700">Members</p>
+        <h1 class="mt-3 font-display text-4xl font-bold text-brand-700">Our members</h1>
+        <p class="mt-3 text-lg text-ink-700 max-w-2xl">The people and institutions who make up the society. Click any card to view affiliations, biography, and recent Mobility Science publications.</p>
+        <p class="mt-2 text-xs text-ink-500 max-w-2xl">Publication counts reflect OpenAlex Mobility Science works indexed from 2021 onward (symposium era), not lifetime career totals.</p>
+      </div>
+    </section>
+
+    <!-- Search Bar & Alphabetical Members Grid (rendered by assets/js/members.js) -->
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+      <div class="mb-7 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <label class="relative block sm:w-96">
+          <span class="sr-only">Search members</span>
+          <svg aria-hidden="true" class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-ink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input id="member-search" type="search" placeholder="Search by name, institution, city or country"
+                 class="w-full rounded-xl border border-slate-300 bg-white py-2.5 pl-9 pr-3 text-sm placeholder:text-ink-500 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500/20" />
+        </label>
+        <p id="member-count" class="text-sm font-medium text-ink-500"></p>
+      </div>
+      <div id="members-grid" class="members-card-grid"></div>
+    </div>
+  </main>
+
+  <!-- Shared Sticky Footer (#year auto-populated by shared.js) -->
+  <footer class="border-t border-slate-200">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-ink-500">
+      <p>© <span id="year"></span> <span class="society-name">European Mobility Society</span></p>
+      <div class="flex items-center gap-5">
+        <a href="index.html" class="hover:text-brand-600">Map</a>
+        <a href="publications.html" class="hover:text-brand-600">Publications</a>
+        <a href="symposia.html" class="hover:text-brand-600">Symposia</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Venue &middot; European Mobility Symposium</title>
+  <meta name="description" content="Find the venue, travel information and accommodation for the European Mobility Symposium at the University of Exeter." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__brand" href="index.html">
+        <span class="nav__logo"><img src="logos/EMoSSimple.png" alt="" /></span>
+        <span>European Mobility Symposium</span>
+      </a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="program.html">Program</a></li>
+        <li><a href="participants.html">Participants</a></li>
+        <li><a href="venue.html" class="is-active">Venue</a></li>
+        <li><a href="past-editions.html">Past editions</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container">
+        <p class="eyebrow">Venue</p>
+        <h1>The Deck, University of Exeter</h1>
+        <p>23&ndash;24 September 2026. Sessions take place in the Deck, inside the Innovation Centre on the University of Exeter campus.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Getting here</h2>
+        <p>Sessions take place in the Deck, inside the Innovation Centre on the University of Exeter campus, within easy reach of Exeter city centre and with strong rail, road and air connections to the rest of the UK and Europe.</p>
+        <ul class="info-list">
+          <li><strong>Venue</strong> <span>The Deck, Innovation Centre, University of Exeter</span></li>
+          <li><strong>Address</strong> <span>Innovation Centre, Rennes Drive, Exeter, EX4 4RN, UK</span></li>
+          <li><strong>By rail</strong> <span>Exeter St Davids and Exeter Central stations, direct from London in ~2 hours</span></li>
+          <li><strong>By air</strong> <span>Exeter Airport; or Bristol / Heathrow with onward rail</span></li>
+          <li><strong>By road</strong> <span>Close to the M5; on-campus and city parking available</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--tint">
+      <div class="container">
+        <p class="eyebrow">Explore Exeter</p>
+        <h2>Map</h2>
+        <p class="lead">The conference venue plus a selection of hotels, places to eat and things to see around the city.</p>
+        <div id="venue-map" role="application" aria-label="Map of Exeter showing the conference venue, hotels, dining and things to do"></div>
+        <div class="map-legend">
+          <span><i class="sw-conf"></i>Conference venue</span>
+          <span><i class="sw-hotel"></i>Hotels</span>
+          <span><i class="sw-dining"></i>Dining</span>
+          <span><i class="sw-todo"></i>Things to do</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="place-group">
+          <h3><i class="sw-hotel"></i>Where to stay</h3>
+          <ul class="place-list">
+            <li><strong>Mercure Exeter Rougemont Hotel</strong><span>City centre, by Northernhay Gardens</span></li>
+            <li><strong>Hotel du Vin Exeter</strong><span>Cathedral quarter</span></li>
+            <li><strong>Southernhay House</strong><span>Georgian townhouse hotel</span></li>
+            <li><strong>Leonardo Hotel Exeter</strong><span>Central, near the Quay</span></li>
+            <li><strong>Premier Inn Exeter City Centre</strong><span>City centre</span></li>
+            <li><strong>The Queens Court Hotel</strong><span>Central, near the museum</span></li>
+          </ul>
+        </div>
+
+        <div class="place-group">
+          <h3><i class="sw-dining"></i>Where to eat</h3>
+          <ul class="place-list">
+            <li><strong>Herbies</strong><span>Relaxed plant-based kitchen</span></li>
+            <li><strong>Tabla</strong><span>South Indian cuisine</span></li>
+            <li><strong>The Flat</strong><span>Wood-fired pizza &amp; small plates</span></li>
+            <li><strong>On the Waterfront</strong><span>Riverside pizzeria &amp; bar</span></li>
+            <li><strong>Rusty Bike</strong><span>Modern British, local produce</span></li>
+            <li><strong>The Fat Pig</strong><span>Gastropub</span></li>
+            <li><strong>Comptoir Café &amp; Wine</strong><span>Café, brunch &amp; wine</span></li>
+          </ul>
+        </div>
+
+        <div class="place-group">
+          <h3><i class="sw-todo"></i>Things to do</h3>
+          <ul class="place-list">
+            <li><strong>Exeter Cathedral</strong><span>800-year-old Gothic cathedral</span></li>
+            <li><strong>Royal Albert Memorial Museum</strong><span>Museum &amp; art gallery</span></li>
+            <li><strong>Exeter's Underground Passages</strong><span>Medieval water tunnels</span></li>
+            <li><strong>Exeter Quay</strong><span>Historic waterside, cafés &amp; boats</span></li>
+            <li><strong>Northernhay Gardens</strong><span>England's oldest public garden</span></li>
+            <li><strong>Rougemont Castle &amp; Gardens</strong><span>Norman castle ruins</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container text-center">
+        <h2>Accessibility</h2>
+        <p class="lead" style="margin: 0 auto;">The campus is step-free across the main symposium spaces. If you have specific access requirements, please contact the organising team.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p class="footer-copy">&copy; 2026 European Mobility Symposium</p>
+      <a href="#" class="footer-email" onclick="return emailUs(event)" aria-label="Email the symposium team">
+        <span>Contact</span>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+          <path d="m3 7 9 6 9-6"></path>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    function emailUs(e) {
+      if (e) e.preventDefault();
+      var user = 'ems';
+      var domain = 'biocomplexlab.org';
+      window.location.href = 'mailto:' + user + String.fromCharCode(64) + domain;
+      return false;
+    }
+    (function () {
+      var toggle = document.querySelector('.nav__toggle');
+      var links = document.getElementById('nav-links');
+      if (toggle && links) {
+        toggle.addEventListener('click', function () {
+          var open = links.classList.toggle('is-open');
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+    })();
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script>
+    (function () {
+      if (typeof L === 'undefined' || !document.getElementById('venue-map')) return;
+
+      var glyph = {
+        hotel: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4v16"/><path d="M3 9h13a4 4 0 0 1 4 4v7"/><path d="M3 15h17"/></svg>',
+        dining: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v6a2 2 0 0 0 2 2 2 2 0 0 0 2-2V3"/><path d="M6 11v10"/><path d="M17 3c-1.7 0-3 2-3 5s1.3 4 3 4v9"/></svg>',
+        todo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3l2-3h8l2 3h3a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="3.5"/></svg>',
+        conf: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9 1-5 4.8 1.2 6.9L12 17.8 5.9 21l1.2-6.9-5-4.8 6.9-1z"/></svg>'
+      };
+      function icon(cat, big) {
+        var s = big ? 42 : 28;
+        return L.divIcon({
+          className: '',
+          html: '<div class="mk ' + (big ? 'mk--conf' : 'mk--' + cat) + '">' + glyph[cat] + '</div>',
+          iconSize: [s, s], iconAnchor: [s / 2, s / 2], popupAnchor: [0, -s / 2]
+        });
+      }
+
+      var conf = { n: 'The Deck, Innovation Centre', lat: 50.7377, lng: -3.5283 };
+      var hotels = [
+        { n: 'Mercure Exeter Rougemont Hotel', lat: 50.7256, lng: -3.5308 },
+        { n: 'Hotel du Vin Exeter', lat: 50.7189, lng: -3.5292 },
+        { n: 'Southernhay House', lat: 50.7206, lng: -3.5274 },
+        { n: 'Leonardo Hotel Exeter', lat: 50.7203, lng: -3.5268 },
+        { n: 'Premier Inn Exeter City Centre', lat: 50.7236, lng: -3.5300 },
+        { n: 'The Queens Court Hotel', lat: 50.7248, lng: -3.5358 }
+      ];
+      var dining = [
+        { n: 'Herbies', lat: 50.7233, lng: -3.5341 },
+        { n: 'Tabla', lat: 50.7267, lng: -3.5334 },
+        { n: 'The Flat', lat: 50.7216, lng: -3.5347 },
+        { n: 'On the Waterfront', lat: 50.7181, lng: -3.5330 },
+        { n: 'Rusty Bike', lat: 50.7285, lng: -3.5331 },
+        { n: 'The Fat Pig', lat: 50.7214, lng: -3.5286 },
+        { n: 'Comptoir Café & Wine', lat: 50.7246, lng: -3.5326 }
+      ];
+      var things = [
+        { n: 'Exeter Cathedral', lat: 50.7227, lng: -3.5296 },
+        { n: 'Royal Albert Memorial Museum', lat: 50.7250, lng: -3.5330 },
+        { n: "Exeter's Underground Passages", lat: 50.7236, lng: -3.5291 },
+        { n: 'Exeter Quay', lat: 50.7179, lng: -3.5323 },
+        { n: 'Northernhay Gardens', lat: 50.7257, lng: -3.5322 },
+        { n: 'Rougemont Castle & Gardens', lat: 50.7260, lng: -3.5316 }
+      ];
+
+      var map = L.map('venue-map', { scrollWheelZoom: false });
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      var markers = [];
+      function place(list, cat) {
+        list.forEach(function (p) {
+          markers.push(L.marker([p.lat, p.lng], { icon: icon(cat, false) })
+            .addTo(map).bindPopup('<strong>' + p.n + '</strong>'));
+        });
+      }
+      place(hotels, 'hotel');
+      place(dining, 'dining');
+      place(things, 'todo');
+      markers.push(L.marker([conf.lat, conf.lng], { icon: icon('conf', true), zIndexOffset: 1000 })
+        .addTo(map).bindPopup('<strong>' + conf.n + '</strong><br>Conference venue'));
+
+      map.fitBounds(L.featureGroup(markers).getBounds().pad(0.12));
+    })();
+  </script>
+</body>
+</html>
