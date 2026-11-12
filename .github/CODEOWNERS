@@ -1,0 +1,4 @@
+# Default code owners for the European Mobility Society (EMoS) repository.
+# Every Pull Request targeting `main` requires at least 1 approval from a Code Owner
+# other than the PR author (Riccardo, Luca, or Mattia).
+* @ric-dicle @jonpappalord @mattiamazzoli
