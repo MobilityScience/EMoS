@@ -141,7 +141,8 @@ python3 scripts/build_sitemap.py
 
 ## Maintainers
 
-- **Riccardo Di Clemente** — Architecture, interactive D3 network map, OpenAlex pipeline, symposia archive integration, and SEO
-- **MobilityScience / EMoS Editorial Team** — Content curation, member biographies, and society coordination
+- **Riccardo Di Clemente** (`@ric-dicle`) — Website architecture, interactive D3 network map, OpenAlex pipeline, symposia archive integration, and SEO
+- **Luca Pappalardo** (`@jonpappalord`) — Society coordination, content curation, member & publication review, and repository maintenance
+- **Mattia Mazzoli** (`@mattiamazzoli`) — Initial website foundation, society coordination, content curation, and repository maintenance
 
 Copyright © 2026 **European Mobility Society (EMoS)**.
