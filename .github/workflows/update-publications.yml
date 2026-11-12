@@ -1,0 +1,42 @@
+name: Update EMoS Publications (OpenAlex)
+
+on:
+  schedule:
+    # Run automatically on the 1st of every month at 06:00 UTC
+    - cron: '0 6 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-publications:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch and filter publications from OpenAlex
+        env:
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+        run: |
+          python3 scripts/build_publications.py --output publications.json
+          python3 scripts/build_sitemap.py --output sitemap.xml
+
+      - name: Open Pull Request if publications.json changed
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "data: refresh publications.json and sitemap.xml from OpenAlex"
+          branch: bot/update-publications
+          title: "Monthly OpenAlex publications update"
+          body: |
+            Automated refresh of `publications.json` via `scripts/build_publications.py` using verified member OpenAlex IDs and Mobility Science topic filters.
+          delete-branch: true

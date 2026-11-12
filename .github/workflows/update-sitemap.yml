@@ -1,0 +1,49 @@
+name: Update EMoS Sitemap
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '*.html'
+      - 'symposia/**/*.html'
+      - 'symposia.json'
+      - 'publications.json'
+      - 'assets/js/data.js'
+      - 'assets/js/home.js'
+      - 'assets/js/members.js'
+      - 'assets/js/publications.js'
+      - 'assets/js/symposia.js'
+      - 'scripts/build_sitemap.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate sitemap.xml
+        run: python3 scripts/build_sitemap.py --output sitemap.xml
+
+      - name: Open Pull Request if sitemap.xml changed
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore(seo): update sitemap.xml"
+          branch: bot/update-sitemap
+          title: "Automated sitemap.xml update"
+          body: |
+            Automated regeneration of `sitemap.xml` via `scripts/build_sitemap.py` after page or dataset updates.
+          delete-branch: true

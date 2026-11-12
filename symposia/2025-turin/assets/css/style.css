@@ -1,0 +1,269 @@
+/* Custom CSS for European Mobility Symposium */
+
+:root {
+    --primary-color: #209094;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --info-color: #0dcaf0;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+
+    /* Override Bootstrap's primary color variables */
+    --bs-primary: #209094;
+    --bs-primary-rgb: 32, 144, 148;
+}
+
+/* Override Bootstrap primary color classes */
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-primary:hover {
+    background-color: #1a787c !important;
+    border-color: #1a787c !important;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(32, 144, 148, 0.5) !important;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+    background-color: #1a787c !important;
+    border-color: #1a787c !important;
+}
+
+.navbar-dark .navbar-brand {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus {
+    color: rgba(255, 255, 255, 1) !important;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Enhanced navbar styling */
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Hero section styling */
+.display-4 {
+    line-height: 1.2;
+}
+
+/* Card hover effects */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+/* Enhanced button styling */
+.btn {
+    border-radius: 0.5rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon styling */
+.fa-3x {
+    font-size: 2.5em;
+}
+
+.fa-4x {
+    font-size: 3.5em;
+}
+
+/* Participant cards */
+.card-title {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Map container */
+.embed-responsive {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+
+.embed-responsive iframe {
+    border-radius: 0.5rem;
+}
+
+/* Footer styling */
+footer {
+    background: linear-gradient(135deg, var(--dark-color) 0%, #343a40 100%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+
+    .fa-3x {
+        font-size: 2em;
+    }
+
+    .fa-4x {
+        font-size: 2.5em;
+    }
+
+    .card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    footer {
+        display: none !important;
+    }
+
+    .card {
+        border: 1px solid #dee2e6 !important;
+        box-shadow: none !important;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+}
+
+/* Accessibility improvements */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* Loading animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Enhanced text styling */
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--info-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Custom list styling */
+.list-unstyled li {
+    padding: 0.25rem 0;
+}
+
+/* Section spacing */
+section {
+    position: relative;
+}
+
+section:before {
+    content: '';
+    display: block;
+    height: 70px;
+    margin-top: -70px;
+    visibility: hidden;
+}
+
+/* Custom scrollbar (webkit browsers) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #209094;
+}
+
+#sponsors .sponsor-logo {
+  max-height: 150px;      /* pick the height you want */
+  width: auto;            /* preserve aspect ratio */
+  object-fit: contain;    /* prevent cropping or distortion */
+  display: inline-block;  /* ensure the max-height applies correctly */
+}
+
+/* (Optional) Vertically center smaller logos within their grid cell */
+#sponsors .col.text-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

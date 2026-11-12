@@ -1,97 +1,4065 @@
 {
-  "updated": "2026-10-23",
-  "source": "OpenAlex — each member's 5 most recent published papers (no preprints)",
+  "_about": "European Mobility Society (EMoS) — Auto-generated OpenAlex publications catalog (do not edit manually; run scripts/build_publications.py).",
+  "_copyright": "Copyright (c) 2026 European Mobility Society (EMoS)",
+  "_schema": {
+    "updated": "ISO YYYY-MM-DD date of last OpenAlex refresh",
+    "source": "Human-readable provenance summary shown in UI badges",
+    "topics": "string[] — Mobility Science topic pills ordered by frequency",
+    "publications": [
+      {
+        "id": "OpenAlex work ID (W...)",
+        "title": "Publication title",
+        "authors": "string[] — full display names of all co-authors",
+        "members": "string[] — matched EMoS member slugs from assets/js/data.js",
+        "venue": "Journal or book venue name",
+        "year": "int — publication year (>= 2021)",
+        "url": "Canonical DOI or landing page URL",
+        "cites": "int — OpenAlex cited_by_count",
+        "topics": "string[] — matched EMoS Mobility Science topic categories"
+      }
+    ]
+  },
+  "updated": "2026-11-12",
+  "source": "OpenAlex — 2021–2026 peer-reviewed works filtered by Mobility Science topics",
+  "topics": [
+    "Urban & Cities",
+    "Human Mobility",
+    "Transport & Transit",
+    "Segregation & Equity",
+    "Epidemics & Resilience",
+    "Urban AI & Sensing"
+  ],
   "publications": [
-    {"id": "W7160856100", "title": "Multilayer networks in finance: a systematic review", "authors": ["Joe Scattergood", "Thomas P. Oléron-Evans", "Elsa Arcaute"], "venue": "Applied Network Science", "year": 2026, "url": "https://doi.org/10.1007/s41109-026-00816-0", "cites": 0},
-    {"id": "W4417269416", "title": "US cities are defined by rings and pockets with limited socioeconomic mixing", "authors": ["Andrew Renninger", "Neave O’Clery", "Elsa Arcaute"], "venue": "Nature Cities", "year": 2025, "url": "https://doi.org/10.1038/s44284-025-00350-7", "cites": 5},
-    {"id": "W4386557491", "title": "Active travel modelling: a methodological approach to networks for walking and cycling commuting analysis", "authors": ["Ivann Schlosser", "Valentina Marín Maureira", "Richard Milton", "Elsa Arcaute", "Michael Batty"], "venue": "Journal of Physics: Complexity", "year": 2025, "url": "https://doi.org/10.1088/2632-072x/add257", "cites": 5},
-    {"id": "W4404335972", "title": "Co-creating the future: participatory cities and digital governance", "authors": ["Dirk Helbing", "Sachit Mahajan", "Dino Carpentras", "Mónica Menéndez", "Evangelos Pournaras", "Stefan Thurner", "Trivik Verma", "Elsa Arcaute", "Michael Batty", "Luís M. A. Bettencourt"], "venue": "Philosophical Transactions of the Royal Society A", "year": 2024, "url": "https://doi.org/10.1098/rsta.2024.0113", "cites": 18},
-    {"id": "W4394690126", "title": "Urban segregation on multilayered transport networks: a random walk approach", "authors": ["Mateo Neira", "Carlos Molinero", "Stephen Marshall", "Elsa Arcaute"], "venue": "Scientific Reports", "year": 2024, "url": "https://doi.org/10.1038/s41598-024-58932-9", "cites": 12},
-    {"id": "W4412564967", "title": "A data-driven supervised machine learning approach to estimating global ambient air pollution concentrations with associated prediction intervals", "authors": ["Liam J Berrisford", "Hugo Barbosa", "Ronaldo Parente de Menezes"], "venue": "Royal Society Open Science", "year": 2025, "url": "https://doi.org/10.1098/rsos.241288", "cites": 3},
-    {"id": "W4402176429", "title": "Dynamic predictability and activity-location contexts in human mobility", "authors": ["Bibandhan Poudyal", "Diogo Ferreira Pacheco", "Marcos Oliveira", "Zexun Chen", "Hugo Barbosa", "Ronaldo Parente de Menezes", "Gourab Ghoshal"], "venue": "Royal Society Open Science", "year": 2024, "url": "https://doi.org/10.1098/rsos.240115", "cites": 5},
-    {"id": "W4400732473", "title": "The role of transport systems in housing insecurity: a mobility-based analysis", "authors": ["Nandini Iyer", "Ronaldo Parente de Menezes", "Hugo Barbosa"], "venue": "EPJ Data Science", "year": 2024, "url": "https://doi.org/10.1140/epjds/s13688-024-00489-8", "cites": 2},
-    {"id": "W4389079676", "title": "Mobility and transit segregation in urban spaces", "authors": ["Nandini Iyer", "Ronaldo Parente de Menezes", "Hugo Barbosa"], "venue": "Environment and Planning B: Urban Analytics and City Science", "year": 2023, "url": "https://doi.org/10.1177/23998083231219294", "cites": 18},
-    {"id": "W7207538874", "title": "Multimodal large language models predict urban safety perception but encode non-neutral demographic priors", "authors": ["Ciro Beneduce", "Bruno Lepri", "Massimiliano Luca"], "venue": "EPJ Data Science", "year": 2026, "url": "https://doi.org/10.1140/epjds/s13688-026-00695-6", "cites": 0},
-    {"id": "W4417220084", "title": "The LLM Wears Prada: Analyzing Gender Bias and Stereotypes through Online Shopping Data", "authors": ["Massimiliano Luca", "Ciro Beneduce", "Bruno Lepri", "Jacopo Staiano"], "venue": "ACM Transactions on Intelligent Systems and Technology", "year": 2026, "url": "https://doi.org/10.1145/3839238", "cites": 0},
-    {"id": "W4409991400", "title": "Large Language Models are Zero-Shot Next Location Predictors", "authors": ["Ciro Beneduce", "Bruno Lepri", "Massimiliano Luca"], "venue": "IEEE Access", "year": 2025, "url": "https://doi.org/10.1109/access.2025.3565297", "cites": 23},
-    {"id": "W7223177007", "title": "How transport coverage shapes access to opportunities: a national-scale isochrone analysis of bus network accessibility in England", "authors": ["S Townley", "Federico Botta"], "venue": "Frontiers in Big Data", "year": 2026, "url": "https://doi.org/10.3389/fdata.2026.1942887", "cites": 0},
-    {"id": "W7203914070", "title": "Inertial synchronization of networked oscillators in arbitrary dimensions", "authors": ["Xiangfeng Dai", "Fanshu Fang", "Zerong Guo", "Haoran Liu", "Federico Botta", "Charo I. del Genio", "Stefano Boccaletti", "Simona Olmi"], "venue": "Physical Review E", "year": 2026, "url": "https://doi.org/10.1103/fsdp-667s", "cites": 0},
-    {"id": "W7167534861", "title": "Linking drinking water quality to customer complaints: a data-driven study in the Barcelona metropolitan area", "authors": ["Pol Vidal Lamolla", "Andrea Páez-Izquierdo", "Félix Carrasco", "Miquel Paraira", "Marta Ganzer", "Sergio Montes", "Federico Botta", "Diogo Ferreira Pacheco", "Raziyeh Farmani", "Joana Tobella", "Eduardo Martínez", "Narciso Berberana", "Manel Poch", "María Molinos‐Senante"], "venue": "Applied Water Science", "year": 2026, "url": "https://doi.org/10.1007/s13201-026-02882-2", "cites": 1},
-    {"id": "W4411363204", "title": "The geography of inequalities in access to healthcare across England: the role of bus travel time variability", "authors": ["Zihao Chen", "Federico Botta"], "venue": "Journal of Physics: Complexity", "year": 2025, "url": "https://doi.org/10.1088/2632-072x/ade587", "cites": 4},
-    {"id": "W4401852654", "title": "Rail journey cost calculator for Great Britain", "authors": ["Federico Botta"], "venue": "Environment and Planning B: Urban Analytics and City Science", "year": 2024, "url": "https://doi.org/10.1177/23998083241276569", "cites": 0},
-    {"id": "W7171859434", "title": "The impact of a new transit infrastructure on the economic fabric of Rome", "authors": ["Francesco Marzolla", "Bruno Campanelli", "Hygor P. M. Melo", "Matteo Bruno", "Vittorio Loreto"], "venue": "Discover Cities", "year": 2026, "url": "https://doi.org/10.1007/s44327-026-00330-z", "cites": 0},
-    {"id": "W7130649582", "title": "The effect of consumption incentives on museum attendance: a case study on Milan through human mobility data", "authors": ["Romain Lerouge", "Lorenzo Biferale", "Matteo Bruno"], "venue": "Journal of Cultural Economics", "year": 2026, "url": "https://doi.org/10.1007/s10824-026-09581-5", "cites": 0},
-    {"id": "W4414804397", "title": "Proximity-based cities emit less mobility-driven CO2", "authors": ["Francesco Marzolla", "Hygor P. M. Melo", "Matteo Bruno", "Vittorio Loreto"], "venue": "npj Sustainable Mobility and Transport", "year": 2026, "url": "https://doi.org/10.1038/s44333-025-00074-0", "cites": 3},
-    {"id": "W4415089152", "title": "The dimensions of accessibility: proximity, opportunities, values", "authors": ["Matteo Bruno", "Bruno Campanelli", "Hygor P. M. Melo", "Lavinia Rossi Mori", "Vittorio Loreto"], "venue": "EPJ Data Science", "year": 2026, "url": "https://doi.org/10.1140/epjds/s13688-026-00623-8", "cites": 3},
-    {"id": "W4413373751", "title": "Road-Width-Aware network optimisation for bike lane planning", "authors": ["Riccardo Basilone", "Matteo Bruno", "Hygor P. M. Melo", "Michele Avalle", "Vittorio Loreto"], "venue": "Journal of Physics: Complexity", "year": 2025, "url": "https://doi.org/10.1088/2632-072x/adf683", "cites": 0},
-    {"id": "W7203688587", "title": "Making hidden biases visible in population location data from mobile phones", "authors": ["Carmen Cabrera-Arnau", "Francisco Rowe"], "venue": "Royal Society Open Science", "year": 2026, "url": "https://doi.org/10.1098/rsos.251703", "cites": 1},
-    {"id": "W7154266808", "title": "Extreme heat reduces and reshapes urban mobility", "authors": ["Andrew Renninger", "Carmen Cabrera-Arnau"], "venue": "PNAS Nexus", "year": 2026, "url": "https://doi.org/10.1093/pnasnexus/pgag078", "cites": 8},
-    {"id": "W4417410978", "title": "Widely used but barely trusted: understanding student perceptions on the use of generative AI in higher education", "authors": ["Carmen Cabrera-Arnau", "Ruth Neville"], "venue": "Perspectives: Policy and Practice in Higher Education", "year": 2025, "url": "https://doi.org/10.1080/13603108.2025.2595453", "cites": 3},
-    {"id": "W4413029442", "title": "Beyond the Immediate Impacts of COVID-19 on Internal Population Movements in Mexico: Facebook Data Reveal Urban Decay and Slow Recovery—A Research Note", "authors": ["Miguel González‐Leonardo", "Carmen Cabrera-Arnau", "Ruth Neville", "Andrea Nasuto", "Francisco Rowe"], "venue": "Demography", "year": 2025, "url": "https://doi.org/10.1215/00703370-12183205", "cites": 1},
-    {"id": "W4409381015", "title": "Spatial network analysis", "authors": ["Carmen Cabrera-Arnau"], "venue": "REGION", "year": 2025, "url": "https://doi.org/10.18335/region.v12i1.562", "cites": 0},
-    {"id": "W7134268110", "title": "On small area composite indicators and classifications for urban planning: theory-driven and data-driven approaches", "authors": ["Alessia Calafiore"], "venue": "Contesti. Città, territori, progetti", "year": 2026, "url": "https://doi.org/10.36253/contest-15767", "cites": 1},
-    {"id": "W4411550683", "title": "Does noise pollution influence modal choices? A random forest application", "authors": ["Alessia Calafiore", "Ki Tong"], "venue": "PLoS ONE", "year": 2025, "url": "https://doi.org/10.1371/journal.pone.0325249", "cites": 1},
-    {"id": "W4395685938", "title": "Mapping Great Britain's semantic footprints through a large language model analysis of Reddit comments", "authors": ["Cillian Berragan", "Alex David Singleton", "Alessia Calafiore", "Jeremy G. Morley"], "venue": "Computers, Environment and Urban Systems", "year": 2024, "url": "https://doi.org/10.1016/j.compenvurbsys.2024.102121", "cites": 11},
-    {"id": "W4390668743", "title": "Mapping cognitive place associations within the United Kingdom through online discussion on Reddit", "authors": ["Cillian Berragan", "Alex David Singleton", "Alessia Calafiore", "Jeremy G. Morley"], "venue": "Transactions of the Institute of British Geographers", "year": 2024, "url": "https://doi.org/10.1111/tran.12669", "cites": 4},
-    {"id": "W4388455128", "title": "Inequalities in experiencing urban functions. An exploration of human digital (geo-)footprints", "authors": ["Alessia Calafiore", "Krasen Samardzhiev", "Francisco Rowe", "Martin Fleischmann", "Daniel Arribas‐Bel"], "venue": "Environment and Planning B: Urban Analytics and City Science", "year": 2023, "url": "https://doi.org/10.1177/23998083231208507", "cites": 3},
-    {"id": "W7164591110", "title": "Polarization and echo chambers in Reddit’s political discourse", "authors": ["Daniele Cirulli", "Antonio Desiderio", "Giulio Cimini", "Fabio Saracco"], "venue": "EPJ Data Science", "year": 2026, "url": "https://doi.org/10.1140/epjds/s13688-026-00707-5", "cites": 1},
-    {"id": "W4415926522", "title": "Mapping regional disparities in discounted grocery products", "authors": ["Antonio Desiderio", "Alessia Galdeman", "Franziska Bäuerlein", "Sune Lehmann"], "venue": "npj Science of Food", "year": 2026, "url": "https://doi.org/10.1038/s41538-026-00764-0", "cites": 0},
-    {"id": "W4407900921", "title": "Highly engaging events reveal semantic and temporal compression in online community discourse", "authors": ["Antonio Desiderio", "Anna Mancini", "Giulio Cimini", "Riccardo Di Clemente"], "venue": "PNAS Nexus", "year": 2025, "url": "https://doi.org/10.1093/pnasnexus/pgaf056", "cites": 2},
-    {"id": "W4407110426", "title": "The dynamics of the Reddit collective action leading to the GameStop short squeeze", "authors": ["Antonio Desiderio", "Luca Maria Aiello", "Giulio Cimini", "Laura Alessandretti"], "venue": "npj Complexity", "year": 2025, "url": "https://doi.org/10.1038/s44260-025-00029-z", "cites": 8},
-    {"id": "W4401883616", "title": "Spontaneous opinion swings in the voter model with latency", "authors": ["Giovanni Palermo", "Anna Mancini", "Antonio Desiderio", "Riccardo Di Clemente", "Giulio Cimini"], "venue": "Physical Review E", "year": 2024, "url": "https://doi.org/10.1103/physreve.110.024313", "cites": 7},
-    {"id": "W4415183356", "title": "Evolution and determinants of firm-level systemic risk in local production networks", "authors": ["Anna Mancini", "Balázs Lengyel", "Riccardo Di Clemente", "Giulio Cimini"], "venue": "PNAS Nexus", "year": 2026, "url": "https://doi.org/10.1093/pnasnexus/pgag233", "cites": 1},
-    {"id": "W7165854528", "title": "Revitalizing marginal areas: A foundational economy approach", "authors": ["Giuseppe Varavallo", "Filippo Barbera", "Riccardo Di Clemente"], "venue": "Socio-Economic Planning Sciences", "year": 2026, "url": "https://doi.org/10.1016/j.seps.2026.102549", "cites": 1},
-    {"id": "W7161642535", "title": "Urban vibrancy: An analogy of biodiversity, retail diversity, and activity-based urban diversity measures", "authors": ["Edward Chung Yim Yiu", "Diogo Ferreira Pacheco", "Riccardo Di Clemente", "Federico Botta"], "venue": "PNAS Nexus", "year": 2026, "url": "https://doi.org/10.1093/pnasnexus/pgag130", "cites": 0},
-    {"id": "W4414012485", "title": "Time-space dynamics of income segregation in the city of Milan", "authors": ["Lavinia Rossi Mori", "Vittorio Loreto", "Riccardo Di Clemente"], "venue": "PNAS Nexus", "year": 2025, "url": "https://doi.org/10.1093/pnasnexus/pgaf283", "cites": 3},
-    {"id": "W4410291937", "title": "Garbage in garbage out? Impacts of data quality on criminal network intervention", "authors": ["Wang Ngai Yeung", "Riccardo Di Clemente", "Renaud Lambiotte"], "venue": "EPJ Data Science", "year": 2025, "url": "https://doi.org/10.1140/epjds/s13688-025-00553-x", "cites": 4},
-    {"id": "W4414946630", "title": "Multiscale patterns of migration flows in Austria: regionalization, administrative barriers, and urban-rural divides", "authors": ["Thomas Robiglio", "Martina Contisciani", "Márton Karsai", "Tiago P. Peixoto"], "venue": "Scientific Reports", "year": 2026, "url": "https://doi.org/10.1038/s41598-026-65102-6", "cites": 0},
-    {"id": "W4404344206", "title": "One rule does not fit all: Deviations from universality in human mobility modeling", "authors": ["Ludovico Napoli", "Márton Karsai", "Esteban Moro"], "venue": "PNAS Nexus", "year": 2026, "url": "https://doi.org/10.1093/pnasnexus/pgag267", "cites": 1},
-    {"id": "W7164495143", "title": "Higher-order adaptive behaviors outperform pairwise strategies in mitigating contagion dynamics", "authors": ["Marco Mancastroppa", "Márton Karsai", "Alain Barrat"], "venue": "Physical Review E", "year": 2026, "url": "https://doi.org/10.1103/7zyh-9j1b", "cites": 3},
-    {"id": "W7161014035", "title": "Adaptive behaviors neutralize bistable explosive transitions in higher-order contagion", "authors": ["Marco Mancastroppa", "Márton Karsai", "Alain Barrat"], "venue": "APS Open Science", "year": 2026, "url": "https://doi.org/10.1103/1sgn-k3fk", "cites": 2},
-    {"id": "W7155361838", "title": "Opinion dynamics: Statistical physics and beyond", "authors": ["Michele Starnini", "Fabian Baumann", "Tobias Galla", "David Garcia", "Gerardo Íñiguez", "Márton Karsai", "Jan Lorenz", "Katarzyna Sznajd-Weron"], "venue": "Reviews of Modern Physics", "year": 2026, "url": "https://doi.org/10.1103/j1zg-ddqv", "cites": 2},
-    {"id": "W7202259406", "title": "Social network benefits for cluster firms: A co-worker mobility approach", "authors": ["Balázs Lengyel", "László Lőrincz", "Guilherme Kenji Chihaya", "Rikard H. Eriksson"], "venue": "Environment and Planning A: Economy and Space", "year": 2026, "url": "https://doi.org/10.1177/0308518x261470975", "cites": 0},
-    {"id": "W4413010451", "title": "Quantifying barriers of urban mobility", "authors": ["Gergő Pintér", "Balázs Lengyel"], "venue": "Cities", "year": 2025, "url": "https://doi.org/10.1016/j.cities.2025.106322", "cites": 6},
-    {"id": "W4405103176", "title": "Antidepressant use in spatial social networks", "authors": ["Balázs Lengyel", "Gergő Tóth", "Nicholas A. Christakis", "Anikó Bíró"], "venue": "Science Advances", "year": 2024, "url": "https://doi.org/10.1126/sciadv.adr0302", "cites": 1},
-    {"id": "W4390790802", "title": "Audience selection for maximizing social influence", "authors": ["Balázs R. Sziklai", "Balázs Lengyel"], "venue": "Network Science", "year": 2024, "url": "https://doi.org/10.1017/nws.2023.23", "cites": 2},
-    {"id": "W4409725225", "title": "Mixing individual and collective behaviors to predict out-of-routine mobility", "authors": ["Sebastiano Bontorin", "Simone Centellegher", "Riccardo Gallotti", "Luca Pappalardo", "Bruno Lepri", "Massimiliano Luca"], "venue": "Proceedings of the National Academy of Sciences", "year": 2025, "url": "https://doi.org/10.1073/pnas.2414848122", "cites": 8},
-    {"id": "W4408657316", "title": "Unfolding cities from rooftops", "authors": ["Massimiliano Luca"], "venue": "Nature Cities", "year": 2025, "url": "https://doi.org/10.1038/s44284-025-00211-3", "cites": 0},
-    {"id": "W7203932149", "title": "Beyond dynamic scaling: Rare events break universality", "authors": ["Riccardo Gallotti", "Marc Barthélemy"], "venue": "Physical Review E", "year": 2026, "url": "https://doi.org/10.1103/49f5-xpvg", "cites": 0},
-    {"id": "W7134284892", "title": "A data-driven approach to supporting fact-checking and mitigating misinformation and disinformation through domain quality evaluation", "authors": ["Kaveh Kadkhoda Mohammadmosaferi", "Anna Bertani", "Thomas Louf", "Riccardo Gallotti"], "venue": "EPJ Data Science", "year": 2026, "url": "https://doi.org/10.1140/epjds/s13688-026-00628-3", "cites": 0},
-    {"id": "W7125815006", "title": "Scale-free points-of-interest distribution in a city emerging from homogeneous Poissonian-point processes", "authors": ["Eleonora Andreotti", "Ulysse Marquis", "Maurizio Napolitano", "Riccardo Gallotti"], "venue": "Physical Review E", "year": 2026, "url": "https://doi.org/10.1103/c8jr-3twz", "cites": 0},
-    {"id": "W4416674117", "title": "The geography of interest in international conversations on Twitter", "authors": ["Veronica Orsanigo", "Sebastiano Bontorin", "Thomas Louf", "Elisa Leonardelli", "Alessio Palmero Aprosio", "Pier Luigi Sacco", "Sara Tonelli", "Riccardo Gallotti"], "venue": "EPJ Data Science", "year": 2025, "url": "https://doi.org/10.1140/epjds/s13688-025-00597-z", "cites": 0},
-    {"id": "W4414982775", "title": "Predicting human cooperation: sensitizing drift-diffusion model to interaction and external stimuli", "authors": ["Lucila G. Alvarez-Zuzek", "Laura Ferrarotti", "Bruno Lepri", "Riccardo Gallotti"], "venue": "Journal of The Royal Society Interface", "year": 2025, "url": "https://doi.org/10.1098/rsif.2025.0168", "cites": 1},
-    {"id": "W7204605835", "title": "From environmental sensing to societal listening", "authors": ["Milena Di Canio", "F. Gregoretti", "H. Kitano", "Vittorio Loreto"], "venue": "Nature Sensors", "year": 2026, "url": "https://doi.org/10.1038/s44460-026-00135-y", "cites": 0},
-    {"id": "W4403163076", "title": "Compact 15-minute cities exhibit lower carbon intensity in urban transport", "authors": ["Francesco Marzolla", "Matteo Bruno", "Hygor P. M. Melo", "Vittorio Loreto"], "venue": "Cities", "year": 2026, "url": "https://doi.org/10.1016/j.cities.2026.107202", "cites": 1},
-    {"id": "W7213956214", "title": "Cultural proximity reveals a local premium in collective memory", "authors": ["Mariana Gomes da Motta Macedo", "Melanie Oyarzún", "Cristián Candia", "César A. Hidalgo"], "venue": "PNAS Nexus", "year": 2026, "url": "https://doi.org/10.1093/pnasnexus/pgag308", "cites": 0},
-    {"id": "W4406139438", "title": "The parenthood effect in urban mobility", "authors": ["Mariana Gomes da Motta Macedo", "Ronaldo Parente de Menezes", "Alessio Cardillo"], "venue": "npj Complexity", "year": 2026, "url": "https://doi.org/10.1038/s44260-026-00089-9", "cites": 0},
-    {"id": "W7118341742", "title": "Gender biases in online communication: A case study of soccer", "authors": ["Mariana Gomes da Motta Macedo", "Akrati Saxena"], "venue": "Applied Intelligence", "year": 2026, "url": "https://doi.org/10.1007/s10489-025-06988-z", "cites": 1},
-    {"id": "W4409818344", "title": "A Simplified Fish School Search Algorithm for Continuous Single-Objective Optimization", "authors": ["Elliackin M. N. Figueiredo", "Clodomir Santana", "Hugo Valadares Siqueira", "Mariana Gomes da Motta Macedo", "Attílio Converti", "Anu A. Gokhale", "Carmelo J. A. Bastos-Filho"], "venue": "Computation", "year": 2025, "url": "https://doi.org/10.3390/computation13050102", "cites": 0},
-    {"id": "W4388728646", "title": "Understanding political divisiveness using online participation data from the 2022 French and Brazilian presidential elections", "authors": ["Carlos Navarrete", "Mariana Gomes da Motta Macedo", "Rachael Colley", "Jingling Zhang", "Nicole Ferrada", "Maria Eduarda Mello", "Rodrigo Cesar Lira", "Carmelo J. A. Bastos-Filho", "Umberto Grandi", "Jérôme Lang", "César A. Hidalgo"], "venue": "Nature Human Behaviour", "year": 2023, "url": "https://doi.org/10.1038/s41562-023-01755-x", "cites": 12},
-    {"id": "W4396938872", "title": "Exploring the spatial segmentation of housing markets from online listings", "authors": ["David Abella", "Johann H. Martínez", "Mattia Mazzoli", "Julien Migozzi", "Thibault Le Corre", "Eduard Alonso‐Paulí", "Rafel Crespí‐Cladera", "Thomas Louail", "José J. Ramasco"], "venue": "EPJ Data Science", "year": 2025, "url": "https://doi.org/10.1140/epjds/s13688-025-00551-z", "cites": 3},
-    {"id": "W4407848341", "title": "Resilience of mobility network to dynamic population response across COVID-19 interventions: Evidences from Chile", "authors": ["Pasquale Casaburi", "Lorenzo Dall’Amico", "Nicolò Gozzi", "Kyriaki Kalimeri", "Anna Sapienza", "Rossano Schifanella", "Tiziana Di Matteo", "Leo Ferres", "Mattia Mazzoli"], "venue": "PLoS Computational Biology", "year": 2025, "url": "https://doi.org/10.1371/journal.pcbi.1012802", "cites": 3},
-    {"id": "W4399600803", "title": "A generalized vector-field framework for mobility", "authors": ["Erjian Liu", "Mattia Mazzoli", "Xiao-Yong Yan", "José J. Ramasco"], "venue": "Communications Physics", "year": 2024, "url": "https://doi.org/10.1038/s42005-024-01672-z", "cites": 9},
-    {"id": "W4328048007", "title": "Spatial immunization to abate disease spreading in transportation hubs", "authors": ["Mattia Mazzoli", "Riccardo Gallotti", "Filippo Privitera", "Pere Colet", "José J. Ramasco"], "venue": "Nature Communications", "year": 2023, "url": "https://doi.org/10.1038/s41467-023-36985-0", "cites": 11},
-    {"id": "W7160418838", "title": "Network analysis of cultural funding in Brazil: uncovering regional differences and signatures", "authors": ["Diogo Ferreira Pacheco", "Gustavo Moraes", "Diego Pinheiro", "Josemar Faustino", "Marcos Oliveira", "Henilton Menezes", "Ronaldo Menezes"], "venue": "Applied Network Science", "year": 2026, "url": "https://doi.org/10.1007/s41109-026-00799-y", "cites": 0},
-    {"id": "W7141246683", "title": "Validating urban scaling laws through mobile phone data: analysis of Brazil’s largest cities", "authors": ["Ricardo de Souza Alencar", "Fabiano L. Ribeiro", "Horacio Samaniego", "Ronaldo Parente de Menezes", "Alexandre G. Evsukoff"], "venue": "Computational Urban Science", "year": 2026, "url": "https://doi.org/10.1007/s43762-026-00252-x", "cites": 1},
-    {"id": "W4415130544", "title": "Vector fields as a framework for modelling the mobility of commodities", "authors": ["Sima Farokhnejad", "Angélica Sousa da Mata", "Mariana Macedo", "Ronaldo Parente de Menezes"], "venue": "PLoS ONE", "year": 2026, "url": "https://doi.org/10.1371/journal.pone.0340109", "cites": 0},
-    {"id": "W7133310367", "title": "Natural language processing of biomedical text to map and prioritize protein–disease associations in HFpEF", "authors": ["Clodomir Santana", "Chitra Mukherjee", "Arnib Quazi", "Ronaldo Menezes", "Vladimir Filkov", "Dibakar Sigdel", "Howard Choi", "Imo Ebong", "Padmini Sirish", "Nicholas R. Anderson", "Xuan Wang", "Heng Ji", "JiaWei Han", "Baback Roshanravan", "Leighton T. Izu", "Thomas Wayne Smith", "Nipavan Chiamvimonvat", "Colleen E. Clancy", "Martín Cadeiras", "David A. Liem"], "venue": "Computers in Biology and Medicine", "year": 2026, "url": "https://doi.org/10.1016/j.compbiomed.2026.111599", "cites": 1},
-    {"id": "W4398223330", "title": "Identifying and characterizing superspreaders of low-credibility content on Twitter", "authors": ["Matthew DeVerna", "Rachith Aiyappa", "Diogo Ferreira Pacheco", "John Bryden", "Filippo Menczer"], "venue": "PLoS ONE", "year": 2024, "url": "https://doi.org/10.1371/journal.pone.0302201", "cites": 57},
-    {"id": "W7212749103", "title": "Are we going towards Human-AI Coevolution? A multi-leveled framework to study the impact of human-AI interaction on societal behaviors", "authors": ["Chiara Marcoccia", "Luca Pappalardo", "Dino Pedreschi"], "venue": "The Paris Journal on AI & Digital Ethics", "year": 2026, "url": "https://doi.org/10.65701/1pkk7ohfda", "cites": 0},
-    {"id": "W7168046370", "title": "The traffic concentration effects of urban navigation services", "authors": ["Giuliano Cornacchia", "Mirco Nanni", "Dino Pedreschi", "Luca Pappalardo"], "venue": "Nature Communications", "year": 2026, "url": "https://doi.org/10.1038/s41467-026-75254-8", "cites": 1},
-    {"id": "W4403578020", "title": "Learning by Surprise: Adaptive Mitigation of Model Collapse in Large Language Models", "authors": ["Daniele Gambetta", "Gizem Gezici", "Fosca Giannotti", "Dino Pedreschi", "Alistair Knott", "Luca Pappalardo"], "venue": "ACM Transactions on Intelligent Systems and Technology", "year": 2026, "url": "https://doi.org/10.1145/3828663", "cites": 1},
-    {"id": "W7160040184", "title": "From sensor counts to OD flows: The N-Step model for urban pedestrian mobility", "authors": ["Özge Öztürk", "Luca Pappalardo", "Fatih Gülgen", "Mirco Nanni"], "venue": "Journal of Transport Geography", "year": 2026, "url": "https://doi.org/10.1016/j.jtrangeo.2026.104694", "cites": 1},
-    {"id": "W7119529442", "title": "The urban impact of AI: modelling feedback loops in location-based recommender systems", "authors": ["Giovanni Mauro", "Marco Minici", "Luca Pappalardo"], "venue": "Machine Learning", "year": 2026, "url": "https://doi.org/10.1007/s10994-025-06904-z", "cites": 4},
-    {"id": "W4404308503", "title": "Dynamic models of gentrification", "authors": ["Giovanni Mauro", "Nicola Pedreschi", "Renaud Lambiotte", "Luca Pappalardo"], "venue": "Advances in Complex Systems", "year": 2025, "url": "https://doi.org/10.1142/s0219525925400065", "cites": 3},
-    {"id": "W4385283456", "title": "Mobility constraints in segregation models", "authors": ["Daniele Gambetta", "Giovanni Mauro", "Luca Pappalardo"], "venue": "Scientific Reports", "year": 2023, "url": "https://doi.org/10.1038/s41598-023-38519-6", "cites": 10},
-    {"id": "W7135213051", "title": "Air Quality Mapping Using PM2.5 Sensors on Urban Buses", "authors": ["Inés González-de-Castro", "Mar Viana", "José J. Ramasco", "Aina Main-Nadal", "Teresa Moreno"], "venue": "IEEE Internet of Things Journal", "year": 2026, "url": "https://doi.org/10.1109/jiot.2026.3672932", "cites": 1},
-    {"id": "W7125819279", "title": "The structure of global delay propagation in air transport", "authors": ["Josu Blanco", "Antònia Tugores", "José J. Ramasco", "Massimiliano Zanin"], "venue": "Transportation Research Part E: Logistics and Transportation Review", "year": 2026, "url": "https://doi.org/10.1016/j.tre.2026.104688", "cites": 2},
-    {"id": "W4412175384", "title": "When dialects collide: how socioeconomic mixing affects language use", "authors": ["Thomas Louf", "José J. Ramasco", "David Sánchez", "Márton Karsai"], "venue": "EPJ Data Science", "year": 2025, "url": "https://doi.org/10.1140/epjds/s13688-025-00563-9", "cites": 5},
-    {"id": "W4406793782", "title": "Critical mobility in policy making for epidemic containment", "authors": ["Jesús A. Moreno López", "David Mateo", "Alberto Hernando", "Sandro Meloni", "José J. Ramasco"], "venue": "Scientific Reports", "year": 2025, "url": "https://doi.org/10.1038/s41598-025-86759-5", "cites": 5},
-    {"id": "W4385302684", "title": "COVID-19 is linked to changes in the time–space dimension of human mobility", "authors": ["Clodomir Santana", "Federico Botta", "Hugo Barbosa", "Filippo Privitera", "Ronaldo Parente de Menezes", "Riccardo Di Clemente"], "venue": "Nature Human Behaviour", "year": 2023, "url": "https://doi.org/10.1038/s41562-023-01660-3", "cites": 70},
-    {"id": "W4395802114", "title": "Social structural factors outperform economic assumptions in explaining global municipal waste generation", "authors": ["Lisandra Rocha-Meneses", "Kamil Smolak", "Habiba Khalid", "Mario Luna-delRisco", "Abrar Inayat", "Farooq Sher"], "venue": "Communications Earth & Environment", "year": 2026, "url": "doi.org", "cites": 2},
-    {"id": "W4289561023", "title": "A Weather-Aware Framework for Population Mobility Modelling", "authors": ["Vanessa Brum Bastos", "Kamil Smolak", "Witold Rohm", "Krzysztof Knop", "Katarzyna Siła-Nowicka"], "venue": "LIPIcs", "year": 2022, "url": "doi.org", "cites": 8},
-    {"id": "W3181049281", "title": "The impact of human mobility data scales and processing on movement predictability", "authors": ["Kamil Smolak", "Katarzyna Siła-Nowicka", "Jean-Charles Delvenne", "Witold Rohm"], "venue": "Scientific Reports", "year": 2021, "url": "doi.org", "cites": 19},
-    {"id": "W3129502118", "title": "Establishing the integrated science of movement: bringing together concepts and methods from animal and human movement analysis", "authors": ["Urška Demšar", "Jed A. Long", "Fernando Benitez-Paez", "Vanessa da Silva Brum Bastos", "Solène Marion", "Gina Martin", "Sebastijan Sekulic", "Kamil Smolak", "Beate Zein", "Katarzyna Siła-Nowicka"], "venue": "International Journal of Geographical Information Science", "year": 2021, "url": "doi.org", "cites": 52},
-    {"id": "W3012956042", "title": "Applying human mobility and water consumption data for short-term water demand forecasting using classical and machine learning models", "authors": ["Kamil Smolak", "Barbara Kasieczka", "Wiesław Fiałkiewicz", "Katarzyna Kopańczyk"], "venue": "Urban Water Journal", "year": 2020, "url": "doi.org", "cites": 27}
+    {
+      "id": "W7119529442",
+      "title": "The urban impact of AI: modelling feedback loops in location-based recommender systems",
+      "authors": [
+        "Giovanni Mauro",
+        "Marco Minici",
+        "Luca Pappalardo"
+      ],
+      "members": [
+        "giovanni-mauro",
+        "luca-pappalardo"
+      ],
+      "venue": "Machine Learning",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/s10994-025-06904-z",
+      "cites": 15,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Urban & Cities",
+        "Urban AI & Sensing"
+      ]
+    },
+    {
+      "id": "W4403163076",
+      "title": "Compact 15-minute cities exhibit lower carbon intensity in urban transport",
+      "authors": [
+        "Francesco Marzolla",
+        "Matteo Bruno",
+        "Hygor P. M. Melo",
+        "Vittorio Loreto"
+      ],
+      "members": [
+        "vittorio-loreto"
+      ],
+      "venue": "Cities",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.cities.2026.107202",
+      "cites": 11,
+      "topics": [
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W7154266808",
+      "title": "Extreme heat reduces and reshapes urban mobility",
+      "authors": [
+        "Andrew Renninger",
+        "Carmen Cabrera-Arnau"
+      ],
+      "members": [
+        "carmen-cabrera"
+      ],
+      "venue": "PNAS Nexus",
+      "year": 2026,
+      "url": "https://doi.org/10.1093/pnasnexus/pgag078",
+      "cites": 9,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W7168046370",
+      "title": "The traffic concentration effects of urban navigation services",
+      "authors": [
+        "Giuliano Cornacchia",
+        "Mirco Nanni",
+        "Dino Pedreschi",
+        "Luca Pappalardo"
+      ],
+      "members": [
+        "luca-pappalardo"
+      ],
+      "venue": "Nature Communications",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41467-026-75254-8",
+      "cites": 9,
+      "topics": [
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W7207538874",
+      "title": "Multimodal large language models predict urban safety perception but encode non-neutral demographic priors",
+      "authors": [
+        "Ciro Beneduce",
+        "Bruno Lepri",
+        "Massimiliano Luca"
+      ],
+      "members": [
+        "ciro-beneduce",
+        "massimiliano-luca"
+      ],
+      "venue": "EPJ Data Science",
+      "year": 2026,
+      "url": "https://doi.org/10.1140/epjds/s13688-026-00695-6",
+      "cites": 8,
+      "topics": [
+        "Human Mobility",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4404344206",
+      "title": "One rule does not fit all: Deviations from universality in human mobility modeling",
+      "authors": [
+        "Ludovico Napoli",
+        "Márton Karsai",
+        "Esteban Moro"
+      ],
+      "members": [
+        "marton-karsai"
+      ],
+      "venue": "PNAS Nexus",
+      "year": 2026,
+      "url": "https://doi.org/10.1093/pnasnexus/pgag267",
+      "cites": 6,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4415089152",
+      "title": "The dimensions of accessibility: proximity, opportunities, values",
+      "authors": [
+        "Matteo Bruno",
+        "Bruno Campanelli",
+        "Hygor P. M. Melo",
+        "Lavinia Rossi Mori",
+        "Vittorio Loreto"
+      ],
+      "members": [
+        "matteo-bruno",
+        "lavinia-rossi-mori",
+        "vittorio-loreto"
+      ],
+      "venue": "EPJ Data Science",
+      "year": 2026,
+      "url": "https://doi.org/10.1140/epjds/s13688-026-00623-8",
+      "cites": 6,
+      "topics": [
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W7171859434",
+      "title": "The impact of a new transit infrastructure on the economic fabric of Rome",
+      "authors": [
+        "Francesco Marzolla",
+        "Bruno Campanelli",
+        "Hygor P. M. Melo",
+        "Matteo Bruno",
+        "Vittorio Loreto"
+      ],
+      "members": [
+        "matteo-bruno",
+        "vittorio-loreto"
+      ],
+      "venue": "Discover Cities",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/s44327-026-00330-z",
+      "cites": 6,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W7128171265",
+      "title": "Coordination-free decentralised federated learning in pervasive networks: Overcoming heterogeneity",
+      "authors": [
+        "Lorenzo Valerio",
+        "Chiara Boldrini",
+        "Andrea Passarella",
+        "János Kertész",
+        "Márton Karsai",
+        "Gerardo Íñiguez"
+      ],
+      "members": [
+        "marton-karsai"
+      ],
+      "venue": "Pervasive and Mobile Computing",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.pmcj.2026.102184",
+      "cites": 5,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4414804397",
+      "title": "Proximity-based cities emit less mobility-driven CO2",
+      "authors": [
+        "Francesco Marzolla",
+        "Hygor P. M. Melo",
+        "Matteo Bruno",
+        "Vittorio Loreto"
+      ],
+      "members": [
+        "matteo-bruno",
+        "vittorio-loreto"
+      ],
+      "venue": "npj Sustainable Mobility and Transport",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s44333-025-00074-0",
+      "cites": 5,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W7141246683",
+      "title": "Validating urban scaling laws through mobile phone data: analysis of Brazil’s largest cities",
+      "authors": [
+        "Ricardo de Souza Alencar",
+        "Fabiano L. Ribeiro",
+        "Horacio Samaniego",
+        "Ronaldo Parente de Menezes",
+        "Alexandre G. Evsukoff"
+      ],
+      "members": [
+        "ronaldo-menezes"
+      ],
+      "venue": "Computational Urban Science",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/s43762-026-00252-x",
+      "cites": 3,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4417121985",
+      "title": "Nontraditional Data in Pandemic Preparedness and Response: Identifying and Addressing First- and Last-Mile Challenges",
+      "authors": [
+        "Mattia Mazzoli",
+        "Irma Varela‐Lasheras",
+        "Sónia Namorado",
+        "Constantino Caetano",
+        "Andreia Leite",
+        "Lisa Hermans",
+        "Niel Hens",
+        "Polen Türkmen",
+        "Kyriaki Kalimeri",
+        "Leo Ferres",
+        "Ciro Cattuto",
+        "Daniela Paolotti",
+        "Stefaan Verhulst"
+      ],
+      "members": [
+        "mattia-mazzoli"
+      ],
+      "venue": "Journal of Medical Internet Research",
+      "year": 2026,
+      "url": "https://doi.org/10.2196/85540",
+      "cites": 2,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W7125815006",
+      "title": "Scale-free points-of-interest distribution in a city emerging from homogeneous Poissonian-point processes",
+      "authors": [
+        "Eleonora Andreotti",
+        "Ulysse Marquis",
+        "Maurizio Napolitano",
+        "Riccardo Gallotti"
+      ],
+      "members": [
+        "riccardo-gallotti"
+      ],
+      "venue": "Physical review. E",
+      "year": 2026,
+      "url": "https://doi.org/10.1103/c8jr-3twz",
+      "cites": 2,
+      "topics": [
+        "Human Mobility",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W7125819279",
+      "title": "The structure of global delay propagation in air transport",
+      "authors": [
+        "Josu Blanco",
+        "Antònia Tugores",
+        "José J. Ramasco",
+        "Massimiliano Zanin"
+      ],
+      "members": [
+        "jose-javier-ramasco"
+      ],
+      "venue": "Transportation Research Part E Logistics and Transportation Review",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.tre.2026.104688",
+      "cites": 2,
+      "topics": [
+        "Transport & Transit"
+      ]
+    },
+    {
+      "id": "W7135213051",
+      "title": "Air Quality Mapping Using PM2.5 Sensors on Urban Buses",
+      "authors": [
+        "Inés González-de-Castro",
+        "Mar Viana",
+        "José J. Ramasco",
+        "Aina Main-Nadal",
+        "Teresa Moreno"
+      ],
+      "members": [
+        "jose-javier-ramasco"
+      ],
+      "venue": "IEEE Internet of Things Journal",
+      "year": 2026,
+      "url": "https://doi.org/10.1109/jiot.2026.3672932",
+      "cites": 1,
+      "topics": [
+        "Urban & Cities",
+        "Urban AI & Sensing"
+      ]
+    },
+    {
+      "id": "W7160040184",
+      "title": "From sensor counts to OD flows: The N-Step model for urban pedestrian mobility",
+      "authors": [
+        "Özge Öztürk",
+        "Luca Pappalardo",
+        "Fatih Gülgen",
+        "Mirco Nanni"
+      ],
+      "members": [
+        "luca-pappalardo"
+      ],
+      "venue": "Journal of Transport Geography",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.jtrangeo.2026.104694",
+      "cites": 1,
+      "topics": [
+        "Human Mobility",
+        "Urban & Cities",
+        "Urban AI & Sensing"
+      ]
+    },
+    {
+      "id": "W7203688587",
+      "title": "Making hidden biases visible in population location data from mobile phones",
+      "authors": [
+        "Carmen Cabrera-Arnau",
+        "Francisco Rowe"
+      ],
+      "members": [
+        "carmen-cabrera"
+      ],
+      "venue": "Royal Society Open Science",
+      "year": 2026,
+      "url": "https://doi.org/10.1098/rsos.251703",
+      "cites": 1,
+      "topics": [
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W4415926522",
+      "title": "Mapping regional disparities in discounted grocery products",
+      "authors": [
+        "Antonio Desiderio",
+        "Alessia Galdeman",
+        "Franziska Bäuerlein",
+        "Sune Lehmann"
+      ],
+      "members": [
+        "antonio-desiderio"
+      ],
+      "venue": "npj Science of Food",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41538-026-00764-0",
+      "cites": 1,
+      "topics": [
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4414946630",
+      "title": "Multiscale patterns of migration flows in Austria: regionalization, administrative barriers, and urban-rural divides",
+      "authors": [
+        "Thomas Robiglio",
+        "Martina Contisciani",
+        "Márton Karsai",
+        "Tiago P. Peixoto"
+      ],
+      "members": [
+        "marton-karsai"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41598-026-65102-6",
+      "cites": 1,
+      "topics": [
+        "Human Mobility",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W7134268110",
+      "title": "On small area composite indicators and classifications for urban planning: theory-driven and data-driven approaches",
+      "authors": [
+        "Alessia Calafiore"
+      ],
+      "members": [
+        "alessia-calafiore"
+      ],
+      "venue": "Contesti Città territori progetti",
+      "year": 2026,
+      "url": "https://doi.org/10.36253/contest-15767",
+      "cites": 1,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W7165854528",
+      "title": "Revitalizing marginal areas: A foundational economy approach",
+      "authors": [
+        "Giuseppe Varavallo",
+        "Filippo Barbera",
+        "Riccardo Di Clemente"
+      ],
+      "members": [
+        "riccardo-di-clemente"
+      ],
+      "venue": "Socio-Economic Planning Sciences",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.seps.2026.102549",
+      "cites": 1,
+      "topics": [
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W7161642535",
+      "title": "Urban vibrancy: An analogy of biodiversity, retail diversity, and activity-based urban diversity measures",
+      "authors": [
+        "Edward Chung Yim Yiu",
+        "Diogo Ferreira Pacheco",
+        "Riccardo Di Clemente",
+        "Federico Botta"
+      ],
+      "members": [
+        "diogo-pacheco",
+        "riccardo-di-clemente",
+        "federico-botta"
+      ],
+      "venue": "PNAS Nexus",
+      "year": 2026,
+      "url": "https://doi.org/10.1093/pnasnexus/pgag130",
+      "cites": 1,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W7119083774",
+      "title": "Digitalisation, Urban Data, and the 15-Minute City",
+      "authors": [
+        "Alessia Calafiore",
+        "Richard Dunning"
+      ],
+      "members": [
+        "alessia-calafiore"
+      ],
+      "venue": "Routledge eBooks",
+      "year": 2026,
+      "url": "https://doi.org/10.4324/9781003299004-29",
+      "cites": 0,
+      "topics": [
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W7223177007",
+      "title": "How transport coverage shapes access to opportunities: a national-scale isochrone analysis of bus network accessibility in England",
+      "authors": [
+        "Sam Townley",
+        "Federico Botta"
+      ],
+      "members": [
+        "federico-botta"
+      ],
+      "venue": "Frontiers in Big Data",
+      "year": 2026,
+      "url": "https://doi.org/10.3389/fdata.2026.1942887",
+      "cites": 0,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W7149370852",
+      "title": "Human mobility in the metaverse mirrors patterns in the physical world",
+      "authors": [
+        "Kishore Vasan",
+        "Márton Karsai",
+        "Albert-Ĺaszló Barabási"
+      ],
+      "members": [
+        "marton-karsai"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41598-026-45128-6",
+      "cites": 0,
+      "topics": [
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W7160418838",
+      "title": "Network analysis of cultural funding in Brazil: uncovering regional differences and signatures",
+      "authors": [
+        "Diogo Ferreira Pacheco",
+        "Gustavo Moraes",
+        "Diego Pinheiro",
+        "Josemar Faustino",
+        "Marcos Oliveira",
+        "Henilton Menezes",
+        "Ronaldo Menezes"
+      ],
+      "members": [
+        "diogo-pacheco"
+      ],
+      "venue": "Applied Network Science",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/s41109-026-00799-y",
+      "cites": 0,
+      "topics": [
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W7213414458",
+      "title": "OptimalStop: Predictability–complexity trade-off for optimising stop detection in human mobility data",
+      "authors": [
+        "Kamil Smolak",
+        "Katarzyna Siła-Nowicka"
+      ],
+      "members": [
+        "kamil-smolak"
+      ],
+      "venue": "Computers Environment and Urban Systems",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.compenvurbsys.2026.102528",
+      "cites": 0,
+      "topics": [
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W7202259406",
+      "title": "Social network benefits for cluster firms: A co-worker mobility approach",
+      "authors": [
+        "Balázs Lengyel",
+        "László Lőrincz",
+        "Guilherme Kenji Chihaya",
+        "Rikard H. Eriksson"
+      ],
+      "members": [
+        "balazs-lengyel"
+      ],
+      "venue": "Environment and Planning A Economy and Space",
+      "year": 2026,
+      "url": "https://doi.org/10.1177/0308518x261470975",
+      "cites": 0,
+      "topics": [
+        "Human Mobility",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W7130649582",
+      "title": "The effect of consumption incentives on museum attendance: a case study on Milan through human mobility data",
+      "authors": [
+        "Romain Lerouge",
+        "Lorenzo Biferale",
+        "Matteo Bruno"
+      ],
+      "members": [
+        "matteo-bruno"
+      ],
+      "venue": "Journal of Cultural Economics",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/s10824-026-09581-5",
+      "cites": 0,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4406139438",
+      "title": "The parenthood effect in urban mobility",
+      "authors": [
+        "Mariana Gomes da Motta Macedo",
+        "Ronaldo Parente de Menezes",
+        "Alessio Cardillo"
+      ],
+      "members": [
+        "mariana-macedo",
+        "ronaldo-menezes"
+      ],
+      "venue": "npj Complexity",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s44260-026-00089-9",
+      "cites": 0,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W7162661136",
+      "title": "Understanding Collective Behaviour Using Online Data and Mobile Phones",
+      "authors": [
+        "Federico Botta",
+        "Tobias Preis",
+        "Helen Susannah Moat"
+      ],
+      "members": [
+        "federico-botta"
+      ],
+      "venue": "Cambridge University Press eBooks",
+      "year": 2026,
+      "url": "https://doi.org/10.1017/9781108939010.044",
+      "cites": 0,
+      "topics": [
+        "Human Mobility",
+        "Urban & Cities",
+        "Urban AI & Sensing"
+      ]
+    },
+    {
+      "id": "W4415130544",
+      "title": "Vector fields as a framework for modelling the mobility of commodities",
+      "authors": [
+        "Sima Farokhnejad",
+        "Angélica Sousa da Mata",
+        "Mariana Macedo",
+        "Ronaldo Parente de Menezes"
+      ],
+      "members": [
+        "ronaldo-menezes"
+      ],
+      "venue": "PLoS ONE",
+      "year": 2026,
+      "url": "https://doi.org/10.1371/journal.pone.0340109",
+      "cites": 0,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W7164540984",
+      "title": "Visitation patterns across mobility groups: wandering, commuting, and exploring",
+      "authors": [
+        "Olena Hołubowska",
+        "Kamil Smolak",
+        "Vanessa da Silva Brum-Bastos",
+        "Katarzyna Siła-Nowicka"
+      ],
+      "members": [
+        "kamil-smolak"
+      ],
+      "venue": "Journal of Geographical Systems",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/s10109-026-00501-x",
+      "cites": 0,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4409991400",
+      "title": "Large Language Models are Zero-Shot Next Location Predictors",
+      "authors": [
+        "Ciro Beneduce",
+        "Bruno Lepri",
+        "Massimiliano Luca"
+      ],
+      "members": [
+        "ciro-beneduce",
+        "massimiliano-luca"
+      ],
+      "venue": "IEEE Access",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/access.2025.3565297",
+      "cites": 48,
+      "topics": [
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W4409725225",
+      "title": "Mixing individual and collective behaviors to predict out-of-routine mobility",
+      "authors": [
+        "Sebastiano Bontorin",
+        "Simone Centellegher",
+        "Riccardo Gallotti",
+        "Luca Pappalardo",
+        "Bruno Lepri",
+        "Massimiliano Luca"
+      ],
+      "members": [
+        "riccardo-gallotti",
+        "luca-pappalardo",
+        "massimiliano-luca"
+      ],
+      "venue": "Proceedings of the National Academy of Sciences",
+      "year": 2025,
+      "url": "https://doi.org/10.1073/pnas.2414848122",
+      "cites": 13,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4413010451",
+      "title": "Quantifying barriers of urban mobility",
+      "authors": [
+        "Gergő Pintér",
+        "Balázs Lengyel"
+      ],
+      "members": [
+        "balazs-lengyel"
+      ],
+      "venue": "Cities",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.cities.2025.106322",
+      "cites": 12,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4412175384",
+      "title": "When dialects collide: how socioeconomic mixing affects language use",
+      "authors": [
+        "Thomas Louf",
+        "José J. Ramasco",
+        "David Sánchez",
+        "Márton Karsai"
+      ],
+      "members": [
+        "jose-javier-ramasco",
+        "marton-karsai"
+      ],
+      "venue": "EPJ Data Science",
+      "year": 2025,
+      "url": "https://doi.org/10.1140/epjds/s13688-025-00563-9",
+      "cites": 12,
+      "topics": [
+        "Segregation & Equity"
+      ]
+    },
+    {
+      "id": "W4408580016",
+      "title": "Evacuation patterns and socioeconomic stratification in the context of wildfires",
+      "authors": [
+        "Timur Naushirvanov",
+        "E. Elejalde",
+        "Krystallia K. Kalimeri",
+        "Elisa Omodei",
+        "Márton Karsai",
+        "Leo Ferres"
+      ],
+      "members": [
+        "marton-karsai"
+      ],
+      "venue": "EPJ Data Science",
+      "year": 2025,
+      "url": "https://doi.org/10.1140/epjds/s13688-025-00540-2",
+      "cites": 10,
+      "topics": [
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W4409558027",
+      "title": "Rethinking GIScience Education in an Age of Disruptions",
+      "authors": [
+        "Amy E. Frazier",
+        "TRISALYN A. NELSON",
+        "Peter Kedron",
+        "Eric Shook",
+        "Somayeh Dodge",
+        "Alan T. Murray",
+        "Michael Frank Goodchild",
+        "Sarah E. Battersby",
+        "Justine I. Blanford",
+        "Christophe Claramunt",
+        "Joseph Holler",
+        "Caglar Koylu",
+        "A G VAUGHAN LEE",
+        "Steven M. Manson",
+        "Seda Şalap‐Ayça",
+        "John P. Wilson",
+        "Bo Zhao",
+        "Lauren Bennett",
+        "Carmen Cabrera-Arnau",
+        "Rachel S. Franklin",
+        "Grant McKenzie",
+        "Harvey J. Miller",
+        "Taylor M. Oshan",
+        "Sergio Joseph Rey",
+        "Francisco Rowe",
+        "Seth E. Spielman",
+        "Wenfei Xu"
+      ],
+      "members": [
+        "carmen-cabrera"
+      ],
+      "venue": "Transactions in GIS",
+      "year": 2025,
+      "url": "https://doi.org/10.1111/tgis.70048",
+      "cites": 10,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4417269416",
+      "title": "US cities are defined by rings and pockets with limited socioeconomic mixing",
+      "authors": [
+        "Andrew Renninger",
+        "Neave O’Clery",
+        "Elsa Arcaute"
+      ],
+      "members": [
+        "elsa-arcaute"
+      ],
+      "venue": "Nature Cities",
+      "year": 2025,
+      "url": "https://doi.org/10.1038/s44284-025-00350-7",
+      "cites": 10,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4416426664",
+      "title": "Use of mobile phone data to measure behavioral response to SMS evacuation alerts",
+      "authors": [
+        "Erick Elejalde",
+        "Timur Naushirvanov",
+        "Kyriaki Kalimeri",
+        "Elisa Omodei",
+        "Márton Karsai",
+        "Loreto Bravo",
+        "Leo Ferres"
+      ],
+      "members": [
+        "marton-karsai"
+      ],
+      "venue": "International Journal of Disaster Risk Reduction",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.ijdrr.2025.105919",
+      "cites": 10,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit"
+      ]
+    },
+    {
+      "id": "W4413077780",
+      "title": "Revealing the core-periphery structure of cities",
+      "authors": [
+        "Federica Fanelli",
+        "Hygor P. M. Melo",
+        "Matteo Bruno",
+        "Vittorio Loreto"
+      ],
+      "members": [
+        "matteo-bruno",
+        "vittorio-loreto"
+      ],
+      "venue": "Physical Review Research",
+      "year": 2025,
+      "url": "https://doi.org/10.1103/physrevresearch.7.033064",
+      "cites": 9,
+      "topics": [
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4415719854",
+      "title": "Universal Roughness and the Dynamics of Urban Expansion",
+      "authors": [
+        "Ulysse Marquis",
+        "Oriol Artime",
+        "Riccardo Gallotti",
+        "Marc Barthélemy"
+      ],
+      "members": [
+        "riccardo-gallotti"
+      ],
+      "venue": "Physical Review Letters",
+      "year": 2025,
+      "url": "https://doi.org/10.1103/rlkq-t36n",
+      "cites": 9,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4411430279",
+      "title": "Beyond proximity: A review and framework to further understanding of greenspace accessibility in the x‐minute city",
+      "authors": [
+        "Andrew Schendl",
+        "James M. Bullock",
+        "Ronaldo Parente de Menezes",
+        "Simon Willcock"
+      ],
+      "members": [
+        "ronaldo-menezes"
+      ],
+      "venue": "People and Nature",
+      "year": 2025,
+      "url": "https://doi.org/10.1002/pan3.70081",
+      "cites": 8,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4409314828",
+      "title": "Exploring influenza vaccination determinants through digital participatory surveillance",
+      "authors": [
+        "Kathleen Kelley",
+        "Nicolò Gozzi",
+        "Mattia Mazzoli",
+        "Daniela Paolotti"
+      ],
+      "members": [
+        "mattia-mazzoli"
+      ],
+      "venue": "BMC Public Health",
+      "year": 2025,
+      "url": "https://doi.org/10.1186/s12889-025-22496-8",
+      "cites": 7,
+      "topics": [
+        "Epidemics & Resilience",
+        "Transport & Transit"
+      ]
+    },
+    {
+      "id": "W4404308503",
+      "title": "DYNAMIC MODELS OF GENTRIFICATION",
+      "authors": [
+        "Giovanni Mauro",
+        "Nicola Pedreschi",
+        "Renaud Lambiotte",
+        "Luca Pappalardo"
+      ],
+      "members": [
+        "giovanni-mauro",
+        "luca-pappalardo"
+      ],
+      "venue": "Advances in Complex Systems",
+      "year": 2025,
+      "url": "https://doi.org/10.1142/s0219525925400065",
+      "cites": 6,
+      "topics": [
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4411363204",
+      "title": "The geography of inequalities in access to healthcare across England: the role of bus travel time variability",
+      "authors": [
+        "Zihao Chen",
+        "Federico Botta"
+      ],
+      "members": [
+        "federico-botta"
+      ],
+      "venue": "Journal of Physics Complexity",
+      "year": 2025,
+      "url": "https://doi.org/10.1088/2632-072x/ade587",
+      "cites": 6,
+      "topics": [
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4414012485",
+      "title": "Time-space dynamics of income segregation in the city of Milan",
+      "authors": [
+        "Lavinia Rossi Mori",
+        "Vittorio Loreto",
+        "Riccardo Di Clemente"
+      ],
+      "members": [
+        "lavinia-rossi-mori",
+        "vittorio-loreto",
+        "riccardo-di-clemente"
+      ],
+      "venue": "PNAS Nexus",
+      "year": 2025,
+      "url": "https://doi.org/10.1093/pnasnexus/pgaf283",
+      "cites": 6,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4386557491",
+      "title": "Active travel modelling: a methodological approach to networks for walking and cycling commuting analysis",
+      "authors": [
+        "Ivann Schlosser",
+        "Valentina Marín Maureira",
+        "Richard Milton",
+        "Elsa Arcaute",
+        "Michael Batty"
+      ],
+      "members": [
+        "elsa-arcaute"
+      ],
+      "venue": "Journal of Physics Complexity",
+      "year": 2025,
+      "url": "https://doi.org/10.1088/2632-072x/add257",
+      "cites": 5,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4406793782",
+      "title": "Critical mobility in policy making for epidemic containment",
+      "authors": [
+        "Jesús A. Moreno López",
+        "David Mateo",
+        "Alberto Hernando",
+        "Sandro Meloni",
+        "José J. Ramasco"
+      ],
+      "members": [
+        "jose-javier-ramasco"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2025,
+      "url": "https://doi.org/10.1038/s41598-025-86759-5",
+      "cites": 5,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4396938872",
+      "title": "Exploring the spatial segmentation of housing markets from online listings",
+      "authors": [
+        "David Abella",
+        "Johann H. Martínez",
+        "Mattia Mazzoli",
+        "Julien Migozzi",
+        "Thibault Le Corre",
+        "Eduard Alonso‐Paulí",
+        "Rafel Crespí‐Cladera",
+        "Thomas Louail",
+        "José J. Ramasco"
+      ],
+      "members": [
+        "mattia-mazzoli",
+        "jose-javier-ramasco"
+      ],
+      "venue": "EPJ Data Science",
+      "year": 2025,
+      "url": "https://doi.org/10.1140/epjds/s13688-025-00551-z",
+      "cites": 5,
+      "topics": [
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4416393068",
+      "title": "Violence, city size and geographical isolation in African cities",
+      "authors": [
+        "Rafael Prieto-Curiel",
+        "Ronaldo Parente de Menezes"
+      ],
+      "members": [
+        "ronaldo-menezes"
+      ],
+      "venue": "Nature Communications",
+      "year": 2025,
+      "url": "https://doi.org/10.1038/s41467-025-65728-6",
+      "cites": 5,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4413029442",
+      "title": "Beyond the Immediate Impacts of COVID-19 on Internal Population Movements in Mexico: Facebook Data Reveal Urban Decay and Slow Recovery—A Research Note",
+      "authors": [
+        "Miguel González‐Leonardo",
+        "Carmen Cabrera-Arnau",
+        "Ruth Neville",
+        "Andrea Nasuto",
+        "Francisco Rowe"
+      ],
+      "members": [
+        "carmen-cabrera"
+      ],
+      "venue": "Demography",
+      "year": 2025,
+      "url": "https://doi.org/10.1215/00703370-12183205",
+      "cites": 4,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4407848341",
+      "title": "Resilience of mobility network to dynamic population response across COVID-19 interventions: Evidences from Chile",
+      "authors": [
+        "Pasquale Casaburi",
+        "Lorenzo Dall’Amico",
+        "Nicolò Gozzi",
+        "Kyriaki Kalimeri",
+        "Anna Sapienza",
+        "Rossano Schifanella",
+        "Tiziana Di Matteo",
+        "Leo Ferres",
+        "Mattia Mazzoli"
+      ],
+      "members": [
+        "mattia-mazzoli"
+      ],
+      "venue": "PLoS Computational Biology",
+      "year": 2025,
+      "url": "https://doi.org/10.1371/journal.pcbi.1012802",
+      "cites": 4,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W4406639356",
+      "title": "Where We Rate: The Impact of Urban Characteristics on Digital Reviews and Ratings",
+      "authors": [
+        "Özge Öztürk",
+        "M A Hacar",
+        "Fatih Gülgen",
+        "Luca Pappalardo"
+      ],
+      "members": [
+        "luca-pappalardo"
+      ],
+      "venue": "Applied Sciences",
+      "year": 2025,
+      "url": "https://doi.org/10.3390/app15020931",
+      "cites": 4,
+      "topics": [
+        "Human Mobility",
+        "Urban & Cities",
+        "Urban AI & Sensing"
+      ]
+    },
+    {
+      "id": "W4413116286",
+      "title": "Comparative analysis of technological fitness and coherence at different geographical scales",
+      "authors": [
+        "Matteo Straccamore",
+        "Matteo Bruno",
+        "Andrea Tacchella"
+      ],
+      "members": [
+        "matteo-bruno"
+      ],
+      "venue": "PLoS ONE",
+      "year": 2025,
+      "url": "https://doi.org/10.1371/journal.pone.0329746",
+      "cites": 3,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4410552711",
+      "title": "Modelling singularities in macroevolution",
+      "authors": [
+        "Alessandro Bellina",
+        "Giordano De Marzo",
+        "Vittorio Loreto"
+      ],
+      "members": [
+        "vittorio-loreto"
+      ],
+      "venue": "European Economic Review",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.euroecorev.2025.105052",
+      "cites": 3,
+      "topics": [
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W4415125915",
+      "title": "Social inequalities in vaccine coverage and their effects on epidemic spreading",
+      "authors": [
+        "Adriana Manna",
+        "Márton Karsai",
+        "Nicola Perra"
+      ],
+      "members": [
+        "marton-karsai"
+      ],
+      "venue": "PLoS Computational Biology",
+      "year": 2025,
+      "url": "https://doi.org/10.1371/journal.pcbi.1013585",
+      "cites": 3,
+      "topics": [
+        "Segregation & Equity"
+      ]
+    },
+    {
+      "id": "W4413128984",
+      "title": "Introducing Friction of Space into the Geography of Cultural Consumption",
+      "authors": [
+        "Lorenzo Biferale",
+        "Alessandro Crociata",
+        "Lavinia Rossi Mori",
+        "Claudio Chiappetta",
+        "Matteo Bruno"
+      ],
+      "members": [
+        "lavinia-rossi-mori",
+        "matteo-bruno"
+      ],
+      "venue": "Urban Science",
+      "year": 2025,
+      "url": "https://doi.org/10.3390/urbansci9080316",
+      "cites": 2,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W7120242672",
+      "title": "Measuring and modeling bursty human phenomena",
+      "authors": [
+        "Márton Karsai",
+        "Hang-Hyun Jo"
+      ],
+      "members": [
+        "marton-karsai"
+      ],
+      "venue": "Edward Elgar Publishing eBooks",
+      "year": 2025,
+      "url": "https://doi.org/10.4337/9781802207309.00062",
+      "cites": 2,
+      "topics": [
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W4412548469",
+      "title": "The impact of the social exposome in cardiovascular health and disease",
+      "authors": [
+        "Khaoula El Mekkaoui",
+        "Chitra Mukherjee",
+        "Clodomir Santana",
+        "Hitalo Silva",
+        "Arnib Quazi",
+        "Meghana Balabhadruni",
+        "Aditya Ballal",
+        "Shamika Gavaskar",
+        "Kea Turqueza",
+        "Leslie Molina",
+        "Pablo E. Acevedo",
+        "Kay Moua",
+        "Omar Dawar",
+        "Federico Garcia",
+        "Mohammad S. Soroya",
+        "Xiao-Dong Zhang",
+        "Ezra A. Amsterdam",
+        "Chaoyin Chen",
+        "Padmini Sirish",
+        "Leighton T. Izu",
+        "Ronaldo Parente de Menezes",
+        "Nipavan Chiamvimonvat",
+        "Vladimir Filkov",
+        "Martín Cadeiras",
+        "David A. Liem"
+      ],
+      "members": [
+        "ronaldo-menezes"
+      ],
+      "venue": "The Journal of Precision Medicine Health and Disease",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.premed.2025.100015",
+      "cites": 2,
+      "topics": [
+        "Segregation & Equity"
+      ]
+    },
+    {
+      "id": "W4411550683",
+      "title": "Does noise pollution influence modal choices? A random forest application",
+      "authors": [
+        "Alessia Calafiore",
+        "Ki Tong"
+      ],
+      "members": [
+        "alessia-calafiore"
+      ],
+      "venue": "PLoS ONE",
+      "year": 2025,
+      "url": "https://doi.org/10.1371/journal.pone.0325249",
+      "cites": 1,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4411342795",
+      "title": "Modeling Urban Population Dynamics and City-to-City Migration",
+      "authors": [
+        "Rafael Prieto-Curiel",
+        "Carmen Cabrera-Arnau"
+      ],
+      "members": [
+        "carmen-cabrera"
+      ],
+      "venue": "Understanding complex systems",
+      "year": 2025,
+      "url": "https://doi.org/10.1007/978-3-031-82666-5_5",
+      "cites": 1,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4413373751",
+      "title": "Road-Width-Aware network optimisation for bike lane planning",
+      "authors": [
+        "Riccardo Basilone",
+        "Matteo Bruno",
+        "Hygor P. M. Melo",
+        "Michele Avalle",
+        "Vittorio Loreto"
+      ],
+      "members": [
+        "matteo-bruno",
+        "vittorio-loreto"
+      ],
+      "venue": "Journal of Physics Complexity",
+      "year": 2025,
+      "url": "https://doi.org/10.1088/2632-072x/adf683",
+      "cites": 1,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4409381015",
+      "title": "Spatial network analysis",
+      "authors": [
+        "Carmen Cabrera-Arnau"
+      ],
+      "members": [
+        "carmen-cabrera"
+      ],
+      "venue": "REGION",
+      "year": 2025,
+      "url": "https://doi.org/10.18335/region.v12i1.562",
+      "cites": 0,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4416674117",
+      "title": "The geography of interest in international conversations on Twitter",
+      "authors": [
+        "Veronica Orsanigo",
+        "Sebastiano Bontorin",
+        "Thomas Louf",
+        "Elisa Leonardelli",
+        "Alessio Palmero Aprosio",
+        "Pier Luigi Sacco",
+        "Sara Tonelli",
+        "Riccardo Gallotti"
+      ],
+      "members": [
+        "riccardo-gallotti"
+      ],
+      "venue": "EPJ Data Science",
+      "year": 2025,
+      "url": "https://doi.org/10.1140/epjds/s13688-025-00597-z",
+      "cites": 0,
+      "topics": [
+        "Human Mobility",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4409529583",
+      "title": "The geography of segregated online social networks in the largest US cities",
+      "authors": [
+        "Balázs Lengyel",
+        "Eszter Bokányi",
+        "Sándor Juhász"
+      ],
+      "members": [
+        "balazs-lengyel"
+      ],
+      "venue": "Edward Elgar Publishing eBooks",
+      "year": 2025,
+      "url": "https://doi.org/10.4337/9781803928050.00013",
+      "cites": 0,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4408657316",
+      "title": "Unfolding cities from rooftops",
+      "authors": [
+        "Massimiliano Luca"
+      ],
+      "members": [
+        "massimiliano-luca"
+      ],
+      "venue": "Nature Cities",
+      "year": 2025,
+      "url": "https://doi.org/10.1038/s44284-025-00211-3",
+      "cites": 0,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4402784259",
+      "title": "A universal framework for inclusive 15-minute cities",
+      "authors": [
+        "Matteo Bruno",
+        "Hygor P. M. Melo",
+        "Bruno Campanelli",
+        "Vittorio Loreto"
+      ],
+      "members": [
+        "matteo-bruno",
+        "vittorio-loreto"
+      ],
+      "venue": "Nature Cities",
+      "year": 2024,
+      "url": "https://doi.org/10.1038/s44284-024-00119-4",
+      "cites": 179,
+      "topics": [
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4396962461",
+      "title": "Importance of social inequalities to contact patterns, vaccine uptake, and epidemic dynamics",
+      "authors": [
+        "Adriana Manna",
+        "Júlia Koltai",
+        "Márton Karsai"
+      ],
+      "members": [
+        "marton-karsai"
+      ],
+      "venue": "Nature Communications",
+      "year": 2024,
+      "url": "https://doi.org/10.1038/s41467-024-48332-y",
+      "cites": 34,
+      "topics": [
+        "Segregation & Equity"
+      ]
+    },
+    {
+      "id": "W4400249074",
+      "title": "Enhancing human mobility research with open and standardized datasets",
+      "authors": [
+        "Takahiro Yabe",
+        "Massimiliano Luca",
+        "Kota Tsubouchi",
+        "Bruno Lepri",
+        "Marta C. González",
+        "Esteban Moro"
+      ],
+      "members": [
+        "massimiliano-luca"
+      ],
+      "venue": "Nature Computational Science",
+      "year": 2024,
+      "url": "https://doi.org/10.1038/s43588-024-00650-3",
+      "cites": 31,
+      "topics": [
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W4405763573",
+      "title": "Distorted insights from human mobility data",
+      "authors": [
+        "Riccardo Gallotti",
+        "Davide Maniscalco",
+        "Marc Barthélemy",
+        "Manlio De Domenico"
+      ],
+      "members": [
+        "riccardo-gallotti"
+      ],
+      "venue": "Communications Physics",
+      "year": 2024,
+      "url": "https://doi.org/10.1038/s42005-024-01909-x",
+      "cites": 28,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit"
+      ]
+    },
+    {
+      "id": "W4404335972",
+      "title": "Co-creating the future: participatory cities and digital governance",
+      "authors": [
+        "Dirk Helbing",
+        "Sachit Mahajan",
+        "Dino Carpentras",
+        "Mónica Menéndez",
+        "Evangelos Pournaras",
+        "Stefan Thurner A",
+        "Trivik Verma",
+        "Elsa Arcaute",
+        "Michael Batty",
+        "Luís M. A. Bettencourt"
+      ],
+      "members": [
+        "elsa-arcaute"
+      ],
+      "venue": "Philosophical Transactions of the Royal Society A Mathematical Physical and Engineering Sciences",
+      "year": 2024,
+      "url": "https://doi.org/10.1098/rsta.2024.0113",
+      "cites": 27,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4399910103",
+      "title": "Machine Learning-Based Wet Refractivity Prediction Through GNSS Troposphere Tomography for Ensemble Troposphere Conditions Forecasting",
+      "authors": [
+        "Saeid Haji-Aghajany",
+        "Witold Rohm",
+        "Maciej Kryza",
+        "Kamil Smolak"
+      ],
+      "members": [
+        "kamil-smolak"
+      ],
+      "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+      "year": 2024,
+      "url": "https://doi.org/10.1109/tgrs.2024.3417487",
+      "cites": 20,
+      "topics": [
+        "Urban AI & Sensing"
+      ]
+    },
+    {
+      "id": "W4394690126",
+      "title": "Urban segregation on multilayered transport networks: a random walk approach",
+      "authors": [
+        "Mateo Neira",
+        "Carlos Molinero",
+        "Stephen Marshall",
+        "Elsa Arcaute"
+      ],
+      "members": [
+        "elsa-arcaute"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2024,
+      "url": "https://doi.org/10.1038/s41598-024-58932-9",
+      "cites": 19,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4403004250",
+      "title": "A research agenda for GIScience in a time of disruptions",
+      "authors": [
+        "TRISALYN A. NELSON",
+        "Amy E. Frazier",
+        "Peter Kedron",
+        "Somayeh Dodge",
+        "Bo Zhao",
+        "Michael Frank Goodchild",
+        "Alan T. Murray",
+        "Sarah E. Battersby",
+        "Lauren Bennett",
+        "Justine I. Blanford",
+        "Carmen Cabrera-Arnau",
+        "Christophe Claramunt",
+        "Rachel S. Franklin",
+        "Joseph Holler",
+        "Caglar Koylu",
+        "Angela Lee",
+        "Steven M. Manson",
+        "Grant McKenzie",
+        "Harvey J. Miller",
+        "Taylor M. Oshan",
+        "Sergio Joseph Rey",
+        "Francisco Rowe",
+        "Seda Şalap‐Ayça",
+        "Eric Shook",
+        "Seth E. Spielman",
+        "Wenfei Xu",
+        "John Wilson"
+      ],
+      "members": [
+        "carmen-cabrera"
+      ],
+      "venue": "International Journal of Geographical Information Systems",
+      "year": 2024,
+      "url": "https://doi.org/10.1080/13658816.2024.2405191",
+      "cites": 18,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4392230281",
+      "title": "Dispersion patterns of SARS-CoV-2 variants Gamma, Lambda and Mu in Latin America and the Caribbean",
+      "authors": [
+        "Tiago Gräf",
+        "Alexander A. Martínez",
+        "Gonzalo Bello",
+        "Simon Dellicour",
+        "Philippe Lemey",
+        "Vittoria Colizza",
+        "Mattia Mazzoli",
+        "Chiara Poletto",
+        "Vanessa Leiko Oikawa Cardoso",
+        "Alexandre Freitas da Silva",
+        "COVIGEN",
+        "Elsa G. Baumeister",
+        "Josefina Campos",
+        "Andrea Pontoriero",
+        "Indira B. Martin",
+        "Kirvina Ferguson",
+        "Draven Johnson",
+        "Songee Beckles",
+        "Kasandra Forde",
+        "Aldo Sosa",
+        "Roberto Melendez",
+        "Roxana Loayza",
+        "Cinthia Avila",
+        "E. Fernández",
+        "Carol Jessica Guzman Otazo",
+        "Marilda Mendonça Siqueira",
+        "Fernando Couto Motta",
+        "Katia Corrêa de Oliveira Santos",
+        "Adriano Abbud",
+        "Mirleide Cordeiro dos Santos",
+        "Jessylene de Almeida Ferreira",
+        "Rodrigo Fasce",
+        "Jorge R Fernandes",
+        "Sergio Rangel",
+        "Marcela Mercado",
+        "Dioselina Peláez",
+        "Claudio Soto-Garita",
+        "Estela Cordero-Laurent",
+        "Francisco Duarte-Martínez",
+        "Hebleen Brenes",
+        "Isaac Miguel Sánchez",
+        "Yvonne Imbert",
+        "Alfredo Bruno",
+        "Doménica de Mora",
+        "Xochitl Sandoval López",
+        "Denis Gerson Jovel Alvarado",
+        "Deny Lisset Martínez Morán",
+        "Claudia Pacheco",
+        "Linda Mendoza",
+        "Joyce Whyte-Chin",
+        "Mustapha Abdul-Kadir",
+        "Jacques Boncy",
+        "Ito Journel",
+        "Mitzi Castro Paz",
+        "Sofía Carolina Alvarado",
+        "Soany Avilez",
+        "Michelle Brown",
+        "Caludia Elena Wong Arambula",
+        "José Ernesto Ramírez–González",
+        "Alexander A. Martínez",
+        "Claudia M. Gonzalez",
+        "Brechla Moreno Arévalo",
+        "Danilo Franco",
+        "Sandra López‐Vergès",
+        "Juan Miguel Pascale",
+        "Cynthia Vázquez",
+        "Sandra Milena González",
+        "Nancy Rojas",
+        "Carlos Padilla",
+        "Phyllis S Pinas",
+        "Navienda Asebeh",
+        "Christine V. F. Carrington",
+        "Nikita S. D. Sahadeo",
+        "Héctor Chiparelli",
+        "Natalia Goñi",
+        "Lieska Rodríguez",
+        "Pierina D’Angelo",
+        "Fernando Couto Motta",
+        "Paola Cristina Resende",
+        "Marilda Mendonça Siqueira",
+        "Leticia Franco",
+        "Lionel Gresh",
+        "Jean-Marc Gabastou",
+        "Angel Rodríguez",
+        "Andrea S. Vicari",
+        "Sylvain Aldighieri",
+        "Jairo Méndez‐Rico",
+        "Juliana Almeida Leite"
+      ],
+      "members": [
+        "mattia-mazzoli"
+      ],
+      "venue": "Nature Communications",
+      "year": 2024,
+      "url": "https://doi.org/10.1038/s41467-024-46143-9",
+      "cites": 18,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility",
+        "Transport & Transit"
+      ]
+    },
+    {
+      "id": "W4392172945",
+      "title": "Autonomous and Human-Driven Vehicles Interacting in a Roundabout: A Quantitative and Qualitative Evaluation",
+      "authors": [
+        "Laura Ferrarotti",
+        "Massimiliano Luca",
+        "Gabriele Santin",
+        "Giorgio Previati",
+        "Gianpiero R M Mastinu",
+        "Massimiliano Gobbi",
+        "Elena Campi",
+        "Lorenzo Uccello",
+        "Antonino Albanese",
+        "Praveen Zalaya",
+        "Alessandro Roccasalva",
+        "Bruno Lepri"
+      ],
+      "members": [
+        "massimiliano-luca"
+      ],
+      "venue": "IEEE Access",
+      "year": 2024,
+      "url": "https://doi.org/10.1109/access.2024.3370469",
+      "cites": 17,
+      "topics": [
+        "Transport & Transit"
+      ]
+    },
+    {
+      "id": "W4404335680",
+      "title": "Cities beyond proximity",
+      "authors": [
+        "Dan Hill",
+        "Matteo Bruno",
+        "Hygor P. M. Melo",
+        "Yuichiro Takeuchi",
+        "Vittorio Loreto"
+      ],
+      "members": [
+        "matteo-bruno",
+        "vittorio-loreto"
+      ],
+      "venue": "Philosophical Transactions of the Royal Society A Mathematical Physical and Engineering Sciences",
+      "year": 2024,
+      "url": "https://doi.org/10.1098/rsta.2024.0097",
+      "cites": 14,
+      "topics": [
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4399600803",
+      "title": "A generalized vector-field framework for mobility",
+      "authors": [
+        "Erjian Liu",
+        "Mattia Mazzoli",
+        "Xiao-Yong Yan",
+        "José J. Ramasco"
+      ],
+      "members": [
+        "mattia-mazzoli",
+        "jose-javier-ramasco"
+      ],
+      "venue": "Communications Physics",
+      "year": 2024,
+      "url": "https://doi.org/10.1038/s42005-024-01672-z",
+      "cites": 11,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4391991449",
+      "title": "Detecting periodic time scales of changes in temporal networks",
+      "authors": [
+        "Elsa Andres",
+        "Alain Barrat",
+        "Márton Karsai"
+      ],
+      "members": [
+        "marton-karsai"
+      ],
+      "venue": "Journal of Complex Networks",
+      "year": 2024,
+      "url": "https://doi.org/10.1093/comnet/cnae004",
+      "cites": 10,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit"
+      ]
+    },
+    {
+      "id": "W4399887758",
+      "title": "Emergence of Complex Network Topologies from Flow-Weighted Optimization of Network Efficiency",
+      "authors": [
+        "Sebastiano Bontorin",
+        "Giulia Cencetti",
+        "Riccardo Gallotti",
+        "Bruno Lepri",
+        "Manlio De Domenico"
+      ],
+      "members": [
+        "riccardo-gallotti"
+      ],
+      "venue": "Physical Review X",
+      "year": 2024,
+      "url": "https://doi.org/10.1103/physrevx.14.021050",
+      "cites": 10,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4383472595",
+      "title": "THE OPPORTUNITIES, LIMITATIONS, AND CHALLENGES IN USING MACHINE LEARNING TECHNOLOGIES FOR HUMANITARIAN WORK AND DEVELOPMENT",
+      "authors": [
+        "Vedran Sekara",
+        "Márton Karsai",
+        "Esteban Moro",
+        "Dohyung Kim",
+        "Enrique Delamónica",
+        "Manuel Cebrián",
+        "Miguel Angel Luengo-Oroz",
+        "Rebeca Moreno Jiménez",
+        "Manuel García–Herranz"
+      ],
+      "members": [
+        "marton-karsai"
+      ],
+      "venue": "Advances in Complex Systems",
+      "year": 2024,
+      "url": "https://doi.org/10.1142/s0219525924400022",
+      "cites": 10,
+      "topics": [
+        "Segregation & Equity"
+      ]
+    },
+    {
+      "id": "W4392756681",
+      "title": "The scalar mismatch of regional governance: A comparative analysis of hierarchical structures",
+      "authors": [
+        "Valentina Marin",
+        "Carlos Molinero",
+        "Elsa Arcaute"
+      ],
+      "members": [
+        "elsa-arcaute"
+      ],
+      "venue": "Environment and Planning B Urban Analytics and City Science",
+      "year": 2024,
+      "url": "https://doi.org/10.1177/23998083241234405",
+      "cites": 10,
+      "topics": [
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4396861650",
+      "title": "Unrestricted Versus Regulated Open Data Governance: A Bibliometric Comparison of SARS-CoV-2 Nucleotide Sequence Databases",
+      "authors": [
+        "Nathanael Sheehan",
+        "Federico Botta",
+        "Sabina Leonelli"
+      ],
+      "members": [
+        "federico-botta"
+      ],
+      "venue": "Data Science Journal",
+      "year": 2024,
+      "url": "https://doi.org/10.5334/dsj-2024-029",
+      "cites": 9,
+      "topics": [
+        "Segregation & Equity"
+      ]
+    },
+    {
+      "id": "W4402176429",
+      "title": "Dynamic predictability and activity-location contexts in human mobility",
+      "authors": [
+        "Bibandhan Poudyal",
+        "Diogo Ferreira Pacheco",
+        "Marcos Oliveira",
+        "Zexun Chen",
+        "Hugo Barbosa",
+        "Ronaldo Parente de Menezes",
+        "Gourab Ghoshal"
+      ],
+      "members": [
+        "diogo-pacheco",
+        "hugo-barbosa",
+        "ronaldo-menezes"
+      ],
+      "venue": "Royal Society Open Science",
+      "year": 2024,
+      "url": "https://doi.org/10.1098/rsos.240115",
+      "cites": 8,
+      "topics": [
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W4392388832",
+      "title": "Mobilkit: A Python Toolkit for Urban Resilience and Disaster Risk Management Analytics",
+      "authors": [
+        "Enrico Ubaldi",
+        "Takahiro Yabe",
+        "Nicholas K.W. Jones",
+        "Maham Faisal Khan",
+        "Alessandra Feliciotti",
+        "Riccardo Di Clemente",
+        "Satish V. Ukkusuri",
+        "Emanuele Strano"
+      ],
+      "members": [
+        "riccardo-di-clemente"
+      ],
+      "venue": "The Journal of Open Source Software",
+      "year": 2024,
+      "url": "https://doi.org/10.21105/joss.05201",
+      "cites": 6,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4400732473",
+      "title": "The role of transport systems in housing insecurity: a mobility-based analysis",
+      "authors": [
+        "Nandini Iyer",
+        "Ronaldo Parente de Menezes",
+        "Hugo Barbosa"
+      ],
+      "members": [
+        "ronaldo-menezes",
+        "hugo-barbosa"
+      ],
+      "venue": "EPJ Data Science",
+      "year": 2024,
+      "url": "https://doi.org/10.1140/epjds/s13688-024-00489-8",
+      "cites": 6,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4392575859",
+      "title": "Modeling circuit mechanisms of opposing cortical responses to visual flow perturbations",
+      "authors": [
+        "J. Galván Fraile",
+        "Franz Scherr",
+        "José J. Ramasco",
+        "Anton S. Arkhipov",
+        "Wolfgang Maass",
+        "Cláudio R. Mirasso"
+      ],
+      "members": [
+        "jose-javier-ramasco"
+      ],
+      "venue": "PLoS Computational Biology",
+      "year": 2024,
+      "url": "https://doi.org/10.1371/journal.pcbi.1011921",
+      "cites": 5,
+      "topics": [
+        "Segregation & Equity"
+      ]
+    },
+    {
+      "id": "W4400957583",
+      "title": "Packaging code and data for reproducible research: A case study of journey time statistics",
+      "authors": [
+        "Federico Botta",
+        "Robin Lovelace",
+        "Laura Gilbert",
+        "Arthur Turrell"
+      ],
+      "members": [
+        "federico-botta"
+      ],
+      "venue": "Environment and Planning B Urban Analytics and City Science",
+      "year": 2024,
+      "url": "https://doi.org/10.1177/23998083241267331",
+      "cites": 4,
+      "topics": [
+        "Transport & Transit"
+      ]
+    },
+    {
+      "id": "W4403828054",
+      "title": "Routes of importation and spatial dynamics of SARS-CoV-2 variants during localized interventions in Chile",
+      "authors": [
+        "Bernardo Gutiérrez",
+        "Joseph L.-H. Tsui",
+        "Giulia Pullano",
+        "Mattia Mazzoli",
+        "Karthik Gangavarapu",
+        "Rhys P. D. Inward",
+        "Sumali Bajaj",
+        "Rosario Evans Pena",
+        "Simon Busch‐Moreno",
+        "Marc A. Suchard",
+        "Oliver G. Pybus",
+        "Alejandra Dunner",
+        "Rodrigo Puentes",
+        "Salvador Ayala",
+        "Jorge Fernández",
+        "Rafael Araos B",
+        "Leo Ferres",
+        "Vittoria Colizza",
+        "Moritz U. G. Kraemer"
+      ],
+      "members": [
+        "mattia-mazzoli"
+      ],
+      "venue": "PNAS Nexus",
+      "year": 2024,
+      "url": "https://doi.org/10.1093/pnasnexus/pgae483",
+      "cites": 4,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W4401757424",
+      "title": "COVID-19 y movimientos de población entre la jerarquía urbana en México. Un análisis utilizando datos digitales",
+      "authors": [
+        "Miguel González‐Leonardo",
+        "Carmen Cabrera-Arnau",
+        "Ruth Neville",
+        "Andrea Nasuto",
+        "Francisco Rowe"
+      ],
+      "members": [
+        "carmen-cabrera"
+      ],
+      "venue": "Estudios Demográficos y Urbanos",
+      "year": 2024,
+      "url": "https://doi.org/10.24201/edu.v39i3.2239",
+      "cites": 3,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W4401852654",
+      "title": "Rail journey cost calculator for Great Britain",
+      "authors": [
+        "Federico Botta"
+      ],
+      "members": [
+        "federico-botta"
+      ],
+      "venue": "Environment and Planning B Urban Analytics and City Science",
+      "year": 2024,
+      "url": "https://doi.org/10.1177/23998083241276569",
+      "cites": 1,
+      "topics": [
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4394620197",
+      "title": "System capacity model and algorithm for urban multimodal transport network with transfer",
+      "authors": [
+        "Fang Wei Zhao",
+        "Bingfeng Si",
+        "Guanghui Su",
+        "Tianwei Lu",
+        "José J. Ramasco"
+      ],
+      "members": [
+        "jose-javier-ramasco"
+      ],
+      "venue": "Transportation Planning and Technology",
+      "year": 2024,
+      "url": "https://doi.org/10.1080/03081060.2024.2338185",
+      "cites": 1,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4367609791",
+      "title": "The role of complexity for digital twins of cities",
+      "authors": [
+        "Guido Caldarelli",
+        "Elsa Arcaute",
+        "Marc Barthélemy",
+        "Michael Batty",
+        "Carlos Gershenson",
+        "Dirk Helbing",
+        "Stefano Mancuso",
+        "Yamir Moreno",
+        "José J. Ramasco",
+        "Céline Rozenblat",
+        "Ángel Sánchez",
+        "J. L. Fernández-Villacañas"
+      ],
+      "members": [
+        "elsa-arcaute",
+        "jose-javier-ramasco"
+      ],
+      "venue": "Nature Computational Science",
+      "year": 2023,
+      "url": "https://doi.org/10.1038/s43588-023-00431-4",
+      "cites": 141,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4382989325",
+      "title": "Future directions in human mobility science",
+      "authors": [
+        "Luca Pappalardo",
+        "Ed Manley",
+        "Vedran Sekara",
+        "Laura Alessandretti"
+      ],
+      "members": [
+        "luca-pappalardo"
+      ],
+      "venue": "Nature Computational Science",
+      "year": 2023,
+      "url": "https://doi.org/10.1038/s43588-023-00469-4",
+      "cites": 139,
+      "topics": [
+        "Human Mobility",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4386923392",
+      "title": "Understanding Regional Branching: Knowledge Diversification via Inventor and Firm Collaboration Networks",
+      "authors": [
+        "Dieter F. Kogler",
+        "Adam Whittle",
+        "Keungoui Kim",
+        "Balázs Lengyel"
+      ],
+      "members": [
+        "balazs-lengyel"
+      ],
+      "venue": "Economic Geography",
+      "year": 2023,
+      "url": "https://doi.org/10.1080/00130095.2023.2242551",
+      "cites": 79,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4385302684",
+      "title": "COVID-19 is linked to changes in the time–space dimension of human mobility",
+      "authors": [
+        "Clodomir Santana",
+        "Federico Botta",
+        "Hugo Barbosa",
+        "Filippo Privitera",
+        "Ronaldo Parente de Menezes",
+        "Riccardo Di Clemente"
+      ],
+      "members": [
+        "federico-botta",
+        "hugo-barbosa",
+        "ronaldo-menezes",
+        "riccardo-di-clemente"
+      ],
+      "venue": "Nature Human Behaviour",
+      "year": 2023,
+      "url": "https://doi.org/10.1038/s41562-023-01660-3",
+      "cites": 77,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4317569086",
+      "title": "Monetization in online streaming platforms: an exploration of inequalities in Twitch.tv",
+      "authors": [
+        "Antoine Houssard",
+        "Federico Pilati",
+        "Maria Tartari",
+        "Pierluigi Sacco",
+        "Riccardo Gallotti"
+      ],
+      "members": [
+        "riccardo-gallotti"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2023,
+      "url": "https://doi.org/10.1038/s41598-022-26727-5",
+      "cites": 44,
+      "topics": [
+        "Segregation & Equity"
+      ]
+    },
+    {
+      "id": "W4379058574",
+      "title": "Age and the 20-min city: Accounting for variation in mobility",
+      "authors": [
+        "Richard Dunning",
+        "Les Dolega",
+        "Andrea Nasuto",
+        "Alexander Nurse",
+        "Alessia Calafiore"
+      ],
+      "members": [
+        "alessia-calafiore"
+      ],
+      "venue": "Applied Geography",
+      "year": 2023,
+      "url": "https://doi.org/10.1016/j.apgeog.2023.103005",
+      "cites": 32,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4362693878",
+      "title": "Inferring urban polycentricity from the variability in human mobility patterns",
+      "authors": [
+        "Carmen Cabrera-Arnau",
+        "Chen Zhong",
+        "Michael Batty",
+        "Ricardo Silva",
+        "Soong Moon Kang"
+      ],
+      "members": [
+        "carmen-cabrera"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2023,
+      "url": "https://doi.org/10.1038/s41598-023-33003-7",
+      "cites": 30,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3163605984",
+      "title": "A road segment prioritization approach for cycling infrastructure",
+      "authors": [
+        "Hussein Mahfouz",
+        "Robin Lovelace",
+        "Elsa Arcaute"
+      ],
+      "members": [
+        "elsa-arcaute"
+      ],
+      "venue": "Journal of Transport Geography",
+      "year": 2023,
+      "url": "https://doi.org/10.1016/j.jtrangeo.2023.103715",
+      "cites": 29,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit"
+      ]
+    },
+    {
+      "id": "W4378232444",
+      "title": "Crime, inequality and public health: a survey of emerging trends in urban data science",
+      "authors": [
+        "Massimiliano Luca",
+        "Gian Maria Campedelli",
+        "Simone Centellegher",
+        "Michele Tizzoni",
+        "Bruno Lepri"
+      ],
+      "members": [
+        "massimiliano-luca"
+      ],
+      "venue": "Frontiers in Big Data",
+      "year": 2023,
+      "url": "https://doi.org/10.3389/fdata.2023.1124526",
+      "cites": 29,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4386482105",
+      "title": "Amenity complexity and urban locations of socio-economic mixing",
+      "authors": [
+        "Sándor Juhász",
+        "Gergő Pintér",
+        "Ádám J. Kovács",
+        "Endre Márk Borza",
+        "Gergely Mónus",
+        "László Lőrincz",
+        "Balázs Lengyel"
+      ],
+      "members": [
+        "balazs-lengyel"
+      ],
+      "venue": "EPJ Data Science",
+      "year": 2023,
+      "url": "https://doi.org/10.1140/epjds/s13688-023-00413-6",
+      "cites": 27,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4389137437",
+      "title": "The geography of technological innovation dynamics",
+      "authors": [
+        "Matteo Straccamore",
+        "Vittorio Loreto",
+        "Pietro Gravino"
+      ],
+      "members": [
+        "vittorio-loreto"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2023,
+      "url": "https://doi.org/10.1038/s41598-023-48342-8",
+      "cites": 24,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4386833933",
+      "title": "Mobility and transit segregation in urban spaces",
+      "authors": [
+        "Nandini Iyer",
+        "Ronaldo Parente de Menezes",
+        "Hugo Barbosa"
+      ],
+      "members": [
+        "ronaldo-menezes",
+        "hugo-barbosa"
+      ],
+      "venue": "Environment and Planning B Urban Analytics and City Science",
+      "year": 2023,
+      "url": "https://doi.org/10.1177/23998083231219294",
+      "cites": 22,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4323074167",
+      "title": "Urban economic fitness and complexity from patent data",
+      "authors": [
+        "Matteo Straccamore",
+        "Matteo Bruno",
+        "Bernardo Monechi",
+        "Vittorio Loreto"
+      ],
+      "members": [
+        "matteo-bruno",
+        "vittorio-loreto"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2023,
+      "url": "https://doi.org/10.1038/s41598-023-30649-1",
+      "cites": 22,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4387459422",
+      "title": "The structure of segregation in co-authorship networks and its impact on scientific production",
+      "authors": [
+        "Ana Maria Jaramillo",
+        "Hywel T. P. Williams",
+        "Nicola Perra",
+        "Ronaldo Parente de Menezes"
+      ],
+      "members": [
+        "ronaldo-menezes"
+      ],
+      "venue": "EPJ Data Science",
+      "year": 2023,
+      "url": "https://doi.org/10.1140/epjds/s13688-023-00411-8",
+      "cites": 15,
+      "topics": [
+        "Segregation & Equity"
+      ]
+    },
+    {
+      "id": "W4328048007",
+      "title": "Spatial immunization to abate disease spreading in transportation hubs",
+      "authors": [
+        "Mattia Mazzoli",
+        "Riccardo Gallotti",
+        "Filippo Privitera",
+        "Pere Colet",
+        "José J. Ramasco"
+      ],
+      "members": [
+        "mattia-mazzoli",
+        "riccardo-gallotti",
+        "jose-javier-ramasco"
+      ],
+      "venue": "Nature Communications",
+      "year": 2023,
+      "url": "https://doi.org/10.1038/s41467-023-36985-0",
+      "cites": 13,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility",
+        "Transport & Transit"
+      ]
+    },
+    {
+      "id": "W4385283456",
+      "title": "Mobility constraints in segregation models",
+      "authors": [
+        "Daniele Gambetta",
+        "Giovanni Mauro",
+        "Luca Pappalardo"
+      ],
+      "members": [
+        "giovanni-mauro",
+        "luca-pappalardo"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2023,
+      "url": "https://doi.org/10.1038/s41598-023-38519-6",
+      "cites": 12,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4388180889",
+      "title": "Spatiotemporal gender differences in urban vibrancy",
+      "authors": [
+        "Thomas Collins",
+        "Riccardo Di Clemente",
+        "Mario Gutiérrez-Roig",
+        "Federico Botta"
+      ],
+      "members": [
+        "riccardo-di-clemente",
+        "federico-botta"
+      ],
+      "venue": "Environment and Planning B Urban Analytics and City Science",
+      "year": 2023,
+      "url": "https://doi.org/10.1177/23998083231209073",
+      "cites": 12,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4389429886",
+      "title": "Socioeconomic reorganization of communication and mobility networks in response to external shocks",
+      "authors": [
+        "Ludovico Napoli",
+        "Vedran Sekara",
+        "Manuel García–Herranz",
+        "Márton Karsai"
+      ],
+      "members": [
+        "marton-karsai"
+      ],
+      "venue": "Proceedings of the National Academy of Sciences",
+      "year": 2023,
+      "url": "https://doi.org/10.1073/pnas.2305285120",
+      "cites": 11,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility",
+        "Segregation & Equity"
+      ]
+    },
+    {
+      "id": "W4387448586",
+      "title": "Bio-Inspired Multi-Objective Algorithms Applied on the Optimization of the AODV’s Routing Recovery Mechanism",
+      "authors": [
+        "Clodomir Santana",
+        "Mariana Gomes da Motta Macedo",
+        "Emilly Pereira Alves",
+        "Márcio Guerreiro",
+        "Hugo Valadares Siqueira",
+        "Anu A. Gokhale",
+        "Carmelo J. A. Bastos-Filho"
+      ],
+      "members": [
+        "mariana-macedo"
+      ],
+      "venue": "IEEE Access",
+      "year": 2023,
+      "url": "https://doi.org/10.1109/access.2023.3322691",
+      "cites": 10,
+      "topics": [
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W4319863523",
+      "title": "Structure, Resilience and Evolution of the European Air Route Network From 2015 to 2018",
+      "authors": [
+        "Pau Esteve",
+        "José J. Ramasco",
+        "Massimiliano Zanin"
+      ],
+      "members": [
+        "jose-javier-ramasco"
+      ],
+      "venue": "IEEE Transactions on Network Science and Engineering",
+      "year": 2023,
+      "url": "https://doi.org/10.1109/tnse.2023.3239300",
+      "cites": 9,
+      "topics": [
+        "Epidemics & Resilience",
+        "Transport & Transit"
+      ]
+    },
+    {
+      "id": "W4327663858",
+      "title": "Play&Go Corporate: An End-to-End Solution for Facilitating Urban Cyclability",
+      "authors": [
+        "Antonio Bucchiarone",
+        "Simone Bassanelli",
+        "Massimiliano Luca",
+        "Simone Centellegher",
+        "Piergiorgio Cipriano",
+        "Luca Giovannini",
+        "Bruno Lepri",
+        "Annapaola Marconi"
+      ],
+      "members": [
+        "massimiliano-luca"
+      ],
+      "venue": "IEEE Transactions on Intelligent Transportation Systems",
+      "year": 2023,
+      "url": "https://doi.org/10.1109/tits.2023.3256133",
+      "cites": 8,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4386469278",
+      "title": "Trajectory test-train overlap in next-location prediction datasets",
+      "authors": [
+        "Massimiliano Luca",
+        "Luca Pappalardo",
+        "Bruno Lepri",
+        "Gianni Barlacchi"
+      ],
+      "members": [
+        "massimiliano-luca",
+        "luca-pappalardo"
+      ],
+      "venue": "Machine Learning",
+      "year": 2023,
+      "url": "https://doi.org/10.1007/s10994-023-06386-x",
+      "cites": 8,
+      "topics": [
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W4391622791",
+      "title": "Egyenlőtlenségek a magyarországi fiatal kutatók között: tanulságok a Fiatal Kutatók Akadémiájának 2021-es felméréséből • Inequalities among Early-Career Researchers in Hungary: Lessons Learned from the 2021 Survey of the Hungarian Young Academy",
+      "authors": [
+        "Brigitta Németh",
+        "Balázs Munkácsy",
+        "Zsófia Viktória Vida",
+        "Georgina Fröhlich",
+        "István Gábor Hatvani",
+        "Gábor Hatvani",
+        "Gábor Tóth",
+        "György Tóth",
+        "György Solymosi",
+        "Katalin Solymosi",
+        "Katalin Máté",
+        "Ágnes Máté",
+        "Ágnes Lőrincz",
+        "László Lőrincz",
+        "László Lengyel",
+        "Balázs Lengyel"
+      ],
+      "members": [
+        "balazs-lengyel"
+      ],
+      "venue": "Magyar Tudomány",
+      "year": 2023,
+      "url": "https://doi.org/10.1556/2065.184.2023.12.10",
+      "cites": 6,
+      "topics": [
+        "Segregation & Equity"
+      ]
+    },
+    {
+      "id": "W4388036686",
+      "title": "Navigation Services and Urban Sustainability",
+      "authors": [
+        "Giuliano Cornacchia",
+        "Mirco Nanni",
+        "Dino Pedreschi",
+        "Luca Pappalardo"
+      ],
+      "members": [
+        "luca-pappalardo"
+      ],
+      "venue": "Fluctuation and Noise Letters",
+      "year": 2023,
+      "url": "https://doi.org/10.1142/s0219477524500160",
+      "cites": 5,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4388455128",
+      "title": "Inequalities in experiencing urban functions. An exploration of human digital (geo-)footprints",
+      "authors": [
+        "Alessia Calafiore",
+        "Krasen Samardzhiev",
+        "Francisco Rowe",
+        "Martin Fleischmann",
+        "Daniel Arribas‐Bel"
+      ],
+      "members": [
+        "alessia-calafiore"
+      ],
+      "venue": "Environment and Planning B Urban Analytics and City Science",
+      "year": 2023,
+      "url": "https://doi.org/10.1177/23998083231208507",
+      "cites": 4,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4385489870",
+      "title": "The applicability of human mobility scaling laws on animals—A Herring Gull case study",
+      "authors": [
+        "Marcelina Łoś",
+        "Kamil Smolak",
+        "Cezary Mitrus",
+        "Witold Rohm",
+        "Nico Van de Weghe",
+        "Katarzyna Siła-Nowicka"
+      ],
+      "members": [
+        "kamil-smolak"
+      ],
+      "venue": "PLoS ONE",
+      "year": 2023,
+      "url": "https://doi.org/10.1371/journal.pone.0286239",
+      "cites": 1,
+      "topics": [
+        "Human Mobility",
+        "Urban AI & Sensing"
+      ]
+    },
+    {
+      "id": "W2981033335",
+      "title": "scikit-mobility : A Python Library for the Analysis, Generation, and Risk Assessment of Mobility Data",
+      "authors": [
+        "Luca Pappalardo",
+        "Filippo Simini",
+        "Gianni Barlacchi",
+        "Roberto Pellungrini"
+      ],
+      "members": [
+        "luca-pappalardo"
+      ],
+      "venue": "Journal of Statistical Software",
+      "year": 2022,
+      "url": "https://doi.org/10.18637/jss.v103.i04",
+      "cites": 199,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4311845494",
+      "title": "Urban exodus? Understanding human mobility in Britain during the COVID‐19 pandemic using Meta‐Facebook data",
+      "authors": [
+        "Francisco Rowe",
+        "Alessia Calafiore",
+        "Daniel Arribas‐Bel",
+        "Krasen Samardzhiev",
+        "Martin Fleischmann"
+      ],
+      "members": [
+        "alessia-calafiore"
+      ],
+      "venue": "Population Space and Place",
+      "year": 2022,
+      "url": "https://doi.org/10.1002/psp.2637",
+      "cites": 165,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4220798749",
+      "title": "Impact of urban structure on infectious disease spreading",
+      "authors": [
+        "Javier Aguilar",
+        "Aleix Bassolas",
+        "Gourab Ghoshal",
+        "Surendra A. Hazarie",
+        "Alec Kirkley",
+        "Mattia Mazzoli",
+        "Sandro Meloni",
+        "Sayat Mimar",
+        "Vincenzo Nicosia",
+        "José J. Ramasco",
+        "Adam Sadilek"
+      ],
+      "members": [
+        "mattia-mazzoli",
+        "jose-javier-ramasco"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2022,
+      "url": "https://doi.org/10.1038/s41598-022-06720-8",
+      "cites": 67,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3130702445",
+      "title": "Differences in the spatial landscape of urban mobility: Gender and socioeconomic perspectives",
+      "authors": [
+        "Mariana Gomes da Motta Macedo",
+        "Laura Lotero",
+        "Alessio Cardillo",
+        "Ronaldo Parente de Menezes",
+        "Hugo Barbosa"
+      ],
+      "members": [
+        "mariana-macedo",
+        "ronaldo-menezes",
+        "hugo-barbosa"
+      ],
+      "venue": "PLoS ONE",
+      "year": 2022,
+      "url": "https://doi.org/10.1371/journal.pone.0260874",
+      "cites": 49,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4311519526",
+      "title": "Generating mobility networks with generative adversarial networks",
+      "authors": [
+        "Giovanni Mauro",
+        "Massimiliano Luca",
+        "Antonio Longa",
+        "Bruno Lepri",
+        "Luca Pappalardo"
+      ],
+      "members": [
+        "massimiliano-luca",
+        "luca-pappalardo"
+      ],
+      "venue": "EPJ Data Science",
+      "year": 2022,
+      "url": "https://doi.org/10.1140/epjds/s13688-022-00372-4",
+      "cites": 41,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4310777414",
+      "title": "Understanding internal migration in the UK before and during the COVID-19 pandemic using twitter data",
+      "authors": [
+        "Yikang Wang",
+        "Chen Zhong",
+        "Qi‐Li Gao",
+        "Carmen Cabrera-Arnau"
+      ],
+      "members": [
+        "carmen-cabrera"
+      ],
+      "venue": "Urban Informatics",
+      "year": 2022,
+      "url": "https://doi.org/10.1007/s44212-022-00018-w",
+      "cites": 31,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4309809325",
+      "title": "Does big data help answer big questions? The case of airport catchment areas & competition",
+      "authors": [
+        "Nicole Adler",
+        "Amir Brudner",
+        "Riccardo Gallotti",
+        "Filippo Privitera",
+        "José J. Ramasco"
+      ],
+      "members": [
+        "riccardo-gallotti",
+        "jose-javier-ramasco"
+      ],
+      "venue": "Transportation Research Part B Methodological",
+      "year": 2022,
+      "url": "https://doi.org/10.1016/j.trb.2022.10.013",
+      "cites": 30,
+      "topics": [
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W3159319138",
+      "title": "Contrasting social and non-social sources of predictability in human mobility",
+      "authors": [
+        "Zexun Chen",
+        "Sean Kelty",
+        "Alexandre G. Evsukoff",
+        "Brooke Foucault Welles",
+        "James P. Bagrow",
+        "Ronaldo Parente de Menezes",
+        "Gourab Ghoshal"
+      ],
+      "members": [
+        "ronaldo-menezes"
+      ],
+      "venue": "Nature Communications",
+      "year": 2022,
+      "url": "https://doi.org/10.1038/s41467-022-29592-y",
+      "cites": 28,
+      "topics": [
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W3205702723",
+      "title": "Socioeconomic biases in urban mixing patterns of US metropolitan areas",
+      "authors": [
+        "Rafiazka Millanida Hilman",
+        "Gerardo Íñiguez",
+        "Márton Karsai"
+      ],
+      "members": [
+        "marton-karsai"
+      ],
+      "venue": "EPJ Data Science",
+      "year": 2022,
+      "url": "https://doi.org/10.1140/epjds/s13688-022-00341-x",
+      "cites": 27,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3167741724",
+      "title": "Urban hierarchy and spatial diffusion over the innovation life cycle",
+      "authors": [
+        "Eszter Bokányi",
+        "Martin Novák",
+        "Ákos Jakobi",
+        "Balázs Lengyel"
+      ],
+      "members": [
+        "balazs-lengyel"
+      ],
+      "venue": "Royal Society Open Science",
+      "year": 2022,
+      "url": "https://doi.org/10.1098/rsos.211038",
+      "cites": 26,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4309076551",
+      "title": "Aging effects in Schelling segregation model",
+      "authors": [
+        "David Abella",
+        "Maxi San Miguel",
+        "José J. Ramasco"
+      ],
+      "members": [
+        "jose-javier-ramasco"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2022,
+      "url": "https://doi.org/10.1038/s41598-022-23224-7",
+      "cites": 24,
+      "topics": [
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4295014675",
+      "title": "Connecting intercity mobility with urban welfare",
+      "authors": [
+        "Sayat Mimar",
+        "David Soriano‐Paños",
+        "Alec Kirkley",
+        "Hugo Barbosa",
+        "Adam Sadilek",
+        "Àlex Arenas",
+        "Jesús Gómez‐Gardeñes",
+        "Gourab Ghoshal"
+      ],
+      "members": [
+        "hugo-barbosa"
+      ],
+      "venue": "PNAS Nexus",
+      "year": 2022,
+      "url": "https://doi.org/10.1093/pnasnexus/pgac178",
+      "cites": 24,
+      "topics": [
+        "Human Mobility",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4293065938",
+      "title": "Recent advances in urban system science: Models and data",
+      "authors": [
+        "Elsa Arcaute",
+        "José J. Ramasco"
+      ],
+      "members": [
+        "elsa-arcaute",
+        "jose-javier-ramasco"
+      ],
+      "venue": "PLoS ONE",
+      "year": 2022,
+      "url": "https://doi.org/10.1371/journal.pone.0272863",
+      "cites": 24,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3177161500",
+      "title": "Uncovering structural diversity in commuting networks: global and local entropy",
+      "authors": [
+        "Valentina Marin",
+        "Carlos Molinero",
+        "Elsa Arcaute"
+      ],
+      "members": [
+        "elsa-arcaute"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2022,
+      "url": "https://doi.org/10.1038/s41598-022-05556-6",
+      "cites": 23,
+      "topics": [
+        "Human Mobility",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4221155051",
+      "title": "Modeling international mobility using roaming cell phone traces during COVID-19 pandemic",
+      "authors": [
+        "Massimiliano Luca",
+        "Bruno Lepri",
+        "Enrique Frías-Martínez",
+        "Andra Lutu"
+      ],
+      "members": [
+        "massimiliano-luca"
+      ],
+      "venue": "EPJ Data Science",
+      "year": 2022,
+      "url": "https://doi.org/10.1140/epjds/s13688-022-00335-9",
+      "cites": 21,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W3171433351",
+      "title": "Leveraging Mobile Phone Data for Migration Flows",
+      "authors": [
+        "Massimiliano Luca",
+        "Gianni Barlacchi",
+        "Nuria Oliver",
+        "Bruno Lepri"
+      ],
+      "members": [
+        "massimiliano-luca"
+      ],
+      "venue": "British Academy eBooks",
+      "year": 2022,
+      "url": "https://doi.org/10.5871/bacad/9780197267103.003.0004",
+      "cites": 19,
+      "topics": [
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W3180360099",
+      "title": "Directed percolation in temporal networks",
+      "authors": [
+        "Arash Badie-Modiri",
+        "Abbas K. Rizi",
+        "Márton Karsai",
+        "Mikko Kivelä"
+      ],
+      "members": [
+        "marton-karsai"
+      ],
+      "venue": "Physical Review Research",
+      "year": 2022,
+      "url": "https://doi.org/10.1103/physrevresearch.4.l022047",
+      "cites": 18,
+      "topics": [
+        "Segregation & Equity",
+        "Transport & Transit"
+      ]
+    },
+    {
+      "id": "W4223631373",
+      "title": "Scaling Beyond Cities",
+      "authors": [
+        "Rafael Prieto-Curiel",
+        "Carmen Cabrera-Arnau",
+        "Steven Richard Bishop"
+      ],
+      "members": [
+        "carmen-cabrera"
+      ],
+      "venue": "Frontiers in Physics",
+      "year": 2022,
+      "url": "https://doi.org/10.3389/fphy.2022.858307",
+      "cites": 14,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4306763502",
+      "title": "Income-related spatial concentration of individual social capital in cities",
+      "authors": [
+        "Ádám J. Kovács",
+        "Sándor Juhász",
+        "Eszter Bokányi",
+        "Balázs Lengyel"
+      ],
+      "members": [
+        "balazs-lengyel"
+      ],
+      "venue": "Environment and Planning B Urban Analytics and City Science",
+      "year": 2022,
+      "url": "https://doi.org/10.1177/23998083221120663",
+      "cites": 12,
+      "topics": [
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3165572400",
+      "title": "Mapping urban socioeconomic inequalities in developing countries through Facebook advertising data",
+      "authors": [
+        "Simone Piaggesi",
+        "Serena Giurgola",
+        "Márton Karsai",
+        "Yelena Mejova",
+        "André Panisson",
+        "Michele Tizzoni"
+      ],
+      "members": [
+        "marton-karsai"
+      ],
+      "venue": "Frontiers in Big Data",
+      "year": 2022,
+      "url": "https://doi.org/10.3389/fdata.2022.1006352",
+      "cites": 11,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4288749643",
+      "title": "Explaining human mobility predictions through a pattern matching algorithm",
+      "authors": [
+        "Kamil Smolak",
+        "Witold Rohm",
+        "Katarzyna Siła-Nowicka"
+      ],
+      "members": [
+        "kamil-smolak"
+      ],
+      "venue": "EPJ Data Science",
+      "year": 2022,
+      "url": "https://doi.org/10.1140/epjds/s13688-022-00356-4",
+      "cites": 8,
+      "topics": [
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W4223492951",
+      "title": "Decomposing the Temporal Signature of Nitrogen Dioxide Declines during the COVID-19 Pandemic in UK Urban Areas",
+      "authors": [
+        "Alessia Calafiore",
+        "Jacob L. Macdonald",
+        "Alex David Singleton"
+      ],
+      "members": [
+        "alessia-calafiore"
+      ],
+      "venue": "Applied Spatial Analysis and Policy",
+      "year": 2022,
+      "url": "https://doi.org/10.1007/s12061-022-09438-2",
+      "cites": 6,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4220917392",
+      "title": "Geographies of the global co-editor network in oncology",
+      "authors": [
+        "György Csomós",
+        "Balázs Lengyel"
+      ],
+      "members": [
+        "balazs-lengyel"
+      ],
+      "venue": "PLoS ONE",
+      "year": 2022,
+      "url": "https://doi.org/10.1371/journal.pone.0265652",
+      "cites": 5,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4306146749",
+      "title": "Multiplex mobility network and metapopulation epidemic simulations of Italy based on open data",
+      "authors": [
+        "Antonio Desiderio",
+        "Gaetano Salina",
+        "Giulio Cimini"
+      ],
+      "members": [
+        "antonio-desiderio"
+      ],
+      "venue": "Journal of Physics Complexity",
+      "year": 2022,
+      "url": "https://doi.org/10.1088/2632-072x/ac9a29",
+      "cites": 4,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W7223731975",
+      "title": "A Weather-Aware Framework for Population Mobility Modelling (Short Paper)",
+      "authors": [
+        "Vanessa da Silva Brum-Bastos",
+        "Kamil Smolak",
+        "Witold Rohm",
+        "Katarzyna Siła-Nowicka"
+      ],
+      "members": [
+        "kamil-smolak"
+      ],
+      "venue": "DROPS (Schloss Dagstuhl – Leibniz Center for Informatics)",
+      "year": 2022,
+      "url": "https://doi.org/10.4230/lipics.cosit.2022.17",
+      "cites": 0,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3173976444",
+      "title": "A Survey on Deep Learning for Human Mobility",
+      "authors": [
+        "Massimiliano Luca",
+        "Gianni Barlacchi",
+        "Bruno Lepri",
+        "Luca Pappalardo"
+      ],
+      "members": [
+        "massimiliano-luca",
+        "luca-pappalardo"
+      ],
+      "venue": "ACM Computing Surveys",
+      "year": 2021,
+      "url": "https://doi.org/10.1145/3485125",
+      "cites": 365,
+      "topics": [
+        "Human Mobility",
+        "Urban & Cities",
+        "Urban AI & Sensing"
+      ]
+    },
+    {
+      "id": "W3214685769",
+      "title": "A Deep Gravity model for mobility flows generation",
+      "authors": [
+        "Filippo Simini",
+        "Gianni Barlacchi",
+        "Massimiliano Luca",
+        "Luca Pappalardo"
+      ],
+      "members": [
+        "massimiliano-luca",
+        "luca-pappalardo"
+      ],
+      "venue": "Nature Communications",
+      "year": 2021,
+      "url": "https://doi.org/10.1038/s41467-021-26752-4",
+      "cites": 309,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4200583214",
+      "title": "The 20-minute city: An equity analysis of Liverpool City Region",
+      "authors": [
+        "Alessia Calafiore",
+        "Richard Dunning",
+        "Alexander Nurse",
+        "Alex David Singleton"
+      ],
+      "members": [
+        "alessia-calafiore"
+      ],
+      "venue": "Transportation Research Part D Transport and Environment",
+      "year": 2021,
+      "url": "https://doi.org/10.1016/j.trd.2021.103111",
+      "cites": 213,
+      "topics": [
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W2975230318",
+      "title": "Inequality is rising where social network segregation interacts with urban topology",
+      "authors": [
+        "Gergő Tóth",
+        "Johannes Wachs",
+        "Riccardo Di Clemente",
+        "Ákos Jakobi",
+        "Bence Ságvári",
+        "János Kertész",
+        "Balázs Lengyel"
+      ],
+      "members": [
+        "riccardo-di-clemente",
+        "balazs-lengyel"
+      ],
+      "venue": "Nature Communications",
+      "year": 2021,
+      "url": "https://doi.org/10.1038/s41467-021-21465-0",
+      "cites": 162,
+      "topics": [
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3108958915",
+      "title": "Uncovering the socioeconomic facets of human mobility",
+      "authors": [
+        "Hugo Barbosa",
+        "Surendra A. Hazarie",
+        "Brian Dickinson",
+        "Aleix Bassolas",
+        "Adam Frank",
+        "Henry Kautz",
+        "Adam Sadilek",
+        "José J. Ramasco",
+        "Gourab Ghoshal"
+      ],
+      "members": [
+        "hugo-barbosa",
+        "jose-javier-ramasco"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2021,
+      "url": "https://doi.org/10.1038/s41598-021-87407-4",
+      "cites": 112,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4200568363",
+      "title": "Living in a pandemic: changes in mobility routines, social activity and adherence to COVID-19 protective measures",
+      "authors": [
+        "Lorenzo Lucchini",
+        "Simone Centellegher",
+        "Luca Pappalardo",
+        "Riccardo Gallotti",
+        "Filippo Privitera",
+        "Bruno Lepri",
+        "Marco De Nadai"
+      ],
+      "members": [
+        "luca-pappalardo",
+        "riccardo-gallotti"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2021,
+      "url": "https://doi.org/10.1038/s41598-021-04139-1",
+      "cites": 91,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W3089085995",
+      "title": "Urbanization and economic complexity",
+      "authors": [
+        "Riccardo Di Clemente",
+        "Emanuele Strano",
+        "Michael Batty"
+      ],
+      "members": [
+        "riccardo-di-clemente"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2021,
+      "url": "https://doi.org/10.1038/s41598-021-83238-5",
+      "cites": 88,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3123063864",
+      "title": "Airbnb and its potential impact on the London housing market",
+      "authors": [
+        "Zahratu Shabrina",
+        "Elsa Arcaute",
+        "Michael Batty"
+      ],
+      "members": [
+        "elsa-arcaute"
+      ],
+      "venue": "Urban Studies",
+      "year": 2021,
+      "url": "https://doi.org/10.1177/0042098020970865",
+      "cites": 83,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3202113396",
+      "title": "Complex Urban Systems: Challenges and Integrated Solutions for the Sustainability and Resilience of Cities",
+      "authors": [
+        "Riccardo Gallotti",
+        "Pier Luigi Sacco",
+        "Manlio De Domenico"
+      ],
+      "members": [
+        "riccardo-gallotti"
+      ],
+      "venue": "Complexity",
+      "year": 2021,
+      "url": "https://doi.org/10.1155/2021/1782354",
+      "cites": 64,
+      "topics": [
+        "Epidemics & Resilience",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3206532213",
+      "title": "Interplay between mobility, multi-seeding and lockdowns shapes COVID-19 local impact",
+      "authors": [
+        "Mattia Mazzoli",
+        "Emanuele Pepe",
+        "David Mateo",
+        "Ciro Cattuto",
+        "Laëtitia Gauvin",
+        "Paolo Bajardi",
+        "Michele Tizzoni",
+        "Alberto Hernando",
+        "Sandro Meloni",
+        "José J. Ramasco"
+      ],
+      "members": [
+        "mattia-mazzoli",
+        "jose-javier-ramasco"
+      ],
+      "venue": "PLoS Computational Biology",
+      "year": 2021,
+      "url": "https://doi.org/10.1371/journal.pcbi.1009326",
+      "cites": 59,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W3168571978",
+      "title": "Evaluation of home detection algorithms on mobile phone data using individual-level ground truth",
+      "authors": [
+        "Luca Pappalardo",
+        "Leo Ferres",
+        "Manuel Sacasa",
+        "Ciro Cattuto",
+        "Loreto Bravo"
+      ],
+      "members": [
+        "luca-pappalardo"
+      ],
+      "venue": "EPJ Data Science",
+      "year": 2021,
+      "url": "https://doi.org/10.1140/epjds/s13688-021-00284-9",
+      "cites": 57,
+      "topics": [
+        "Human Mobility",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3165831585",
+      "title": "Modelling urban vibrancy with mobile phone and OpenStreetMap data",
+      "authors": [
+        "Federico Botta",
+        "Mario Gutiérrez-Roig"
+      ],
+      "members": [
+        "federico-botta"
+      ],
+      "venue": "PLoS ONE",
+      "year": 2021,
+      "url": "https://doi.org/10.1371/journal.pone.0252015",
+      "cites": 53,
+      "topics": [
+        "Human Mobility",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3132986110",
+      "title": "Establishing the integrated science of movement: bringing together concepts and methods from animal and human movement analysis",
+      "authors": [
+        "Urška Demšar",
+        "Jed Long",
+        "Fernando Benitez‐Paez",
+        "Vanessa da Silva Brum-Bastos",
+        "Solène Marion",
+        "Gina Martin",
+        "Sebastijan Sekulić",
+        "Kamil Smolak",
+        "Beate Zein",
+        "Katarzyna Siła-Nowicka"
+      ],
+      "members": [
+        "kamil-smolak"
+      ],
+      "venue": "International Journal of Geographical Information Systems",
+      "year": 2021,
+      "url": "https://doi.org/10.1080/13658816.2021.1880589",
+      "cites": 46,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit"
+      ]
+    },
+    {
+      "id": "W3013481901",
+      "title": "Quantifying efficient information exchange in real network flows",
+      "authors": [
+        "Giulia Bertagnolli",
+        "Riccardo Gallotti",
+        "Manlio De Domenico"
+      ],
+      "members": [
+        "riccardo-gallotti"
+      ],
+      "venue": "Communications Physics",
+      "year": 2021,
+      "url": "https://doi.org/10.1038/s42005-021-00612-5",
+      "cites": 34,
+      "topics": [
+        "Transport & Transit"
+      ]
+    },
+    {
+      "id": "W3135888077",
+      "title": "Understanding vehicular routing behavior with location-based service data",
+      "authors": [
+        "Yanyan Xu",
+        "Riccardo Di Clemente",
+        "Marta C. González"
+      ],
+      "members": [
+        "riccardo-di-clemente"
+      ],
+      "venue": "EPJ Data Science",
+      "year": 2021,
+      "url": "https://doi.org/10.1140/epjds/s13688-021-00267-w",
+      "cites": 33,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit"
+      ]
+    },
+    {
+      "id": "W3205116344",
+      "title": "Universal patterns of long-distance commuting and social assortativity in cities",
+      "authors": [
+        "Eszter Bokányi",
+        "Sándor Juhász",
+        "Márton Karsai",
+        "Balázs Lengyel"
+      ],
+      "members": [
+        "marton-karsai",
+        "balazs-lengyel"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2021,
+      "url": "https://doi.org/10.1038/s41598-021-00416-1",
+      "cites": 31,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3155714255",
+      "title": "Repeated collaboration of inventors across European regions",
+      "authors": [
+        "Gergő Tóth",
+        "Sándor Juhász",
+        "Zoltán Elekes",
+        "Balázs Lengyel"
+      ],
+      "members": [
+        "balazs-lengyel"
+      ],
+      "venue": "European Planning Studies",
+      "year": 2021,
+      "url": "https://doi.org/10.1080/09654313.2021.1914555",
+      "cites": 30,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3183192330",
+      "title": "The impact of human mobility data scales and processing on movement predictability",
+      "authors": [
+        "Kamil Smolak",
+        "Katarzyna Siła-Nowicka",
+        "Jean‐Charles Delvenne",
+        "Michał Wierzbiński",
+        "Witold Rohm"
+      ],
+      "members": [
+        "kamil-smolak"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2021,
+      "url": "https://doi.org/10.1038/s41598-021-94102-x",
+      "cites": 29,
+      "topics": [
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W4200502768",
+      "title": "Innovative mergers and acquisitions and the broker regions of European integration",
+      "authors": [
+        "Michele Aquaro",
+        "Giacomo Damioli",
+        "Balázs Lengyel"
+      ],
+      "members": [
+        "balazs-lengyel"
+      ],
+      "venue": "Regional Studies",
+      "year": 2021,
+      "url": "https://doi.org/10.1080/00343404.2021.1998418",
+      "cites": 23,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3135318152",
+      "title": "Unraveling the hidden organisation of urban systems and their mobility flows",
+      "authors": [
+        "Riccardo Gallotti",
+        "Giulia Bertagnolli",
+        "Manlio De Domenico"
+      ],
+      "members": [
+        "riccardo-gallotti"
+      ],
+      "venue": "EPJ Data Science",
+      "year": 2021,
+      "url": "https://doi.org/10.1140/epjds/s13688-020-00258-3",
+      "cites": 22,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3159085773",
+      "title": "Capturing the diversity of multilingual societies",
+      "authors": [
+        "Thomas Louf",
+        "David Sánchez",
+        "José J. Ramasco"
+      ],
+      "members": [
+        "jose-javier-ramasco"
+      ],
+      "venue": "Physical Review Research",
+      "year": 2021,
+      "url": "https://doi.org/10.1103/physrevresearch.3.043146",
+      "cites": 20,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity"
+      ]
+    },
+    {
+      "id": "W3194996619",
+      "title": "Urban population size and road traffic collisions in Europe",
+      "authors": [
+        "Carmen Cabrera-Arnau",
+        "Steven Richard Bishop"
+      ],
+      "members": [
+        "carmen-cabrera"
+      ],
+      "venue": "PLoS ONE",
+      "year": 2021,
+      "url": "https://doi.org/10.1371/journal.pone.0256485",
+      "cites": 19,
+      "topics": [
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3153198067",
+      "title": "Unequal housing affordability across European cities. The ESPON Housing Database, Insights on Affordability in Selected Cities in Europe",
+      "authors": [
+        "Renaud Le Goix",
+        "Ronan Ysebaert",
+        "Timothée Giraud",
+        "Marc Lieury",
+        "Guilhem Boulay",
+        "Mathieu Coulon",
+        "Sébastien Rey Coyrehourcq",
+        "Rémi Lemoy A",
+        "José J. Ramasco",
+        "Mattia Mazzoli",
+        "Pere Colet",
+        "Thierry Theurillat",
+        "Alain Segessemann",
+        "Szymon Marcińczak",
+        "Bartosz Bartosiewicz"
+      ],
+      "members": [
+        "jose-javier-ramasco",
+        "mattia-mazzoli"
+      ],
+      "venue": "Cybergeo",
+      "year": 2021,
+      "url": "https://doi.org/10.4000/cybergeo.36478",
+      "cites": 17,
+      "topics": [
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3199882460",
+      "title": "A Mechanistic Data-Driven Approach to Synthesize Human Mobility Considering the Spatial, Temporal, and Social Dimensions Together",
+      "authors": [
+        "Giuliano Cornacchia",
+        "Luca Pappalardo"
+      ],
+      "members": [
+        "luca-pappalardo"
+      ],
+      "venue": "ISPRS International Journal of Geo-Information",
+      "year": 2021,
+      "url": "https://doi.org/10.3390/ijgi10090599",
+      "cites": 16,
+      "topics": [
+        "Human Mobility",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3172408252",
+      "title": "Critical behavior in interdependent spatial spreading processes with distinct characteristic time scales",
+      "authors": [
+        "Piergiorgio Castioni",
+        "Riccardo Gallotti",
+        "Manlio De Domenico"
+      ],
+      "members": [
+        "riccardo-gallotti"
+      ],
+      "venue": "Communications Physics",
+      "year": 2021,
+      "url": "https://doi.org/10.1038/s42005-021-00631-2",
+      "cites": 16,
+      "topics": [
+        "Epidemics & Resilience",
+        "Human Mobility"
+      ]
+    },
+    {
+      "id": "W3195625529",
+      "title": "Reducing automation risk through career mobility: Where and for whom?",
+      "authors": [
+        "László Czaller",
+        "Rikard H. Eriksson",
+        "Balázs Lengyel"
+      ],
+      "members": [
+        "balazs-lengyel"
+      ],
+      "venue": "Papers of the Regional Science Association",
+      "year": 2021,
+      "url": "https://doi.org/10.1111/pirs.12635",
+      "cites": 14,
+      "topics": [
+        "Human Mobility",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3191028220",
+      "title": "Finding successful strategies in a complex urban sustainability game",
+      "authors": [
+        "Bernardo Monechi",
+        "Enrico Ubaldi",
+        "Pietro Gravino",
+        "Ilan Chabay",
+        "Vittorio Loreto"
+      ],
+      "members": [
+        "vittorio-loreto"
+      ],
+      "venue": "Scientific Reports",
+      "year": 2021,
+      "url": "https://doi.org/10.1038/s41598-021-95199-w",
+      "cites": 9,
+      "topics": [
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3206632115",
+      "title": "20-minute neighbourhood or 15-minute city?",
+      "authors": [
+        "Richard Dunning",
+        "Alessia Calafiore",
+        "Alexander Nurse"
+      ],
+      "members": [
+        "alessia-calafiore"
+      ],
+      "venue": "",
+      "year": 2021,
+      "url": "https://livrepository.liverpool.ac.uk/3127722/",
+      "cites": 6,
+      "topics": [
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4200246695",
+      "title": "Rapid indicators of deprivation using grocery shopping data",
+      "authors": [
+        "Adam Bannister",
+        "Federico Botta"
+      ],
+      "members": [
+        "federico-botta"
+      ],
+      "venue": "Royal Society Open Science",
+      "year": 2021,
+      "url": "https://doi.org/10.1098/rsos.211069",
+      "cites": 6,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W4210601536",
+      "title": "Heterogeneity and segregation of mobility patterns",
+      "authors": [
+        "Enrico Ubaldi",
+        "Bernardo Monechi",
+        "Claudio Chiappetta",
+        "Vittorio Loreto"
+      ],
+      "members": [
+        "vittorio-loreto"
+      ],
+      "venue": "Edward Elgar Publishing eBooks",
+      "year": 2021,
+      "url": "https://doi.org/10.4337/9781839100598.00038",
+      "cites": 3,
+      "topics": [
+        "Human Mobility",
+        "Segregation & Equity",
+        "Transport & Transit",
+        "Urban & Cities"
+      ]
+    },
+    {
+      "id": "W3175610794",
+      "title": "Quantifying the differences incall detail records",
+      "authors": [
+        "Federico Botta"
+      ],
+      "members": [
+        "federico-botta"
+      ],
+      "venue": "Royal Society Open Science",
+      "year": 2021,
+      "url": "https://doi.org/10.1098/rsos.201443",
+      "cites": 0,
+      "topics": [
+        "Human Mobility"
+      ]
+    }
   ]
 }

@@ -1,0 +1,80 @@
+{
+  "_about": "European Mobility Society (EMoS) — Symposia editions and community events data consumed by assets/js/symposia.js and assets/js/symposium-archive.js.",
+  "_copyright": "Copyright (c) 2026 European Mobility Society (EMoS)",
+  "_schema": {
+    "symposia": [
+      {
+        "year": "int — symposium edition year",
+        "status": "'upcoming' | 'past'",
+        "edition": "Edition title (e.g. '3rd European Mobility Symposium')",
+        "dates": "Human-readable event date range",
+        "city": "Host city",
+        "country": "Host country",
+        "venue": "Optional host institution or venue string",
+        "summary": "Short description shown on the Symposia page",
+        "photo": "Optional 16:9 photo path under assets/photos/symposia/ (past editions)",
+        "photoAlt": "Accessible alt text for the group photo",
+        "archiveUrl": "Relative local archive path (e.g. 'symposia/2026-exeter/index.html')",
+        "originalUrl": "Optional historical external website URL"
+      }
+    ],
+    "events": "Optional array of related community events ({ title, url?, dates?, location?, description? })"
+  },
+  "symposia": [
+    {
+      "year": 2028,
+      "status": "upcoming",
+      "edition": "4th European Mobility Symposium",
+      "dates": "2028 · Dates TBA",
+      "city": "Host city TBA",
+      "country": "Europe",
+      "venue": "To be announced",
+      "summary": "The next edition of the annual invitation-only European Mobility Symposium. Call for topics, host institution details, and programme updates will be published here.",
+      "archiveUrl": "",
+      "originalUrl": ""
+    },
+    {
+      "year": 2026,
+      "status": "past",
+      "edition": "3rd European Mobility Symposium",
+      "dates": "23–24 September 2026",
+      "city": "Exeter",
+      "country": "United Kingdom",
+      "venue": "The Deck, University of Exeter",
+      "summary": "A two-day invitation-only symposium for researchers, practitioners, and policymakers working on human mobility, sustainable transport, and urban systems.",
+      "photo": "assets/photos/symposia/2026-exeter.jpg",
+      "photoAlt": "Participants at the 3rd European Mobility Symposium in Exeter (2026)",
+      "archiveUrl": "symposia/2026-exeter/index.html",
+      "originalUrl": "https://europeanmobilitysymposium.github.io/index.html"
+    },
+    {
+      "year": 2025,
+      "status": "past",
+      "edition": "2nd European Mobility Symposium",
+      "dates": "25–26 September 2025",
+      "city": "Turin",
+      "country": "Italy",
+      "venue": "ISI Foundation, Via Chisola 5",
+      "summary": "Two days of talks and working sessions on recent advances in human mobility, data-driven urban analysis, and cross-institutional collaborations.",
+      "photo": "assets/photos/symposia/2025-turin.jpg",
+      "photoAlt": "Participants at the 2nd European Mobility Symposium at ISI Foundation in Turin (2025)",
+      "archiveUrl": "symposia/2025-turin/index.html",
+      "originalUrl": "https://europeanmobilitysociety.github.io/symposium/"
+    },
+    {
+      "year": 2024,
+      "status": "past",
+      "edition": "1st European Mobility Symposium",
+      "dates": "21–22 November 2024",
+      "city": "Pisa",
+      "country": "Italy",
+      "venue": "Officine Garibaldi, Aula Master",
+      "summary": "Inaugural edition bringing together European mobility researchers to share recent work and launch joint research initiatives.",
+      "photo": "assets/photos/symposia/2024-pisa.jpg",
+      "photoAlt": "Participants at the 1st European Mobility Symposium at Officine Garibaldi in Pisa (2024)",
+      "archiveUrl": "symposia/2024-pisa/index.html",
+      "originalUrl": "https://europeanmobilitysociety.github.io/symposium/past_edition/index.html"
+    }
+  ],
+  "events": []
+}

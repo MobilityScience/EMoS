@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  ===========================================================================
+  European Mobility Society (EMoS) — Publications Catalogue (publications.html)
+  ---------------------------------------------------------------------------
+  Filterable catalogue of OpenAlex-curated Mobility Science publications
+  (generated monthly via scripts/build_publications.py -> publications.json).
+  Supports `?member=`, `?inst=`, `?topic=`, `?group=` query parameters and
+  inline Author / Institution Spotlight drawers (assets/js/publications.js).
+
+  Copyright (c) 2026 European Mobility Society (EMoS)
+  ===========================================================================
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications — European Mobility Society (EMoS)</title>
+  <!-- SEO Meta, Canonical, Social Previews & Schema.org CollectionPage -->
+  <meta name="description" content="Searchable catalogue of mobility science publications authored by European Mobility Society members, automatically curated from OpenAlex." />
+  <meta name="author" content="European Mobility Society (EMoS)" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#052b63" />
+
+  <link rel="canonical" href="https://mobilityscience.github.io/EMoS/publications.html" />
+  <link rel="icon" type="image/png" href="assets/logos/emos-mark.png" />
+  <link rel="apple-touch-icon" href="assets/logos/emos-mark.png" />
+
+  <meta property="og:site_name" content="European Mobility Society" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:title" content="Publications — European Mobility Society" />
+  <meta property="og:description" content="Browse mobility science research papers by topic, member, or institution, indexed continuously from OpenAlex." />
+  <meta property="og:url" content="https://mobilityscience.github.io/EMoS/publications.html" />
+  <meta property="og:image" content="https://mobilityscience.github.io/EMoS/assets/logos/emos-mark.png" />
+  <meta property="og:image:width" content="1043" />
+  <meta property="og:image:height" content="300" />
+  <meta property="og:image:alt" content="European Mobility Society logo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Publications — European Mobility Society" />
+  <meta name="twitter:description" content="Browse mobility science research papers by topic, member, or institution, indexed continuously from OpenAlex." />
+  <meta name="twitter:image" content="https://mobilityscience.github.io/EMoS/assets/logos/emos-mark.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "url": "https://mobilityscience.github.io/EMoS/publications.html",
+    "name": "Publications — European Mobility Society",
+    "description": "Mobility science publications authored by members of the European Mobility Society, automatically updated from OpenAlex.",
+    "isPartOf": { "@id": "https://mobilityscience.github.io/EMoS/#website" }
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/shared.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="assets/js/publications.js" defer></script>
+</head>
+
+<body class="font-sans text-ink-900 antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] bg-white px-3 py-2 rounded shadow">Skip to content</a>
+
+  <!-- Sticky Header & Primary Navigation (popover menu managed by shared.js) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="flex items-center gap-3 min-w-0">
+        <img src="assets/logos/emos-mark.png" alt="" class="h-8 w-auto shrink-0" width="52" height="32" />
+        <span class="society-name font-display font-semibold text-base sm:text-lg leading-tight truncate text-brand-700">European Mobility Society</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <button class="menu-button inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-ink-700 hover:bg-slate-50"
+                type="button" popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu">
+          <svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <span>Menu</span>
+        </button>
+
+        <ul id="site-menu" class="site-menu" popover="auto">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="members.html" class="nav-link">Members</a></li>
+          <li><a href="publications.html" aria-current="page" class="nav-link">Publications</a></li>
+          <li><a href="symposia.html" class="nav-link">Symposia</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page-enter">
+    <!-- Page Hero -->
+    <section class="border-b border-slate-200 bg-gradient-to-br from-brand-50 via-teal-50/40 to-white">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-16">
+        <p class="text-sm font-semibold uppercase tracking-wider text-teal-700">Publications</p>
+        <h1 class="mt-3 font-display text-4xl font-bold text-brand-700">Mobility Science Publications</h1>
+        <p class="mt-3 text-lg text-ink-700 max-w-2xl">Curated mobility research published by members of the society. Filter by topic, institution, or author.</p>
+      </div>
+    </section>
+
+    <!-- Filter Toolbar, Topic Pills, Spotlight Card & Publications Feed (assets/js/publications.js) -->
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+      <section class="mb-6 rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm space-y-4" aria-label="Filter publications">
+        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)_minmax(0,1fr)_auto] lg:items-end">
+          <div>
+            <label for="pub-search" class="mb-1.5 block text-[11px] font-semibold uppercase tracking-wider text-ink-500">Search</label>
+            <div class="relative">
+              <svg aria-hidden="true" class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-ink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+              <input id="pub-search" type="search" placeholder="Titles, authors or venues"
+                     class="h-[42px] w-full rounded-xl border border-slate-300 bg-white py-2 pl-9 pr-3 text-sm text-ink-900 placeholder:text-ink-500 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500/20" />
+            </div>
+          </div>
+
+          <div class="min-w-0">
+            <label for="pub-member" class="mb-1.5 block text-[11px] font-semibold uppercase tracking-wider text-ink-500">Member</label>
+            <div class="relative">
+              <select id="pub-member" name="member" class="select-clean h-[42px] w-full rounded-xl border border-slate-300 bg-white text-sm text-ink-900 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500/20">
+                <button><selectedcontent></selectedcontent></button>
+                <option value="">All members</option>
+              </select>
+              <svg aria-hidden="true" class="select-fallback-icon pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-ink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+
+          <div class="min-w-0">
+            <label for="pub-inst" class="mb-1.5 block text-[11px] font-semibold uppercase tracking-wider text-ink-500">Institution</label>
+            <div class="relative">
+              <select id="pub-inst" name="inst" class="select-clean h-[42px] w-full rounded-xl border border-slate-300 bg-white text-sm text-ink-900 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500/20">
+                <button><selectedcontent></selectedcontent></button>
+                <option value="">All institutions</option>
+              </select>
+              <svg aria-hidden="true" class="select-fallback-icon pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-ink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+
+          <div>
+            <span class="mb-1.5 block text-[11px] font-semibold uppercase tracking-wider text-ink-500">Group by</span>
+            <div id="pub-group" role="group" aria-label="Group publications by" class="grid grid-cols-2 lg:inline-flex h-[42px] w-full lg:w-auto items-center rounded-xl border border-slate-300 bg-slate-50/90 p-1 gap-1">
+              <button type="button" data-group="year" aria-pressed="true"
+                      class="h-full rounded-lg px-3 text-xs font-semibold transition whitespace-nowrap bg-white text-brand-700 shadow-sm ring-1 ring-slate-200/80">
+                By year
+              </button>
+              <button type="button" data-group="institution" aria-pressed="false"
+                      class="h-full rounded-lg px-3 text-xs font-semibold transition whitespace-nowrap text-ink-600 hover:text-ink-900">
+                By institution
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+          <div id="pub-topics" class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter publications by topic"></div>
+          <button id="pub-reset" type="button" class="hidden shrink-0 inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-semibold text-ink-700 hover:border-brand-600 hover:bg-brand-50 hover:text-brand-700 transition">
+            <svg aria-hidden="true" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1 0 3-6.7L3 8m0-5v5h5"/></svg>
+            <span>Reset filters</span>
+          </button>
+        </div>
+      </section>
+
+      <div id="pub-spotlight" class="mb-6 hidden"></div>
+      <p class="mb-4 rounded-xl border border-slate-200/80 bg-slate-50/90 px-4 py-2.5 text-xs text-ink-600 leading-relaxed"><span class="font-semibold text-ink-900">Counting scope:</span> Publication counts include peer-reviewed Mobility Science works indexed in OpenAlex from <span id="pub-since-year" class="font-semibold text-ink-800">2021</span> onward (the recent era surrounding the European Mobility Symposium series)—they do <em>not</em> reflect full career publication totals.</p>
+      <p id="pub-count" class="mb-4 text-sm font-medium text-ink-500"></p>
+      <div id="pub-list" class="space-y-10"></div>
+    </div>
+  </main>
+
+  <!-- Shared Sticky Footer (#year auto-populated by shared.js) -->
+  <footer class="border-t border-slate-200">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-ink-500">
+      <p>© <span id="year"></span> <span class="society-name">European Mobility Society</span></p>
+      <div class="flex items-center gap-5">
+        <a href="index.html" class="hover:text-brand-600">Map</a>
+        <a href="members.html" class="hover:text-brand-600">Members</a>
+        <a href="symposia.html" class="hover:text-brand-600">Symposia</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

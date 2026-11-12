@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  ===========================================================================
+  European Mobility Society (EMoS) — Encapsulated Archive Viewer
+  ---------------------------------------------------------------------------
+  Wraps past symposium static snapshots (symposia/<edition>/) inside an
+  iframe while keeping the main EMoS header, edition switcher, standalone link,
+  and sticky footer visible. Marked `noindex, follow` for SEO so search engines
+  index symposia.html and canonical edition pages cleanly.
+
+  Managed by: assets/js/symposium-archive.js + symposia.json.
+  Copyright (c) 2026 European Mobility Society (EMoS)
+  ===========================================================================
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Symposium Archive Viewer — European Mobility Society (EMoS)</title>
+  <meta name="description" content="Encapsulated archive viewer for past editions of the European Mobility Symposium." />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#052b63" />
+
+  <link rel="icon" type="image/png" href="assets/logos/emos-mark.png" />
+  <link rel="apple-touch-icon" href="assets/logos/emos-mark.png" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/shared.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="assets/js/symposium-archive.js" defer></script>
+</head>
+
+<body class="font-sans text-ink-900 antialiased h-screen h-dvh flex flex-col overflow-hidden">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] bg-white px-3 py-2 rounded shadow">Skip to content</a>
+
+  <!-- Sticky Header & Primary Navigation (popover menu managed by shared.js) -->
+  <header class="site-header shrink-0">
+    <div class="header-inner">
+      <a href="index.html" class="flex items-center gap-3 min-w-0">
+        <img src="assets/logos/emos-mark.png" alt="" class="h-8 w-auto shrink-0" width="52" height="32" />
+        <span class="society-name font-display font-semibold text-base sm:text-lg leading-tight truncate text-brand-700">European Mobility Society</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <button class="menu-button inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-ink-700 hover:bg-slate-50"
+                type="button" popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu">
+          <svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <span>Menu</span>
+        </button>
+
+        <ul id="site-menu" class="site-menu" popover="auto">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="members.html" class="nav-link">Members</a></li>
+          <li><a href="publications.html" class="nav-link">Publications</a></li>
+          <li><a href="symposia.html" aria-current="page" class="nav-link">Symposia</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="flex-1 min-h-0 flex flex-col">
+    <!-- Archive Toolbar (populated by assets/js/symposium-archive.js from ?edition=) -->
+    <div class="border-b border-slate-200 bg-brand-50/70 shrink-0">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-2 flex flex-wrap lg:flex-nowrap items-center justify-between gap-2.5">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <a href="symposia.html" class="inline-flex items-center gap-1 rounded-lg bg-white px-2.5 py-1 text-xs font-semibold text-brand-700 ring-1 ring-slate-200 hover:bg-slate-50 shrink-0">
+            ← All Symposia
+          </a>
+          <div class="min-w-0 flex items-baseline gap-2">
+            <span class="rounded bg-teal-50 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-teal-700 ring-1 ring-teal-500/20 shrink-0">Archived</span>
+            <h1 id="archive-title" class="font-display text-sm sm:text-base font-bold text-ink-900 truncate">European Mobility Symposium</h1>
+            <span id="archive-meta" class="hidden xl:inline text-xs text-ink-500 whitespace-nowrap"></span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2 shrink-0">
+          <nav id="archive-switcher" class="inline-flex items-center gap-1" aria-label="Archived editions"></nav>
+          <a id="archive-standalone" href="symposia.html" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs font-medium text-ink-600 hover:bg-white hover:text-brand-700 ring-1 ring-transparent hover:ring-slate-200">
+            Full tab ↗
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sandboxed Snapshot Frame (loaded only for validated paths in data/symposia.json) -->
+    <div class="relative flex-1 min-h-0 bg-white">
+      <iframe id="archive-frame" class="h-full w-full border-0 block bg-white" title="Archived European Mobility Symposium website"></iframe>
+    </div>
+  </main>
+
+  <!-- Shared Sticky Footer (#year auto-populated by shared.js) -->
+  <footer class="border-t border-slate-200">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-ink-500">
+      <p>© <span id="year"></span> <span class="society-name">European Mobility Society</span></p>
+      <div class="flex items-center gap-5">
+        <a href="index.html" class="hover:text-brand-600">Map</a>
+        <a href="members.html" class="hover:text-brand-600">Members</a>
+        <a href="publications.html" class="hover:text-brand-600">Publications</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

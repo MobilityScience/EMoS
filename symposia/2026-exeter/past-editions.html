@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Past editions &middot; European Mobility Symposium</title>
+  <meta name="description" content="A look back at previous editions of the European Mobility Symposium." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__brand" href="index.html">
+        <span class="nav__logo"><img src="logos/EMoSSimple.png" alt="" /></span>
+        <span>European Mobility Symposium</span>
+      </a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="program.html">Program</a></li>
+        <li><a href="participants.html">Participants</a></li>
+        <li><a href="venue.html">Venue</a></li>
+        <li><a href="past-editions.html" class="is-active">Past editions</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container">
+        <p class="eyebrow">Past editions</p>
+        <h1>Previous editions</h1>
+        <p>Previous editions of the European Mobility Symposium.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid" style="gap: 1.25rem;">
+          <article class="edition">
+            <div class="edition__year">2025</div>
+            <div>
+              <h3><a href="../2025-turin/index.html">Torino, Italy</a></h3>
+            </div>
+          </article>
+          <article class="edition">
+            <div class="edition__year">2024</div>
+            <div>
+              <h3><a href="../2024-pisa/index.html">Pisa, Italy</a></h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--green">
+      <div class="container text-center">
+        <h2>2026 edition</h2>
+        <p class="lead" style="margin: 0 auto 1.5rem;">23&ndash;24 September 2026, the Deck, University of Exeter.</p>
+        <a class="btn btn--primary" href="index.html">Learn more</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p class="footer-copy">&copy; 2026 European Mobility Symposium</p>
+      <a href="#" class="footer-email" onclick="return emailUs(event)" aria-label="Email the symposium team">
+        <span>Contact</span>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+          <path d="m3 7 9 6 9-6"></path>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    function emailUs(e) {
+      if (e) e.preventDefault();
+      var user = 'ems';
+      var domain = 'biocomplexlab.org';
+      window.location.href = 'mailto:' + user + String.fromCharCode(64) + domain;
+      return false;
+    }
+    (function () {
+      var toggle = document.querySelector('.nav__toggle');
+      var links = document.getElementById('nav-links');
+      if (toggle && links) {
+        toggle.addEventListener('click', function () {
+          var open = links.classList.toggle('is-open');
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

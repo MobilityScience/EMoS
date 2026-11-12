@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Exclude archived template sample files from 2024 Pisa HTML5 UP template
+Disallow: /symposia/2024-pisa/elements.html
+Disallow: /symposia/2024-pisa/generic.html
+
+Sitemap: https://mobilityscience.github.io/EMoS/sitemap.xml
