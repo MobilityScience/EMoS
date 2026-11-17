@@ -40,6 +40,7 @@ jobs:
 
       - name: Open Pull Request if sitemap.xml changed
         uses: peter-evans/create-pull-request@v7
+        continue-on-error: true
         with:
           commit-message: "chore(seo): update sitemap.xml"
           branch: bot/update-sitemap

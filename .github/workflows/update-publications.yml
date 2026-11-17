@@ -33,6 +33,7 @@ jobs:
 
       - name: Open Pull Request if publications.json changed
         uses: peter-evans/create-pull-request@v7
+        continue-on-error: true
         with:
           commit-message: "data: refresh publications.json and sitemap.xml from OpenAlex"
           branch: bot/update-publications
